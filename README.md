@@ -36,7 +36,7 @@ Fue elegida por detalles cosméticos en el header, entre otros.
 ### Logo
 ![Logo](./img/Logo.png)
 ## Paleta de colores
-- Naranja (#F58220) ![Naranja](./paletaDeColores/naranja.png)
-- Gris (#DCDCDC) ![Gris](./paletaDeColores/gris.png)
-- Azul (#026AA7) ![Azul](./paletaDeColores/azul.png)
-- Blanco (#FFFFFF) ![Blanco](./paletaDeColores/blanco.png)  
+- Naranja (#F58220) ![Naranja](./paletaDeColores/naranja.png) Header y botones principales
+- Gris (#DCDCDC) ![Gris](./paletaDeColores/gris.png) Main background
+- Azul (#026AA7) ![Azul](./paletaDeColores/azul.png) Botones secundarios
+- Blanco (#FFFFFF) ![Blanco](./paletaDeColores/blanco.png) Body background
