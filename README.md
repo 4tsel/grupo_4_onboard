@@ -34,7 +34,7 @@ Fue elegida por detalles cosméticos en el header, entre otros.
   
 ## Configuración del sitio
 ### Logo
-![Logo](./img/logo.png)
+![Logo](./img/Logo.png)
 ## Paleta de colores
 - Naranja (#F58220) ![Naranja](./paletaDeColores/naranja.png)
 - Gris (#DCDCDC) ![Gris](./paletaDeColores/gris.png)
