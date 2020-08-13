@@ -16,7 +16,7 @@ El público objetivo es, principalmente, personas fanáticas por el mundo gamer,
 ### Novo, Axel:
 - **Edad:** 26 años.
 - **Ocupación:** Estudiante universitario.
-- **Gustos:** Tocar música, videojuegos.  
+- **Gustos:** Escuchar música, videojuegos.  
 
 ## Referencias
 ### [Compra Gamer](https://compragamer.com/)
@@ -34,9 +34,10 @@ Fue elegida por detalles cosméticos en el header, entre otros.
   
 ## Configuración del sitio
 ### Logo
-![Logo](./img/Logo.png)
+![Logo](./img/logo.png)
 ## Paleta de colores
-- Naranja (#F58220) ![Naranja](./paletaDeColores/naranja.png) Header y botones principales
-- Gris (#DCDCDC) ![Gris](./paletaDeColores/gris.png) Main background
-- Azul (#026AA7) ![Azul](./paletaDeColores/azul.png) Botones secundarios
-- Blanco (#FFFFFF) ![Blanco](./paletaDeColores/blanco.png) Body background
+- Naranja. (#F58220) ![Naranja](./paletaDeColores/naranja.png) / Header y botones principales.
+- Gris. (#DCDCDC) ![Gris](./paletaDeColores/gris.png) / Main background.
+- Azul. (#026AA7) ![Azul](./paletaDeColores/azul.png) / Botones secundarios.
+- Blanco. (#FFFFFF) ![Blanco](./paletaDeColores/blanco.png) / Body background.
+- Negro. (#000000) ![Negro](./paletaDecolores/negro.png) / Tipografías.
