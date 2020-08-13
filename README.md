@@ -40,4 +40,4 @@ Fue elegida por detalles cosméticos en el header, entre otros.
 - Gris. (#DCDCDC) ![Gris](./paletaDeColores/gris.png) / Main background.
 - Azul. (#026AA7) ![Azul](./paletaDeColores/azul.png) / Botones secundarios.
 - Blanco. (#FFFFFF) ![Blanco](./paletaDeColores/blanco.png) / Body background.
-- Negro. (#000000) ![Negro](./paletaDecolores/negro.png) / Tipografías.
+- Negro. (#000000) ![Negro](./paletaDeColores/negro.png) / Tipografías.
