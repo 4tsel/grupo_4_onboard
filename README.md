@@ -44,4 +44,4 @@ Fue elegida por detalles cosméticos en el header, entre otros.
 ## Tipografía
 La fuente usada en el logo es "nunito", se estima usar Roboto y otra sin definir.
 ## Wireframe
-El mismo está conformado en [**este pdf.**](./wireframesOnboard.pdf)
+El mismo está conformado en [**este pdf**](./wireframesOnboard.pdf) por todas las rutas solicitadas.
