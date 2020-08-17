@@ -43,3 +43,5 @@ Fue elegida por detalles cosméticos en el header, entre otros.
 - Negro. (#000000) ![Negro](./paletaDeColores/negro.png) / Tipografías.
 ## Tipografía
 La fuente usada en el logo es "nunito", se estima usar Roboto y otra sin definir.
+## Wireframe
+El mismo está conformado en [**este pdf.**](./wireframesOnboard.pdf)
