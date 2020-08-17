@@ -41,3 +41,5 @@ Fue elegida por detalles cosméticos en el header, entre otros.
 - Azul. (#026AA7) ![Azul](./paletaDeColores/azul.png) / Botones secundarios.
 - Blanco. (#FFFFFF) ![Blanco](./paletaDeColores/blanco.png) / Body background.
 - Negro. (#000000) ![Negro](./paletaDeColores/negro.png) / Tipografías.
+## Tipografía
+La fuente usada en el logo es "nunito", se estima usar Roboto y otra sin definir.
