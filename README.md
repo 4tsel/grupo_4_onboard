@@ -5,15 +5,15 @@ Insumos Onboard (conocido también como Onboard) es una empresa dedicada a la ve
 El público objetivo es, principalmente, personas fanáticas por el mundo gamer, ya sean profesionales o que jueguen por placer.  
   
 ## Nuestro equipo.
-### Dresch, Pedro
+### [Dresch, Pedro:](https://github.com/pedrodresch999)
 - **Edad:** 21 años.
 - **Ocupación:** Estudiante de programación.
 - **Gustos:** Escuchar música, practicar deporte.
-### Mariño, Adrián:
+### [Mariño, Adrián:](https://github.com/Adri-2001)
 - **Edad:** 19 años.
 - **Ocupación:** Empleado.
 - **Gustos:** Videojuegos, escuchar música, mirar freestyle.
-### Novo, Axel:
+### [Novo, Axel:](https://github.com/4tsel)
 - **Edad:** 26 años.
 - **Ocupación:** Estudiante universitario.
 - **Gustos:** Escuchar música, videojuegos.  
@@ -44,4 +44,4 @@ Fue elegida por detalles cosméticos en el header, entre otros.
 ## Tipografía
 La fuente usada en el logo es "nunito", se estima usar Roboto y otra sin definir.
 ## Wireframe
-El mismo está conformado en [**este pdf.**](./wireframesOnboard.pdf)
+El mismo está conformado en [**este pdf**](./wireframesOnboard.pdf) por todas las rutas solicitadas.
