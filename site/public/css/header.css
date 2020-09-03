@@ -1,0 +1,230 @@
+:root{
+    --color-naranja: #F58220;
+    --color-gris: #DCDCDC;
+    --color-azul: #026AA7;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* ENCABEZADO */
+header{
+    flex-basis: 100%!important;
+    background: var(--color-naranja);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+}
+header.container-fluid{
+    padding: 0 
+}
+
+.fas{
+    color: black!important ;
+}
+/* NAVBAR */
+.navbar{
+    justify-content: space-between;
+}
+
+/* LOGO RESPONSIVE */
+.navbar img.logoL{
+    display: none;
+}
+.navbar a.navbar-brand{
+    display: flex!important;
+}
+.navbar a{
+    margin: 0 auto!important;
+    justify-content: center;
+}
+.navbar a:focus{
+    outline: none;
+}
+
+/* BARRA DE BÚSQUEDA */
+.navbar form{
+    border-radius: 4px;
+    background: #DCDCDC;
+}
+.navbar .form-control:focus{
+    box-shadow: none;
+    background-color: transparent;
+}
+header nav form .busqueda:focus{
+    outline: none;
+}
+.navbar form input{
+    border: none;
+    background-color: transparent;
+}
+.navbar form button{
+    border: none;
+    background-color: transparent;
+    border-left: #F58220 solid 2px;
+}
+
+/* BOTÓN DE MENÚ */
+.navbar button.menu{
+    border: none;
+}
+.navbar button.menu:focus{
+    outline: none;
+}
+.navbar button.cierre{
+    margin: 0 auto!important;
+}
+
+
+/* MENÚ PRINCIPAL */
+header div#menuPrincipal{
+    background-color: #DCDCDC33;
+    border-top: 1px solid black;
+}
+header div#menuPrincipal ul.categorias{
+    text-align: center;
+    padding: 0;
+}
+header div#menuPrincipal ul.categorias div{
+    justify-content: center;
+}
+header div#menuPrincipal ul.categorias li{
+    padding: 0;
+    text-align: center;
+}
+header div#menuPrincipal ul.iconos{
+    border-left: 1px solid black;
+    text-align: center;
+}
+header div ul.iconos hr{
+    margin-top: 0;
+}
+header div#menuPrincipal button.cierre{
+    margin: 0 auto;
+    margin-top: .5rem;
+    border-radius: 0;
+}
+header div#menuPrincipal button:focus{
+    outline: none;
+}
+/* Móvil horizontal */
+@media (min-width: 481px) and (orientation: landscape){
+
+    /* Categorías del menú principal */
+    header div#menuPrincipal{
+        padding-left: 1rem!important;
+    }
+    header div#menuPrincipal ul.categorias div{
+        justify-content: flex-end;
+    }
+    header div#menuPrincipal ul.categorias div li{
+        max-width: 25%;
+    }
+    header div#menuPrincipal ul.categorias div li span{
+        font-size: .9rem!important;
+    }
+}
+
+/* Tablet vertical y horizontal*/
+@media (min-width: 600px) and (orientation: portrait), (min-width: 897px) and (orientation: landscape){
+
+    header{
+        width: 100%!important;
+        padding-bottom: 1rem;
+    }
+
+    header nav.navbar{
+        max-width: 1200px!important;
+        margin: 0 auto!important;
+    }
+
+    /* Cambio la imagen responsive */
+    header nav.navbar a img.logoS{
+        display:none;
+    }
+    header nav.navbar a img.logoL{
+        display: flex;
+        width: 100%;
+        height: auto!important;
+    }
+    header nav.navbar a.navbar-brand{
+        max-width: 25%!important;
+        margin-right: auto!important;
+        padding: 0 1rem!important;
+    }
+
+    /* Arreglo el tamaño del botón de búsqueda */
+    .navbar form{
+        flex-basis: 50%;
+    }
+    header nav form input{
+        flex-basis: 90%!important;
+        max-width: 90%!important;
+    }
+    header nav form .busqueda{
+        flex-basis: 10%!important;
+        max-width: 10%!important;
+    }
+
+    /* Oculto el botón de menú */
+    header nav .menu{
+        display: none;
+    }
+
+    /* Fuerzo la vista de íconos de registro/carrito */
+    header div.tabletIconos{
+        display: flex!important;
+    }
+    header div.tabletIconos{
+        flex-direction: row;
+        max-width: 100%;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
+    /* Fuerzo la vista del menú principal */
+    #menuPrincipal:not(.show){
+        display: flex;
+        background-color: #DCDCDC33;
+        flex-direction: row;
+        max-width: 1200px!important;
+        margin: 0 auto!important;
+        border: none;
+        padding-top: 0!important;
+    }
+
+    /* Rediseño el tamaño de los elementos del menú */
+    #menuPrincipal ul.categorias{
+        margin: 0!important;
+    }
+    #menuPrincipal ul.col-10{
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+    #menuPrincipal ul.categorias div li{
+        max-width: 25%;
+        color: black;
+    }
+    #menuPrincipal ul.categorias div li div.dropdown a{
+        width: 80%;
+    }
+    #menuPrincipal ul.categorias div li button.dropdown-toggle-split{
+        display: inline-block!important;
+    }
+
+    /* Oculto cosas del menú principal móvil que no me sirven */
+    #menuPrincipal ul div li br{
+        display: none;
+    }
+    #menuPrincipal ul.iconos{
+        display: none;
+    }
+    #menuPrincipal button.menu{
+        display: none; 
+    }
+
+}
+

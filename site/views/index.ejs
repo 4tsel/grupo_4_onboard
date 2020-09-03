@@ -1,0 +1,50 @@
+<html>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
+
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <!-- Cuerpo del home -->
+    <main class="container-fluid px-0">
+
+        <!-- carousel de novedades -->
+        <div id="carruselNovedades" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/img/flyerRTX20s.jpg" class="d-block w-100" alt="flyer rtx">
+                    <div class="carousel-caption d-none">
+                        <h5>RTX. IT’S ON.</h5>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/flyerIntel10.jpg" class="d-block w-100" alt="flyer Intel">
+                    <div class="carousel-caption d-none">
+                        <h5>La potencia de la 10ma gen.</h5>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/flyerConsolas.jpg" class="d-block w-100 h-100" alt="flyer consolas">
+                    <div class="carousel-caption d-none">
+                        <h5>¿Tenés consola?</h5>
+                        <p>¡No nos olvidamos de vos!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
+
+</body>
+
+</html>

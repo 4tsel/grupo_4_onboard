@@ -1,0 +1,72 @@
+<header class="container-fluid sticky-top">
+
+    <!-- Navbar -->
+    <nav class="row navbar m-0 px-0">
+
+        <!-- Logo -->
+        <a href="#" class="navbar-brand col-2 px-0 mr-0">
+            <img class="img-responsive p-0 logoS" src="./img/logo-s.png" alt="logoMobile" height="40">
+            <img class="img-responsive p-0 logoL" src="./img/logo.png" alt="logoLarge" height="50">
+        </a>
+
+        <!-- Barra de búsqueda -->
+        <form action="" class="row col-8 m-0 p-0">
+            <input class="form-control col-10" type="text" placeholder="Buscá un producto" aria-label="Búsqueda">
+            <button class="col-2 p-0 busqueda">
+                <i class="fas fa-search p-1 fa-md"></i>
+            </button>
+        </form>
+
+        <!-- Menú principal colapsable -->
+        <button type="button" class="navbar-toggler col-2 px-0 menu " data-toggle="collapse"
+            data-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Menú pincipal">
+            <i class="fas fa-bars fa-lg"></i>
+        </button>
+
+        <!-- Íconos de registro/inicio y carrito -->
+        <div class="d-none col-2 tabletIconos">
+            <i class="fas fa-user fa-lg"></i>
+            <i class="fas fa-shopping-cart fa-lg"></i>
+        </div>
+    </nav>
+
+    <!-- Contenido del menú principal -->
+    <div class="collapse navbar-collapse row m-0 pt-2 px-1" id="menuPrincipal">
+        <ul class="navbar-nav mr-auto col-10 categorias">
+            <div class="row m-0">
+                <li class="nav-item col-6">
+                    <i class="fas fa-desktop col-2 p-0"></i>
+                    <br>
+                    <span class="col-8 p-0">COMPUTACIÓN</span>
+                </li>
+                <li class="nav-item col-6">
+                    <i class="fas fa-headphones col-2 p-0"></i>
+                    <br>
+                    <span class="col-10 p-0">AUDIO</span>
+                </li>
+                <li class="nav-item col-6">
+                    <i class="fas fa-gamepad col-2 p-0"></i>
+                    <br>
+                    <span class="col-10 p-0">CONSOLAS</span>
+                </li>
+                <li class="nav-item col-6">
+                    <i class="far fa-list-alt col-2 p-0"></i>
+                    <br>
+                    <span class="col-10 p-0">CATEGORÍAS</span>
+                </li>
+            </div>
+        </ul>
+        <ul class="navbar-nav pr-0 col-2 my-1 iconos">
+            <li class="nav-item"><i class="fas fa-user fa-lg"></i></li>
+            <hr>
+            <li class="nav-item"><i class="fas fa-shopping-cart fa-lg"></i></li>
+        </ul>
+        <button type="button" class="navbar-toggler col-2 px-0 menu cierre" data-toggle="collapse"
+            data-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="true" aria-label="Menú pincipal">
+            <i class="fas fa-times fa-lg"></i>
+        </button>
+    </div>
+
+</header>
+
+<!-- Termina el código -->

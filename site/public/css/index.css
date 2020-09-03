@@ -1,0 +1,33 @@
+:root{
+    --color-naranja: #F58220;
+    --color-gris: #DCDCDC;
+    --color-azul: #026AA7;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body{
+    background: var(--color-gris);
+
+}
+@media (min-width: 481px) and (orientation: landscape){
+    main div#carruselNovedades{
+        display: none!important;
+    }
+}
+@media (min-width: 600px) and (orientation: portrait){
+
+    main div#carruselNovedades div.carousel-item div.d-none{
+        display: block!important;
+        background-color: #DCDCDCaa;
+        color: black!important;
+        max-width: 50%!important;
+        border-radius: 1rem;
+    }
+    
+}

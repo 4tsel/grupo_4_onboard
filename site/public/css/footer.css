@@ -1,0 +1,208 @@
+:root{
+    --color-naranja: #F58220;
+    --color-gris: #DCDCDC;
+    --color-azul: #026AA7;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Configuración del footer */
+footer{
+    background-color: black;
+    font-family: "Nunito";
+    color: var(--color-gris);
+}
+footer li{
+    list-style: none;
+}
+footer div div.ayuda{
+    text-align: center;
+}
+footer div hr{
+    border: 1px var(--color-naranja) solid;
+}
+footer div div.ayuda button{
+    background-color: var(--color-azul)
+}
+footer div div.ayuda button:focus{
+    outline: none;
+    box-shadow: none!important;
+}
+footer div div.ayuda button:active{
+    background-color: var(--color-naranja);
+}
+footer div div.redes{
+    text-align: center;
+}
+footer div div.redes h4{
+    width: 100%;
+}
+footer div div.redes i{
+    color: var(--color-azul)!important
+}
+footer div div.redes div.iconosRedes{
+    display: flex;
+    justify-content: space-around;
+}
+footer div div.redes i span{
+    font-family: 'Nunito'!important;
+}
+footer div div.info{
+    display: flex;
+    justify-content: space-between;
+}
+footer div div.nosotros{
+    text-align: center;
+    
+}
+footer div div.nosotros ul li{
+    color: var(--color-gris)!important;
+}
+footer div div.nosotros ul li i.fas{
+    color: var(--color-azul)!important;
+}
+
+
+.copyright{
+    background-color: var(--color-gris);
+    font-family: 'Roboto';
+    text-align: center;
+    color: black;
+    font-size: .75rem;
+}
+
+@media (min-width: 481px) and (orientation: landscape){
+
+    footer div div.ayuda{
+        flex-basis: 50%!important;
+        max-width: 50%!important;
+    }
+    footer div div.redes{
+        flex-basis: 50%!important;
+        max-width: 50%!important;
+        border-left: 2px solid var(--color-naranja);
+    }
+
+    footer div div.redes div.iconosRedes{
+        margin: 0;
+    }
+
+    footer div div.redes div.iconosRedes i{
+        flex-basis: 50%!important;
+        max-width: 50%!important;
+        font-size: 1.5rem;
+    }
+
+    footer div hr.separador{
+        display: none;
+    }
+
+    footer div div.info{
+        flex-basis: 40%!important;
+        max-width: 40%!important;
+        border-right: 2px solid var(--color-naranja);
+    }
+    footer div div.mapa{
+        display: flex!important;
+        flex-basis: 60%!important;
+        max-width: 50%!important;
+    }
+}
+
+@media (min-width: 600px) and (orientation: portrait){
+
+    footer{
+        max-width: 960px;
+    }
+
+    footer div div.ayuda{
+        flex-basis: 30%!important;
+        max-width: 30%!important;
+    }
+    footer div div.redes{
+        flex-basis: 30%!important;
+        max-width: 30%!important;
+        border-left: 2px solid var(--color-naranja);
+    }
+
+    footer div div.redes div.iconosRedes{
+        margin: 0;
+    }
+
+    footer div div.redes div.iconosRedes i{
+        flex-basis: 75%!important;
+        max-width: 75%!important;
+        font-size: 1.5rem;
+    }
+
+    footer div hr.separador{
+        display: none;
+    }
+    footer div hr.separador2{
+        display:none;
+    }
+    footer div div.info{
+        flex-basis: 40%!important;
+        max-width: 40%!important;
+        border-left: 2px solid var(--color-naranja);
+    }
+    /* footer div div.mapa{
+        display: flex!important;
+        flex-basis: 60%!important;
+        max-width: 50%!important;
+    } */
+
+}
+@media (min-width: 897px) and (orientation: landscape){
+    footer{
+        max-width: 1200px;
+    }
+
+    footer div div.ayuda{
+        flex-basis: 25%!important;
+        max-width: 25%!important;
+    }
+    footer div div.redes{
+        flex-basis: 20%!important;
+        max-width: 20%!important;
+        border-left: 2px solid var(--color-naranja);
+    }
+
+    footer div div.redes div.iconosRedes{
+        margin: 0;
+    }
+
+    footer div div.redes div.iconosRedes i{
+        flex-basis: 70%!important;
+        max-width: 70%!important;
+    }
+
+    footer div hr.separador{
+        display: none;
+    }
+    footer div hr.separador2{
+        display:none;
+    }
+    footer div div.info{
+        flex-basis: 25%!important;
+        max-width: 25%!important;
+        border-left: 2px solid var(--color-naranja);
+        border-right: none;
+    }
+    footer div div.mapa{
+        display: flex!important;
+        flex-basis: 30%!important;
+        max-width: 30%!important;
+
+    }
+    footer hr{
+        flex-basis: 90%!important;
+        max-width: 90%!important;
+    }
+
+}
