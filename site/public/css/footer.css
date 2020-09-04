@@ -16,6 +16,7 @@ footer{
     background-color: black;
     font-family: "Nunito";
     color: var(--color-gris);
+    margin-top: 1rem !important;
 }
 footer li{
     list-style: none;

@@ -14,9 +14,12 @@
 /* ENCABEZADO */
 header{
     flex-basis: 100%!important;
-    background: var(--color-naranja);
+    background: white;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
+}
+header nav{
+    background-color: var(--color-naranja);
 }
 header.container-fluid{
     padding: 0 
@@ -81,7 +84,7 @@ header nav form .busqueda:focus{
 
 /* MENÚ PRINCIPAL */
 header div#menuPrincipal{
-    background-color: #DCDCDC33;
+    background-color: #F58220aa!important;
     border-top: 1px solid black;
 }
 header div#menuPrincipal ul.categorias{
