@@ -14,7 +14,7 @@
 /* Configuración del footer */
 footer{
     background-color: black;
-    font-family: "Nunito";
+    font-family: 'Nunito';
     color: var(--color-gris);
     margin-top: 1rem !important;
 }

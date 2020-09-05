@@ -11,18 +11,27 @@
     margin: 0 auto;
 }
 
-body{
-    background-color: white;
-}
 main{
-    background-color: white;
+    background-color: var(--color-azul);
     font-family: 'Roboto';
+    margin-top: 1rem !important;
+}
+
+main div.bienvenidx{
+    margin-top: 1rem !important;
+    background-color: var(--color-gris);
+    text-align: right;
 }
 
 main div.vistaProductos{
     margin-top: 1rem!important;
     background-color: var(--color-gris);
     justify-content: space-around!important;
+    text-align: center;
+}
+main div.vistaProductos div.card div.card-body a{
+    background-color: var(--color-naranja);
+    margin-bottom: 1rem!important;
 }
 
 main div.seccionCategorias{
@@ -46,33 +55,61 @@ main div.seccionCategorias div p{
     main div#carruselNovedades{
         display: none!important;
     }
+    main div.seccionCategorias div.d-none{
+        display: block!important;
+    }
     main div.vistaProductos{
-        padding: 1rem 1rem!important
+        padding: 1rem 1rem!important;
     }
 
     main div.vistaProductos div.card{
-        flex-basis: 20%!important;
-        max-width: 20%!important;
+        flex-basis: 30%!important;
+        max-width: 30%!important;
         margin: 0 .5rem!important;
     }
-    main div.vistaProductos div.d-none{
+    main div.vistaProductos div.movilH{
         display: block!important;
     }
 
 }
-@media (min-width: 600px) and (orientation: portrait), (min-width: 897px) and (orientation: landscape){
+@media (min-width: 600px) and (orientation: portrait){
 
     main{
         max-width: 1200px;
+        margin-top: 0 !important;
     }
 
     main div#carruselNovedades div.carousel-item div.d-none{
         display: block!important;
         background-color: #DCDCDCaa;
         color: black!important;
-        max-width: 50%!important;
+        max-width: 40%!important;
         border-radius: 1rem;
     }
-
-    
+    main div.vistaProductos div.card{
+        flex-basis: 30%!important;
+        max-width: 30%!important;
+        margin: 0 .5rem!important;
+    }
+    main div.vistaProductos div.movilH{
+        display: block!important;
+    }
+    main div.seccionCategorias div.d-none{
+        display: block!important;
+    }
+}
+@media (min-width: 897px) and (orientation: landscape){
+    main div.bienvenidx{
+        margin-top: 0 !important;
+    }
+    main div.vistaProductos div.card{
+        flex-basis: 20%!important;
+        max-width: 20%!important;
+    }
+    main div.vistaProductos div.movilH{
+        display: block!important;
+    }
+    main div.vistaProductos div.tabletH{
+        display: block!important;
+    }
 }

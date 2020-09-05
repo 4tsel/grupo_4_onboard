@@ -14,7 +14,6 @@
 /* ENCABEZADO */
 header{
     flex-basis: 100%!important;
-    background: white;
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
 }
@@ -84,7 +83,8 @@ header nav form .busqueda:focus{
 
 /* MENÚ PRINCIPAL */
 header div#menuPrincipal{
-    background-color: #F58220aa!important;
+    background-color: var(--color-azul)!important;
+    opacity: 90%;
     border-top: 1px solid black;
 }
 header div#menuPrincipal ul.categorias{
@@ -113,6 +113,18 @@ header div#menuPrincipal button.cierre{
 header div#menuPrincipal button:focus{
     outline: none;
 }
+header div.rgb{
+        height: .25rem!important;
+        background: linear-gradient(269deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
+        background-size: 2600% 2600%;
+        animation: rgb 15s ease infinite;
+}
+    @keyframes rgb {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+
 /* Móvil horizontal */
 @media (min-width: 481px) and (orientation: landscape){
 
