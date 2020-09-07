@@ -1,0 +1,35 @@
+main{
+    font-family: 'Roboto', sans-serif;
+}
+main div.detalle1{
+    border-top-left-radius: 0px!important;
+    border-top-right-radius: 0px!important;
+}
+.migajas{
+    font-size: .75rem!important
+}
+.precio{
+    font-size: 2em!important;
+}
+.carroProducto{
+    justify-content: space-around!important;
+}
+
+/* Móvil apaisado */
+@media (min-width: 481px) and (orientation: landscape){
+    main div div.product{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    main div div.card img.productImg{
+        flex-basis: 50%!important;
+        max-width: 50%!important;
+        margin: 0!important;
+        padding: 0 !important;
+    }
+    main div div.card div.money{
+        flex-basis: 40%!important;
+        max-width: 40%!important;
+        padding: 1rem 0!important;
+    }
+}

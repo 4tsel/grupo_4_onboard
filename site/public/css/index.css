@@ -15,20 +15,19 @@ main{
     background-color: var(--color-azul);
     font-family: 'Roboto', sans-serif;
 }
-main .row{
+main .mainCard{
     border-radius: .75rem!important;
+    background-color: var(--color-gris);
 }
 
 
 main div.bienvenidx{
-    background-color: var(--color-gris);
     border-top-left-radius: 0!important;
     border-top-right-radius: 0!important;
 }
 
 main div.vistaProductos{
     margin-top: 1rem!important;
-    background-color: var(--color-gris);
     justify-content: space-around!important;
     text-align: left;
 }
@@ -39,7 +38,6 @@ main div.vistaProductos div.card div.card-body a{
 }
 
 main div.seccionCategorias{
-    background-color: var(--color-gris);
     margin-top: 1rem!important;
 }
 main div.seccionCategorias div{

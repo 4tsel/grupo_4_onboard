@@ -50,7 +50,7 @@ header.container-fluid{
 /* BARRA DE BÚSQUEDA */
 .navbar form{
     border-radius: 4px;
-    background: #DCDCDC;
+    background: var(--color-gris);
 }
 .navbar .form-control:focus{
     box-shadow: none;

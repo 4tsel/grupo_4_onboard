@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
+
+  <!-- Partial del header -->
+  <%- include(`./partials/header.ejs`) %>
+
+  <main class="container-fluid px-0">
+    <div class="row mx-0 py-2 mainCard">
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">img</th>
+              <td>Lorem</td>
+              <td>1</td>
+              <td>$PRECIO</td>
+            </tr>
+            <tr>
+              <th scope="row">img</th>
+              <td>Lorem</td>
+              <td>3</td>
+              <td>$PRECIO</td>
+            </tr>
+            <tr>
+              <th scope="row">img</th>
+              <td>Lorem</td>
+              <td>2</td>
+              <td>$PRECIO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Partial del footer -->
+  <%- include(`./partials/footer.ejs`) %>
+
+  <!-- Partial de scripts -->
+  <%- include(`./partials/scripts.ejs`) %>
+
+</body>
+
+</html>
