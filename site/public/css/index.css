@@ -13,22 +13,26 @@
 
 main{
     background-color: var(--color-azul);
-    font-family: 'Roboto';
-    margin-top: 1rem !important;
+    font-family: 'Roboto', sans-serif;
+}
+main .row{
+    border-radius: .75rem!important;
 }
 
+
 main div.bienvenidx{
-    margin-top: 1rem !important;
     background-color: var(--color-gris);
-    text-align: right;
+    border-top-left-radius: 0!important;
+    border-top-right-radius: 0!important;
 }
 
 main div.vistaProductos{
     margin-top: 1rem!important;
     background-color: var(--color-gris);
     justify-content: space-around!important;
-    text-align: center;
+    text-align: left;
 }
+
 main div.vistaProductos div.card div.card-body a{
     background-color: var(--color-naranja);
     margin-bottom: 1rem!important;
@@ -50,12 +54,18 @@ main div.seccionCategorias div p{
     font-size: .75rem;
 }
 
+/* Móvil apaisado */
 @media (min-width: 481px) and (orientation: landscape){
+
+    main{
+        margin-top: 0 !important;
+    }
 
     main div#carruselNovedades{
         display: none!important;
     }
-    main div.seccionCategorias div.d-none{
+
+    main div.seccionCategorias div.catM{
         display: block!important;
     }
     main div.vistaProductos{
@@ -63,8 +73,8 @@ main div.seccionCategorias div p{
     }
 
     main div.vistaProductos div.card{
-        flex-basis: 30%!important;
-        max-width: 30%!important;
+        flex-basis: 27.5%!important;
+        max-width: 27.5%!important;
         margin: 0 .5rem!important;
     }
     main div.vistaProductos div.movilH{
@@ -72,13 +82,14 @@ main div.seccionCategorias div p{
     }
 
 }
+
+/* Tablet vertical */
 @media (min-width: 600px) and (orientation: portrait){
 
     main{
         max-width: 1200px;
         margin-top: 0 !important;
     }
-
     main div#carruselNovedades div.carousel-item div.d-none{
         display: block!important;
         background-color: #DCDCDCaa;
@@ -94,11 +105,18 @@ main div.seccionCategorias div p{
     main div.vistaProductos div.movilH{
         display: block!important;
     }
-    main div.seccionCategorias div.d-none{
+    main div.seccionCategorias div.catM{
         display: block!important;
     }
 }
+
+/* Tablet apaisado */
 @media (min-width: 897px) and (orientation: landscape){
+
+    main{
+        max-width: 1200px;
+    }
+
     main div.bienvenidx{
         margin-top: 0 !important;
     }
@@ -106,10 +124,61 @@ main div.seccionCategorias div p{
         flex-basis: 20%!important;
         max-width: 20%!important;
     }
-    main div.vistaProductos div.movilH{
-        display: block!important;
-    }
+
     main div.vistaProductos div.tabletH{
         display: block!important;
     }
+    main div.seccionCategorias div.catT{
+        display: block!important ;
+    }
+}
+
+/* Pantalla grande vertical */
+@media (min-width: 1024px) and (orientation: portrait){
+    
+    main div.vistaProductos div.tabletH{
+        display: block!important;
+    }
+
+    main div.vistaProductos div.card{
+        flex-basis: 20%!important;
+        max-width: 20%!important;
+    }
+
+    main div.seccionCategorias div.catT{
+        display: block!important ;
+    }
+}
+
+/* Pantalla xl (pantallas grandes apaisadas, monitores) */
+@media (min-width: 1200px){
+
+    main div#carruselNovedades{
+        display: block!important;
+    }
+
+    main div#carruselNovedades div.carousel-item div.d-none{
+        display: block!important;
+        background-color: #DCDCDCaa;
+        color: black!important;
+        max-width: 40%!important;
+        border-radius: 1rem;
+    }
+
+    main div.vistaProductos div.card{
+        flex-basis: 18%!important;
+        max-width: 18%!important;
+    }
+
+    main div.vistaProductos div.pAncha{
+        display: block!important;
+    }
+    main div.seccionCategorias div.catPA{
+        display: block!important;
+    }
+    main div.seccionCategorias div{
+        flex-basis: 18%!important;
+        max-width: 18%!important;
+    }
+
 }

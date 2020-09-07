@@ -6,10 +6,14 @@ app.use(express.static(__dirname+ `/public`));
 app.set(`view engine`, `ejs`);
 
 // Puerto
-app.listen(3030, ()=>console.log(`Servidor iniciado en el puerto 3030`))
+app.listen(3030, ()=>console.log(`Servidor iniciado en el puerto 3030`));
 
-// Rutas
-const routeMain = require(`./routes/main.js`)
+// Rutas requeridas
+const routeMain = require(`./routes/main.js`);
+const routeProducts = require(`./routes/products.js`);
+const routeUsers = require(`./routes/users.js`)
 
-// 
-app.use(`/`, routeMain)
+// Rutas principales
+app.use(`/`, routeMain);
+app.use(`/p`, routeProducts);
+app.use(`/u`, routeUsers)

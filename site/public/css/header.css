@@ -83,7 +83,7 @@ header nav form .busqueda:focus{
 
 /* MENÚ PRINCIPAL */
 header div#menuPrincipal{
-    background-color: var(--color-azul)!important;
+    background-color: var(--color-gris)!important;
     opacity: 90%;
     border-top: 1px solid black;
 }
@@ -114,6 +114,7 @@ header div#menuPrincipal button:focus{
     outline: none;
 }
 header div.rgb{
+    max-width: 1200px;
         height: .25rem!important;
         background: linear-gradient(269deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #4b0082, #0000ff, #00ff00, #ffff00, #ff7f00, #ff0000);
         background-size: 2600% 2600%;
@@ -209,6 +210,7 @@ header div.rgb{
         margin: 0 auto!important;
         border: none;
         padding-top: 0!important;
+        font-size: .9rem!important;
     }
 
     /* Rediseño el tamaño de los elementos del menú */

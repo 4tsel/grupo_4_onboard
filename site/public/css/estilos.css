@@ -17,7 +17,20 @@
 }
 body{
     background-color: var(--color-azul);
+    max-width: 95vw!important;
+    margin: 0 auto!important;
 }
-main{
-    font-family: 'Roboto';
+
+@media (min-width: 481px) and (orientation: landscape){
+    body{
+        max-width: 90vw!important;
+        margin: 0 auto!important;
+    }
+}
+
+@media (min-width: 897px) and (orientation: landscape){
+    body{
+        max-width: 900px;
+        margin: 0 auto!important;
+    }
 }

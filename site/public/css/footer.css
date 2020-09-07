@@ -14,7 +14,7 @@
 /* Configuración del footer */
 footer{
     background-color: black;
-    font-family: 'Nunito';
+    font-family: 'Nunito', sans-serif;
     color: var(--color-gris);
     margin-top: 1rem !important;
 }
@@ -51,7 +51,7 @@ footer div div.redes div.iconosRedes{
     justify-content: space-around;
 }
 footer div div.redes i span{
-    font-family: 'Nunito'!important;
+    font-family: 'Nunito', sans-serif!important;
 }
 footer div div.info{
     display: flex;

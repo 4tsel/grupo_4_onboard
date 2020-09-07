@@ -3,6 +3,7 @@ const router = express.Router()
 
 const mainController = require(`../controllers/mainController.js`)
 
+// Subrutas
 router.get(`/`, mainController.index);
 
 module.exports = router
