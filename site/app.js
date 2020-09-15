@@ -13,9 +13,12 @@ const routeMain = require(`./routes/main.js`);
 const routeProducts = require(`./routes/products.js`);
 const routeUsers = require(`./routes/users.js`);
 const routeCarrito = require(`./routes/carrito.js`);
+const routeCategorias = require(`./routes/categorias.js`);
+
 
 // Rutas principales
 app.use(`/`, routeMain);
-app.use(`/p`, routeProducts);
-app.use(`/u`, routeUsers);
-app.use(`/c`, routeCarrito);
+app.use(`/prod`, routeProducts);
+app.use(`/user`, routeUsers);
+app.use(`/cart`, routeCarrito);
+app.use(`/cat`, routeCategorias);
