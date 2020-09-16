@@ -2,7 +2,7 @@ const express = require(`express`);
 
 const categoriasController = {
     index: (req, res)=>{
-        res.send(`categorias.ejs`)
+        res.render(`categorias.ejs`)
     }
 }
 

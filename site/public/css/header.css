@@ -32,6 +32,12 @@ header.container-fluid{
     justify-content: space-between;
 }
 
+/* categorias */
+#catHeader{
+    text-decoration: none;
+    color: #212529;
+}
+
 /* LOGO RESPONSIVE */
 .navbar img.logoL{
     display: none;
