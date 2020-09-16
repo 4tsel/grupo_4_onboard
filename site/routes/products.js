@@ -4,7 +4,9 @@ const router = express.Router();
 const productsController = require(`../controllers/productsController.js`);
 
 // Subrutas
-router.get(`/`, productsController.index)
-router.get(`/:id`, productsController.productDetail)
+router.get(`/`, productsController.index);
+router.get(`/add`, productsController.agregar)
+router.get(`/:id`, productsController.productDetail);
+
 
 module.exports = router;

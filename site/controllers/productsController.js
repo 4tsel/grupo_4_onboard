@@ -9,7 +9,10 @@ const productsController = {
     productDetail: (req, res)=>{
         let product = req.params.id;
         res.render(`productDetail.ejs`)
-    } 
+    },
+    agregar: (req, res) => {
+        res.render(`agregarItem.ejs`)
+    }
 }
 
 module.exports = productsController;
