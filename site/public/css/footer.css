@@ -17,6 +17,9 @@ footer{
     font-family: 'Nunito', sans-serif;
     color: var(--color-gris);
     margin-top: 1rem !important;
+    /* border-radius */
+    border-top-right-radius: 1rem !important;
+    border-top-left-radius: 1rem !important;
 }
 footer li{
     list-style: none;

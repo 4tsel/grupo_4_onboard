@@ -1,0 +1,24 @@
+
+#cat1 {
+  margin: 1rem !important;
+  border-radius: 1rem !important;
+  background-color: var(--color-gris) !important;
+  font-family: "Roboto", sans-serif;
+  /* l hwcouhrw pcuire */
+  flex-basis: 100%!important;
+
+  
+}
+
+
+#cat1 > * { /* con ">*" se selecciona todas las etiquetas hijas del id "cat1" en este caso son los divs de clase "cat_items"*/
+  text-align: center;
+  font-size: 1.3rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  
+}
+
+div.cat_items, .cat-icon { /* colores de los iconos */
+  color: var(--color-azul) !important;
+}
