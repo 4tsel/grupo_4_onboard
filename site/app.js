@@ -8,10 +8,6 @@ app.set(`view engine`, `ejs`);
 // Puerto
 app.listen(3030, () => console.log(`Servidor iniciado en el puerto 3030`));
 
-// Error 404
-
-
-
 // Rutas requeridas
 const routeMain = require(`./routes/main.js`);
 const routeProducts = require(`./routes/products.js`);

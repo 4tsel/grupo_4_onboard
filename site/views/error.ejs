@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/error.css" />
+    <title>ERROR 404!</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+          <img src="img/nave_404.png" alt="" />
+          <h2>Parece que esta página no existe</h2>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+          
+          <a href="/">Ir a pagina principal</a>
+          
+        </div>
+      </div>
+    </div>
 
-<body>
-    Viajo por error 404
-</body>
-
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
+  </body>
 </html>

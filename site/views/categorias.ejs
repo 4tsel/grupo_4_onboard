@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- partial del head --><%- include(`./partials/head.ejs`) %>
+  <!-- partial del head -->
+  <%- include(`./partials/head.ejs`) %>
   <body>
     <!-- partial del header --><%- include(`./partials/header.ejs`) %>
-    <div class=="container-fluid sticky-top">
+    <div class=="container-fluid sticky-top catPadre">
       <div class="row" id="cat1">
         <!-- listado de categorias -->
         
@@ -44,7 +45,9 @@
             <p>Almacenamiento</p>
         </div>
     </div>
-    <!-- partial del footer --><%- include(`./partials/footer.ejs`) %><!-- partial de scripts --><%-
-    include(`./partials/scripts.ejs`) %>
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+    <!-- partial de scripts -->
+    <%-include(`./partials/scripts.ejs`) %>
   </body>
 </html>
