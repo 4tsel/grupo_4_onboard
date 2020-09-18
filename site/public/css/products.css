@@ -3,8 +3,35 @@
   --color-gris: #dcdcdc;
   --color-azul: #026aa7;
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@300&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0 auto;
+}
+
+.btn {
+  background-color: var(--color-naranja);
+  margin-bottom: 1rem !important;
+}
+
+.row>*{
+  /* border: 1px solid red; */
+}
+
+.col-3{
+  /* border: 5px solid lightgreen; */
+}
+
+.col_prod>*{
+  margin: 1rem !important;
+}
+
+.col_cat{
+  margin-top: 1rem !important;
+}
+
+.col_prod{
+  margin: auto  ;
 }
