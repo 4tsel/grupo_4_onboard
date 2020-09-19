@@ -1,0 +1,22 @@
+
+
+#form_padre{
+    font-size: 20px;
+    background-color: var(--color-gris);
+    border-radius: 0.4rem!important;
+    margin-top: 1rem!important;
+}
+
+
+p>*{
+    border-radius: 0.2rem!important;
+    margin-top: 1rem!important;
+    margin-left: 1rem!important;
+}
+
+.btn_sbt{
+    background-color: var(--color-naranja);
+}
+
+
+

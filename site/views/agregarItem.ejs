@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    asdasdasdasd
-</body>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="/css/agregar_item.css" />
+  </head>
+  <!-- partial del head -->
+  <%- include(`./partials/head.ejs`) %>
+
+  <body>
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <div class="container-fluid add_prod">
+      <div class="row row_prod">
+        <div class="col-12">
+          <form id="form_padre" action="#">
+            <!-- Nombre del producto -->
+            <p>
+              <input type="text" name="name" placeholder="Nombre" required/>
+            </p>
+            <!-- Descripción -->
+            <p>
+              <textarea
+                rows="6"
+                cols="35"
+                name="“descripcion”"
+                placeholder="Añadí una descripción"
+                required
+              ></textarea>
+            </p>
+            <!-- Imagen -->
+            <p>
+              <input type="imagen" name="imagen" placeholder="Imagen" required />
+            </p>
+            <!-- Categoría -->
+            <p>
+              <label for="categoria">Elije la categoria:</label><br>
+              <select id="cat_btn" name="categoria" required>
+                <option class="btn_notes" value="cat1">Notes</option>
+                <option value="cat2">PC armadas</option>
+                <option value="cat3">Consolas</option>
+                <option value="cat4">Memorias RAM</option>
+                <option value="cat5">Audio</option>
+                <option value="cat6">Mouse</option>
+                <option value="cat7">Teclados</option>
+                <option value="cat8">Procesadores</option>
+                <option value="cat9">Almacenamiento</option>
+              </select>
+            </p>
+            <!-- Precio -->
+            <p>
+              <input type="number" name="precio" placeholder="Precio" />
+            </p>
+            <!-- boton "agregar" -->
+            <p>
+              <button class="btn_sbt" type="“submit”">Agregar</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
+  </body>
 </html>
