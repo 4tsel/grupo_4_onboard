@@ -1,0 +1,32 @@
+{
+    "categorias": [
+        {
+            "nombre": "Procesadores",
+            "icono": "fas fa-microchip"
+        },
+        {
+            "nombre": "Memorias RAM",
+            "icono": "fas fa-memory"
+        },
+        {
+            "nombre": "Audio",
+            "icono": "fas fa-headphones"
+        }
+    ],
+    "productos": [
+        {
+            "id": 1,
+            "marca": "Redragon",
+            "modelo": "Talos",
+            "precio": "5000",
+            "categoria": "Audio"
+        },
+        {
+            "id": 2,
+            "marca": "Redragon",
+            "modelo": "Talos",
+            "precio": "5000",
+            "categoria": "Audio"
+        }
+    ]
+}

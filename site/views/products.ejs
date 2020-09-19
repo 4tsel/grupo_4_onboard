@@ -15,97 +15,35 @@
         <!-- DIV de la barra lateral con las categorias -->
         <div class="row col-3 col_cat">
           <div class="card col-12">
-            <div>
-              <h4>Categoria #1</h4>
-            </div>
-            <div>
-              <h4>Categoria #2</h4>
-            </div>
-            <div>
-              <h4>Categoria #3</h4>
-            </div>
-            <div>
-              <h4>Categoria #4</h4>
-            </div>
-            <div>
-              <h4>Categoria #5</h4>
-            </div>
+            <% categorias.forEach(categoria => { %>
+              <div>
+                <h4><%- categoria.nombre %> </h4>
+              </div>
+            <% }) %>
+            
           </div>
         </div>
 
         <!-- DIV con los productos -->
         <div class="row col-9 col_prod">
-          <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <img
-              src="/img/intelCeleron.jpg"
-              class="card-img-top"
-              alt="intel celeron"
-            />
-            <div class="card-body mx-0 p-0">
-              <h5 class="card-title">Lorem</h5>
-              <a href="#" class="btn">$PRECIO</a>
-            </div>
-          </div>
 
-          <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <img
-              src="/img/intelCeleron.jpg"
-              class="card-img-top"
-              alt="intel celeron"
-            />
-            <div class="card-body mx-0 p-0">
-              <h5 class="card-title">Lorem</h5>
-              <a href="#" class="btn">$PRECIO</a>
+          <% productos.forEach(producto => { %>
+          
+            <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+              <img
+                src="/img/intelCeleron.jpg"
+                class="card-img-top"
+                alt="intel celeron"
+              />
+              <div class="card-body mx-0 p-0">
+                <h5 class="card-title"><%- producto.marca %> <%- producto.modelo %> <%- producto.id %> </h5>
+                <a href="/prod/det/<%-producto.id%>" class="btn">$<%- producto.precio %></a>
+              </div>
             </div>
-          </div>
 
-          <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <img
-              src="/img/intelCeleron.jpg"
-              class="card-img-top"
-              alt="intel celeron"
-            />
-            <div class="card-body mx-0 p-0">
-              <h5 class="card-title">Lorem</h5>
-              <a href="#" class="btn">$PRECIO</a>
-            </div>
-          </div>
+          <% }) %>
 
-          <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <img
-              src="/img/intelCeleron.jpg"
-              class="card-img-top"
-              alt="intel celeron"
-            />
-            <div class="card-body mx-0 p-0">
-              <h5 class="card-title">Lorem</h5>
-              <a href="#" class="btn">$PRECIO</a>
-            </div>
-          </div>
-
-          <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <img
-              src="/img/intelCeleron.jpg"
-              class="card-img-top"
-              alt="intel celeron"
-            />
-            <div class="card-body mx-0 p-0">
-              <h5 class="card-title">Lorem</h5>
-              <a href="#" class="btn">$PRECIO</a>
-            </div>
-          </div>
-
-          <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            <img
-              src="/img/intelCeleron.jpg"
-              class="card-img-top"
-              alt="intel celeron"
-            />
-            <div class="card-body mx-0 p-0">
-              <h5 class="card-title">Lorem</h5>
-              <a href="#" class="btn">$PRECIO</a>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

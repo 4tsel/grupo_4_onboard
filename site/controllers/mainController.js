@@ -1,11 +1,13 @@
-const express = require(`express`)
+const express = require(`express`);
+const fs = require(`fs`);
 
 const mainController = {
-
-    // Ruta principal
-    index: (req, res)=>{
-        res.render(`index.ejs`);
+    index: (req, res) => {
+        res.render(`index.ejs`,
+            {
+                titulo: `ONBOARD`,
+            });
     },
 }
 
-module.exports = mainController
+module.exports = mainController;

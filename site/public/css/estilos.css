@@ -4,6 +4,8 @@
 @import url('productDetail.css');
 @import url('register.css');
 @import url('categorias.css');
+@import url('ingreso.css');
+@import url('products.css');
 
 :root{
     --color-naranja: #F58220;
@@ -33,7 +35,7 @@ body{
 
 @media (min-width: 897px) and (orientation: landscape){
     body{
-        max-width: 900px;
+        max-width: 1200px!important;
         margin: 0 auto!important;
     }
 }
