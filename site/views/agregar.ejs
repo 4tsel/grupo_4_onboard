@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <main>
-        <a href="/cat/add" class="btn">Agregar Categoría</a>
-        <a href="/prod/add" class="btn">Agregar Ítem</a>
-        <a href="/add/admin" class="btn">Agregar Admin</a>
-    </main>
-</body>
-</html>
+<html lang="es">
 
+<head>
+    <link rel="stylesheet" href="/css/agregar_item.css" />
+</head>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <div class="container-fluid add_prod mt-4">
+        <div class="row row_prod">
+            <div class="col-12">
+                
+                <a href="/prod/add/cat" class="btn col-12">Agregar categoria</a>
+                <a href="/prod/add/prod" class="btn col-12">Agregar producto</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
+</body>
+
+</html>

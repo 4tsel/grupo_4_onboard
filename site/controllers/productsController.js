@@ -67,11 +67,11 @@ const productsController = {
     },
     agregar: (req, res) => {
 
-        res.render(`add.ejs`);
+        res.render(`agregar.ejs`);
     },
     agregarCategoria: (req, res) => {
 
-        res.render(`addCat.ejs`);
+        res.render(`agregarCat.ejs`);
     },
     agregandoCategoria: (req, res) => {
 
@@ -91,12 +91,12 @@ const productsController = {
     agregarProducto: (req, res) => {
         let categorias = productsDB.categorias
 
-        res.render(`addProd.ejs`,
+        res.render(`agregarItem.ejs`,
             {
                 categorias: categorias,
             });
     },
-    agregandoProducto: (req, res) => {
+    agregandoProducto: (req, res, next) => {
 
         let lastID = 0;
         if (productsDB.productos.length > 0) {
@@ -113,13 +113,15 @@ const productsController = {
             marca: req.body.marca,
             modelo: req.body.modelo,
             precio: req.body.precio,
-            categoria: req.body.categoria
+            categoria: req.body.categoria,
+            descripcion: req.body.descripcion,
+            imagen: req.files[0].filename
 
         }
         productsDB.productos.push(productoAgregado);
 
         fs.writeFileSync(path.join(__dirname, `..`, `data`, `product.json`), JSON.stringify(productsDB), `utf-8`);
-        res.redirect(`/prod/add`);
+        res.redirect(`/prod`);
 
     },
     eliminar: (req, res) => {

@@ -1,5 +1,18 @@
 const express = require(`express`);
 const router = express.Router();
+let multer = require(`multer`);
+let path = require(`path`)
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/img')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+  })
+   
+  var upload = multer({ storage: storage })
 
 const productsController = require(`../controllers/productsController`)
 
@@ -19,7 +32,7 @@ router.get(`/add/cat`, productsController.agregarCategoria);
 router.post(`/add/cat`, productsController.agregandoCategoria)
 
 router.get(`/add/prod`, productsController.agregarProducto);
-router.post(`/add/prod`, productsController.agregandoProducto);
+router.post(`/add/prod`, upload.any(), productsController.agregandoProducto);
 
 router.get(`/cat`, productsController.catLista);
 
