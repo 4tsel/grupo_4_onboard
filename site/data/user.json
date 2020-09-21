@@ -1,10 +1,1 @@
-[
-    {
-        "id": 1,
-        "nombre": "Axel",
-        "apellido": "Novo",
-        "email": "axelbnovo@gmail.com",
-        "password": "asdasd",
-        "admin": false
-    }
-]
+[{"id":1,"nombre":"Axel","apellido":"Novo","email":"axelbnovo@gmail.com","password":"marihuana","admin":false,"imagen":"imagen-1600613467217.jpg"}]

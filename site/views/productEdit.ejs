@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/agregar_item.css" />
+</head>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <div class="container-fluid add_prod">
+        <div class="row row_prod">
+            <div class="col-12">
+                <form action="/prod/<%- producto.id %>/edit?_method=PUT" method="POST">
+                    <!-- Nombre del producto -->
+                    <p>
+                        <input type="text" name="marca" value="<%- producto.marca %>" required >
+                    </p>
+                    <p>
+                        <input type="text" name="modelo" value="<%- producto.modelo %>" required >
+                    </p>
+                    <!-- Descripción -->
+                    <p>
+                        <textarea rows="6" cols="35" name="descripcion"
+                            required> <%- producto.descripcion %></textarea>
+                    </p>
+                    <!-- Categoría -->
+                    <p>
+                        <label for="categoria">Elije la categoria:</label><br>
+                        <select id="cat_btn" name="categoria" value ="<%- categorias.nombre %>" required>
+
+                            <% categorias.forEach(categoria => { %>
+
+                            <option value="<%- categoria.nombre %>"><%- categoria.nombre %> </option>
+
+                            <% }) %>
+
+                        </select>
+                    </p>
+                    <!-- Precio -->
+                    <p>
+                        <input type="number" name="precio" value="<%- producto.precio %>"placeholder="Precio">
+                    </p>
+                    <!-- boton "agregar" -->
+                    <p>
+                        <button class="btn_sbt" type="submit">Agregar</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
+</body>
+
+</html>

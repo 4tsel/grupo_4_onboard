@@ -14,11 +14,12 @@
   <section class="form-register">
 
     <h4>¡Regístrate!</h4>
-    <form action="/user/registro" method="POST">
+    <form action="/user/registro" method="POST" enctype="multipart/form-data">
       <input class="controls" type="text" name="nombre" placeholder="Ingresá tu nombre">
       <input class="controls" type="text" name="apellido" placeholder="Ingresá tu apellido">
       <input class="controls" type="email" name="email" placeholder="Ingresá tu correo">
       <input class="controls" type="password" name="password" placeholder="Ingresá tu contraseña">
+      <input class="controls" type="file" name="imagen">
       <p><input type="checkbox" name="terms">Acepto los <a href="#"><strong>Terminos y Condiciones</strong></a></p>
       <a href="register.html"><input class="botons" type="submit" value="Registrar"></a>
       <p><a href="/user/login"><strong>¿Ya tenés cuenta?</strong></a></p>

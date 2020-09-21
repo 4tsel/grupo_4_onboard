@@ -18,7 +18,7 @@ const userController = {
             })
 
     },
-    procesoRegistro: (req, res) => {
+    procesoRegistro: (req, res, next) => {
 
         let lastID = 0;
         if (userDB.length > 0) {
@@ -35,7 +35,8 @@ const userController = {
             apellido: req.body.apellido,
             email: req.body.email,
             password: req.body.password,
-            admin: false
+            admin: false,
+            imagen: req.files[0].filename
         }
         
         userDB.push(usuario);

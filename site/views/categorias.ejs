@@ -10,15 +10,17 @@
             <!-- listado de categorias -->
 
             <% categorias.forEach(categoria => { %>
-            
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
+                <a href="/prod/cat/<%- categoria.nombre%>">
                     <i class="<%-categoria.icono%> cat-icon"></i>
                     <p><%-categoria.nombre%></p>
-                </div>
+                </a>
+            </div>
 
             <% }) %>
 
-        
+
         </div>
     </div>
     <!-- partial del footer -->

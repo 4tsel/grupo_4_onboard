@@ -35,6 +35,9 @@ const productsController = {
             modelo: req.body.modelo,
             precio: req.body.precio,
             categoria: req.body.categoria,
+            descripcion: req.body.descripcion,
+            imagen: productsDB.productos[id - 1].imagen
+            
         }
 
         productsDB.productos[id - 1] = productoAEditar;
@@ -49,6 +52,24 @@ const productsController = {
             {
                 categorias: productsDB.categorias
             })
+    },
+    catFiltrada: (req, res) => {
+
+        let categoria = req.params.id;
+
+        let productoFiltrado = [];
+
+        productsDB.productos.forEach(producto => {
+            if (categoria == producto.categoria) {
+                productoFiltrado.push(producto)
+            }
+        })
+
+        res.render(`catFiltrada.ejs`,
+            {
+                productos: productoFiltrado
+            })
+
     },
     detalle: (req, res) => {
 
@@ -130,11 +151,13 @@ const productsController = {
 
         let producto = productsDB.productos[id - 1];
 
-        productsDB.productos.splice(producto, 1);
+        let indice = productsDB.productos.indexOf(producto)
+
+        productsDB.productos.splice(indice, 1);
 
         productsDB.productos.forEach(producto => {
-            if(producto.id == productsDB.productos.indexOf(producto) - 1){
-                producto.id = producto.id 
+            if (producto.id == productsDB.productos.indexOf(producto) - 1) {
+                producto.id = producto.id
             } else {
                 producto.id = productsDB.productos.indexOf(producto) + 1
             }
@@ -143,7 +166,7 @@ const productsController = {
         fs.writeFileSync(path.join(__dirname, `..`, `data`, `product.json`), JSON.stringify(productsDB))
         res.redirect(`/prod`)
 
-       
+
 
 
     }
