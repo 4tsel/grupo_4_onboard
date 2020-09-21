@@ -11,19 +11,23 @@
     <!-- Cuerpo del productDetail (pegar debajo)-->
     <main class="container-fluid px-0">
         <div class="row detalle1 mx-0 py-2 mainCard">
-            <span class="migajas px-0 m-0">Home > Cat > Sub-cat > id</span>
-                <span class="migajas px-0 m-0">Marca</span>
+            <span class="migajas px-0 m-0"> <a href="/">Home</a> > Cat > id</span>
+            <span class="migajas px-0 m-0">Marca</span>
             <div class="card col-11 product">
-                <img src="/img/intelCeleron.jpg" alt="imagen producto" class="card-img-top productImg">
+                <img src="/img/products/<%- producto.imagen%>" alt="imagen producto" class="card-img-top productImg">
                 <div class="card-body mx-0 p-0 money">
-                    <h3 class="card-title">Lorem, ipsum dolor.</h3>
-                    <h2 class="card-title precio">$PRECIO</h2>
+                    <h3 class="card-title"><%- producto.marca %> <%- producto.modelo %></h3>
+                    <h2 class="card-title precio">$<%- producto.precio %></h2>
                     <form class="row carroProducto">
                         <label for="" class="col-5 m-0"><span class="btn disabled">Cantidad</span></label>
                         <input type="text" placeholder="1" name="cantidad" class="col-2">
                         <button type="submit" class="btn col-5">
                             <i class="fas fa-shopping-cart"></i> Agregar
                         </button>
+                    </form>
+                    <a href="/prod/<%- producto.id %>/edit" class="btn">Editar</a>
+                    <form action="/prod/:id/delete?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE" class="btn">
                     </form>
                 </div>
             </div>
@@ -42,7 +46,7 @@
                 </ul>
                 <div class="tab-content" id="detallesContent">
                     <div class="tab-pane fade show active" id="tecnicos" role="tabpanel" aria-labelledby="tecnicos-tab">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, necessitatibus?</div>
+                        <%- producto.descripcion %></div>
                     <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentarios-tab">Lorem
                         ipsum dolor, sit amet consectetur adipisicing elit. Possimus, maxime!</div>
                 </div>

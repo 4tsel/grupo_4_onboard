@@ -12,7 +12,7 @@
         <!-- Barra de búsqueda -->
         <form action="" class="row col-8 m-0 p-0">
             <input class="form-control col-10" type="text" placeholder="Buscá un producto" aria-label="Búsqueda">
-            <button class="col-2 p-0 busqueda">
+            <button class="col-2 p-0 busqueda" type="submit">
                 <i class="fas fa-search p-1 fa-md"></i>
             </button>
         </form>
@@ -25,8 +25,9 @@
 
         <!-- Íconos de registro/inicio y carrito -->
         <div class="d-none col-2 tabletIconos">
-            <i class="fas fa-user fa-lg"></i>
-            <i class="fas fa-shopping-cart fa-lg"></i>
+            <a href="/prod/add"><i class="fas fa-plus"></i></a>
+            <a href="/user/login"><i class="fas fa-user fa-lg"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
         </div>
     </nav>
 
@@ -34,34 +35,43 @@
     <div class="collapse navbar-collapse row m-0 pt-2 px-1" id="menuPrincipal">
         <ul class="navbar-nav mr-auto col-10 categorias">
             <div class="row m-0">
+
                 <li class="nav-item col-6">
-                    <i class="fas fa-desktop col-2 p-0"></i>
-                    <br>
-                    <span class="col-8 p-0">COMPUTACIÓN</span>
+                    <a href="/prod/cat/Computadoras">
+                        <i class="fas fa-desktop col-2 p-0"></i>
+                        <br>
+                        <span class="col-8 p-0">COMPUTADORAS</span>
+                    </a>
                 </li>
                 <li class="nav-item col-6">
-                    <i class="fas fa-headphones col-2 p-0"></i>
-                    <br>
-                    <span class="col-10 p-0">AUDIO</span>
+                    <a href="/prod/cat/Audio">
+                        <i class="fas fa-headphones col-2 p-0"></i>
+                        <br>
+                        <span class="col-10 p-0">AUDIO</span>
+                    </a>
                 </li>
                 <li class="nav-item col-6">
-                    <i class="fas fa-gamepad col-2 p-0"></i>
-                    <br>
-                    <span class="col-10 p-0">CONSOLAS</span>
+                    <a href="/prod/cat/Consolas">
+                        <i class="fas fa-gamepad col-2 p-0"></i>
+                        <br>
+                        <span class="col-10 p-0">CONSOLAS</span>
+                    </a>
                 </li>
                 <li class="nav-item col-6">
-                    <i class="far fa-list-alt col-2 p-0"></i>
-                    <br>
-                    <span class="col-10 p-0">
-                        <a href="/cat" id="catHeader">CATEGORIAS</a>
-                    </span>
+                    <a href="/prod/cat">
+                        <i class="far fa-list-alt col-2 p-0"></i>
+                        <br>
+                        <span class="col-10 p-0">CATEGORIAS</span>
+                    </a>
                 </li>
             </div>
         </ul>
         <ul class="navbar-nav pr-0 col-2 my-1 iconos">
-            <li class="nav-item"><i class="fas fa-user fa-lg"></i></li>
+            <li class="nav-item"><a href="/prod/add"><i class="fas fa-plus fa-lg"></i></a></li>
             <hr>
-            <li class="nav-item"><i class="fas fa-shopping-cart fa-lg"></i></li>
+            <li class="nav-item"><a href="/user/login"><i class="fas fa-user fa-lg"></i></a></li>
+            <hr>
+            <li class="nav-item"><a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a></li>
         </ul>
         <button type="button" class="navbar-toggler col-2 px-0 menu cierre" data-toggle="collapse"
             data-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="true" aria-label="Menú pincipal">

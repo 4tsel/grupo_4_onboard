@@ -1,0 +1,304 @@
+{
+    "categorias": [
+        {
+            "nombre": "Computadoras",
+            "icono": "fas fa-desktop"
+        },
+        {
+            "nombre": "Notebooks",
+            "icono": "fas fa-laptop"
+        },
+        {
+            "nombre": "Netbooks",
+            "icono": "fas fa-laptop"
+        },
+        {
+            "nombre": "Consolas",
+            "icono": "fas fa-gamepad"
+        },
+        {
+            "nombre": "Juegos",
+            "icono": "fas fa-gamepad"
+        },
+        {
+            "nombre": "Teclados",
+            "icono": "fas fa-keyboard"
+        },
+        {
+            "nombre": "Mouses",
+            "icono": "fas fa-mouse"
+        },
+        {
+            "nombre": "Joysticks",
+            "icono": "fas fa-gamepad"
+        },
+        {
+            "nombre": "Motherboards",
+            "icono": "fas fa-microchip"
+        },
+        {
+            "nombre": "Procesadores",
+            "icono": "fas fa-microchip"
+        },
+        {
+            "nombre": "RAMs",
+            "icono": "fas fa-memory"
+        },
+        {
+            "nombre": "Videocards",
+            "icono": "fas fa-tv"
+        },
+        {
+            "nombre": "Audiocards",
+            "icono": "fas fa-volume-up"
+        },
+        {
+            "nombre": "Audio",
+            "icono": "fas fa-headphones"
+        },
+        {
+            "nombre": "Video",
+            "icono": "fas fa-tv"
+        },
+        {
+            "nombre": "Fuentes",
+            "icono": "fas fa-plug"
+        }
+    ],
+    "productos": [
+        {
+            "id": 1,
+            "marca": "Redragon",
+            "modelo": "Jupiter G809",
+            "precio": "5700",
+            "categoria": "Joysticks",
+            "descripcion": "Conexión: Inalámbrica.\r\nCompatibilidad: PC, PS4, Switch.\r\n",
+            "imagen": "imagen-1600618910437.jpg"
+        },
+        {
+            "id": 2,
+            "marca": "Asus",
+            "modelo": "H310M-R Prime",
+            "precio": "6300",
+            "categoria": "Motherboards",
+            "descripcion": "Socket: 1151 Coffee Lake.\r\nPlataforma: Intel.\r\nSlots: 2 x DDR4.\r\n\r\n",
+            "imagen": "imagen-1600619057900.jpg"
+        },
+        {
+            "id": 3,
+            "marca": "Intel",
+            "modelo": "i3 9100F",
+            "precio": "8500",
+            "categoria": "Procesadores",
+            "descripcion": "Frecuencia: 3.6 Ghz. (4.2 Ghz en turbo).\r\nSocket: 1151.\r\nNúcleos: 4.\r\nIncluye cooler: Sí.",
+            "imagen": "imagen-1600619194549.jpg"
+        },
+        {
+            "id": 4,
+            "marca": "HP",
+            "modelo": "V8 Series",
+            "precio": "4200",
+            "categoria": "RAMs",
+            "descripcion": "Capacidad: 8 GB.\r\nVelocidad: 3000 Mhz.\r\nTipo: DDR4.\r\n",
+            "imagen": "imagen-1600619313944.jpg"
+        },
+        {
+            "id": 5,
+            "marca": "Asus",
+            "modelo": "Geforce GT1030",
+            "precio": "10500",
+            "categoria": "Videocards",
+            "descripcion": "Capacidad: 2 GB.\r\nTipo: DDR5.",
+            "imagen": "imagen-1600619456538.jpg"
+        },
+        {
+            "id": 6,
+            "marca": "EVGA",
+            "modelo": "Pro Card Xu216",
+            "precio": "45000",
+            "categoria": "Audiocards",
+            "descripcion": "Tipo: Placa de sonido interna.\r\nCanales de salida: 7.\r\nCanales de auriculares: 2.\r\n",
+            "imagen": "imagen-1600619708833.jpeg"
+        },
+        {
+            "id": 7,
+            "marca": "Redragon",
+            "modelo": "Thunder E200",
+            "precio": "2700",
+            "categoria": "Audio",
+            "descripcion": "Micrófono: Sí.\r\nTipo: Intraural.\r\n",
+            "imagen": "imagen-1600619902618.jpg"
+        },
+        {
+            "id": 8,
+            "marca": "LG",
+            "modelo": "UltraGear 24GL600F",
+            "precio": "45000",
+            "categoria": "Video",
+            "descripcion": "Tamaño: 24\".\r\nResolución: 1080p.\r\nFrecuencia: 144hz.\r\nRespuesta: 1ms.\r\n",
+            "imagen": "imagen-1600620078154.jpg"
+        },
+        {
+            "id": 9,
+            "marca": "Corsair",
+            "modelo": "VS450",
+            "precio": "6500",
+            "categoria": "Fuentes",
+            "descripcion": "Formato: ATX.\r\nWatts: 450 W.\r\nCertificado: 80 plus.\r\n",
+            "imagen": "imagen-1600640053040.jpg"
+        },
+        {
+            "id": 10,
+            "marca": "PC armada",
+            "modelo": "Gamer",
+            "precio": "33000",
+            "categoria": "Computadoras",
+            "descripcion": "Procesador: AMD A8 9600,\r\nVideo: AMD Radeon R7,\r\nRam: 8 GB.\r\nSistema Operativo: Win 10 64bits",
+            "imagen": "imagen-1600640283478.jpeg"
+        },
+        {
+            "id": 11,
+            "marca": "Acer",
+            "modelo": "Aspire 3",
+            "precio": "95000",
+            "categoria": "Notebooks",
+            "descripcion": "Tamaño de pantalla: 15.6 \".\r\nProcesador: Intel i5 7200U.\r\nRam: 6 GB.\r\nAlmacenamiento: 1 TB.\r\nSistema Operativo: Win. 10 64 bits.",
+            "imagen": "imagen-1600640424594.jpg"
+        },
+        {
+            "id": 12,
+            "marca": "HP",
+            "modelo": "Stream 11",
+            "precio": "72000",
+            "categoria": "Netbooks",
+            "descripcion": "Tamaño de pantalla: 11.6\".\r\nProcesador: Intel Celeron.\r\nRam: 2 GB.\r\nAlmacenamiento: 500 GB.\r\nSistema Operativo: Win 8.",
+            "imagen": "imagen-1600640654897.jpeg"
+        },
+        {
+            "id": 13,
+            "marca": "Microsoft",
+            "modelo": "XBOX One S",
+            "precio": "50000",
+            "categoria": "Consolas",
+            "descripcion": "Color: Blanco.\r\nAlmacenamiento: 1 TB.\r\nJoysticks: 1.\r\n",
+            "imagen": "imagen-1600640713083.jpeg"
+        },
+        {
+            "id": 14,
+            "marca": "PS4",
+            "modelo": "Ghost of Tushima",
+            "precio": "5000",
+            "categoria": "Juegos",
+            "descripcion": "Formato: Físico.",
+            "imagen": "imagen-1600640751137.jpeg"
+        },
+        {
+            "id": 15,
+            "marca": "Redragon",
+            "modelo": "Visnu K561",
+            "precio": "4500",
+            "categoria": "Teclados",
+            "descripcion": "Idioma: Español.\r\nDistribución: Latinoamérica.\r\nIluminación: Rainbow.\r\nFormato: Corto sin pad numérico.\r\nMecanismo: Mecánico.",
+            "imagen": "imagen-1600640816212.jpg"
+        },
+        {
+            "id": 16,
+            "marca": "Redragon",
+            "modelo": "Dagger 2 M715",
+            "precio": "3500",
+            "categoria": "Mouses",
+            "descripcion": "Base: Aluminio.\r\nBotones: 8.\r\nIluminación: RGB.\r\nMin. DPI: 100.\r\nMax. DPI: 10000\r\n",
+            "imagen": "imagen-1600640885523.jpg"
+        },
+        {
+            "id": 17,
+            "marca": "Logitech",
+            "modelo": "F310",
+            "precio": "2000",
+            "categoria": "Joysticks",
+            "descripcion": "Conexión: Cable USB.\r\nCompatibilidad: PC.",
+            "imagen": "imagen-1600640948700.jpg"
+        },
+        {
+            "id": 18,
+            "marca": "MSI",
+            "modelo": "A320M-A PRO",
+            "precio": "7000",
+            "categoria": "Motherboards",
+            "descripcion": "Socket: AM4.\r\nPlataforma: AMD.\r\nSlots: 2xDDR4.",
+            "imagen": "imagen-1600641040697.jpg"
+        },
+        {
+            "id": 19,
+            "marca": "AMD",
+            "modelo": "Ryzen 5 1600 AF",
+            "precio": "13000",
+            "categoria": "Procesadores",
+            "descripcion": "Núcleos: 6.\r\nFrecuencia: 3.2 Ghz. (Turbo: 3600 Ghz).\r\nSocket: AM4.\r\nIncluye cooler: Sí.",
+            "imagen": "imagen-1600641161640.jpg"
+        },
+        {
+            "id": 20,
+            "marca": "Adata",
+            "modelo": "Value",
+            "precio": "2500",
+            "categoria": "RAMs",
+            "descripcion": "Capacidad: 4GB.\r\nVelocidad: 2666 Mhz.\r\nTipo: DDR4.",
+            "imagen": "imagen-1600641224950.jpg"
+        },
+        {
+            "id": "21",
+            "marca": "Asrock",
+            "modelo": "Radeon RX 5500 XT",
+            "precio": "22000",
+            "categoria": "Videocards",
+            "descripcion": " Capacidad: 8 GB.\r\nTipo: DDR6.\r\n",
+            "imagen": "imagen-1600641299540.jpg"
+        },
+        {
+            "id": 22,
+            "marca": "Sound Blaster",
+            "modelo": "Z",
+            "precio": "20000",
+            "categoria": "Audiocards",
+            "descripcion": "Interfaz: PCIe.\r\nTipo: Interna.\r\n",
+            "imagen": "imagen-1600641388046.jpeg"
+        },
+        {
+            "id": 23,
+            "marca": "Logitech",
+            "modelo": "G935 LightSync",
+            "precio": "26000",
+            "categoria": "Audio",
+            "descripcion": "Conexión: Inalámbrico.\r\nCanales: 7.1.\r\nIluminación: RGB.\r\nColor: Negro.",
+            "imagen": "imagen-1600641483317.jpg"
+        },
+        {
+            "id": 24,
+            "marca": "LG",
+            "modelo": "19M38A-B",
+            "precio": "15000",
+            "categoria": "Video",
+            "descripcion": "Conectividad: VGA.\r\nTamaño de pantalla: 19\".",
+            "imagen": "imagen-1600641543508.jpg"
+        },
+        {
+            "id": 25,
+            "marca": "Segotep",
+            "modelo": "500W",
+            "precio": "2000",
+            "categoria": "Fuentes",
+            "descripcion": "Formato: ATX.\r\nWatts: 500W (199 Reales).",
+            "imagen": "imagen-1600641602467.jpg"
+        },
+        {
+            "id": 26,
+            "marca": "PC armada",
+            "modelo": "Gamer",
+            "precio": "30000",
+            "categoria": "Computadoras",
+            "descripcion": "Procesador: AMD A6 7480.\r\nAlmacenamiento: 240GB.\r\nRam: 4 GB.\r\nSistema Operativo: Win 10 64 bits",
+            "imagen": "imagen-1600642130613.jpeg"
+        }
+    ]
+}

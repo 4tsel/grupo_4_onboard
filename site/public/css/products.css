@@ -15,15 +15,20 @@
   background-color: var(--color-naranja);
   margin-bottom: 1rem !important;
 }
+.col_prod{
+  margin-top: 1rem !important;
+  margin-left: 1rem !important;
+  background-color: var(--color-gris);
+  border-radius: 0.3rem!important;
+}
 
 .col_prod>*{
-  margin: 1rem !important;
+  display: flex;
+  margin: 10px 10px 10px 10px;
+  text-align: center;
 }
 
 .col_cat{
   margin-top: 1rem !important;
-}
-
-.col_prod{
-  margin: auto  ;
+  height: max-content;
 }

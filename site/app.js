@@ -1,30 +1,27 @@
 const express = require(`express`);
 const app = express();
+const methodOverride = require(`method-override`);
+const path = require('path');
 
-// Configuro la carpeta public y el view engine en ejs.
-app.use(express.static(__dirname + `/public`));
+
+app.listen(3030, ()=>console.log(`asdasdasd en el 3030`));
 app.set(`view engine`, `ejs`);
+app.use(express.static(__dirname + `/public`));
 
-// Puerto
-app.listen(3030, () => console.log(`Servidor iniciado en el puerto 3030`));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(methodOverride('_method'));
 
-// Rutas requeridas
 const routeMain = require(`./routes/main.js`);
+const routeUser = require(`./routes/user.js`);
 const routeProducts = require(`./routes/products.js`);
-const routeUsers = require(`./routes/users.js`);
-const routeCarrito = require(`./routes/carrito.js`);
-const routeCategorias = require(`./routes/categorias.js`);
-const routeAgregar = require(`./routes/agregar.js`);
 
-// Rutas principales
 app.use(`/`, routeMain);
 app.use(`/prod`, routeProducts);
-app.use(`/user`, routeUsers);
-app.use(`/cart`, routeCarrito);
-app.use(`/cat`, routeCategorias);
-app.use(`/add`, routeAgregar);
+app.use(`/user`, routeUser);
 
-// Errores
+//Error 404
+
 app.use((req, res, next) => {
     res.status(404).render(`error.ejs`)
 });

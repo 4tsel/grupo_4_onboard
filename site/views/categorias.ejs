@@ -1,53 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- partial del head -->
-  <%- include(`./partials/head.ejs`) %>
-  <body>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
     <!-- partial del header --><%- include(`./partials/header.ejs`) %>
     <div class=="container-fluid sticky-top catPadre">
-      <div class="row" id="cat1">
-        <!-- listado de categorias -->
-        
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-laptop cat-icon"></i>
-            <p>Notes</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3  cat_items">
-            <i class="fas fa-desktop cat-icon"></i>
-            <p>PC armadas</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-gamepad cat-icon"></i>
-            <p>Consolas</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-memory cat-icon"></i>
-            <p>Memorias RAM</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-headphones cat-icon"></i>
-            <p>Audio</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-mouse cat-icon"></i>
-            <p>Mouse</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-keyboard cat-icon"></i>
-            <p>Teclados</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-microchip cat-icon"></i>
-            <p>Procesadores</p>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
-            <i class="fas fa-hdd cat-icon"></i>
-            <p>Almacenamiento</p>
+        <div class="row" id="cat1">
+            <!-- listado de categorias -->
+
+            <% categorias.forEach(categoria => { %>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 cat_items">
+                <a href="/prod/cat/<%- categoria.nombre%>">
+                    <i class="<%-categoria.icono%> cat-icon"></i>
+                    <p><%-categoria.nombre%></p>
+                </a>
+            </div>
+
+            <% }) %>
+
+
         </div>
     </div>
     <!-- partial del footer -->
     <%- include(`./partials/footer.ejs`) %>
     <!-- partial de scripts -->
     <%-include(`./partials/scripts.ejs`) %>
-  </body>
+</body>
+
 </html>

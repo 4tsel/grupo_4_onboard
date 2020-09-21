@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/agregar_item.css" />
 </head>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
 <body>
-    asdasdadasdads
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <div class="container-fluid add_prod">
+        <div class="row row_prod">
+            <div class="col-12">
+                <form action="/prod/add/cat" method="POST">
+                    <label for="">Nombre de categoría:</label> <input type="text" name="name">
+                    <br>
+                    <label for="">Ícono de categoría:</label> <input type="text" name="icon">
+                    <br>
+                    <input type="submit" class="btn" value="AGREGAR">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
 </body>
+
 </html>
