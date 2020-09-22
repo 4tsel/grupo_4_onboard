@@ -7,7 +7,6 @@ Estos fueron los resultados de la retrospectiva por el sprint del proyecto integ
 ### [Novo, Axel:](https://github.com/4tsel)
  
  # RESULTADOS DE LA RETROPESCTIVA:
-
- ![retro4](https://user-images.githubusercontent.com/67483581/92988996-21159600-f4a7-11ea-8a77-9d4d89b6089e.png)
+![Estrella](https://user-images.githubusercontent.com/67483581/93829790-d6cdab00-fc44-11ea-8515-f8e677c8f013.png)
  
  Hay cosas para mejorar pero estamos dispuestos a conseguirlo.
