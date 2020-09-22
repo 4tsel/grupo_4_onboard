@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Partial del head -->
+  <%- include(`./partials/head.ejs`) %>
+  <head>
+    <link rel="stylesheet" href="css/products.css" />
+  </head>
+
+  <body>
+    <!-- Partial del header -->
+    <%- include(`./partials/header.ejs`)%>
+
+    <div class="container-fluid">
+      <div class="row">
+        
+
+        <!-- DIV con los productos -->
+        <div class="row col-9 col_prod">
+
+          <% productos.forEach(producto => { %>
+          
+            <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+              <img
+                src="/img/products/<%- producto.imagen %>"
+                class="card-img-top"
+                alt="intel celeron"
+              />
+              <div class="card-body mx-0 p-0">
+                <h5 class="card-title"><%- producto.marca %> <%- producto.modelo %></h5>
+                <a href="/prod/det/<%-producto.id%>" class="btn">$<%- producto.precio %></a>
+              </div>
+            </div>
+
+          <% }) %>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Partial del footer -->
+    <%-include(`./partials/footer.ejs`) %>
+
+    <!-- Partial de scripts -->
+    <%-include(`./partials/scripts.ejs`)%>
+  </body>
+</html>

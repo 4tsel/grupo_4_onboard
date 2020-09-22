@@ -39,4 +39,6 @@ router.get(`/cat`, productsController.catLista);
 
 router.get(`/cat/:id`, productsController.catFiltrada)
 
+router.get(`/marca/:id`, productsController.marcaFiltrada);
+
 module.exports = router;

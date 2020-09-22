@@ -169,6 +169,24 @@ const productsController = {
 
 
 
+    },
+    marcaFiltrada: (req, res) => {
+
+        let marca = req.params.id;
+
+        let productoFiltrado = [];
+
+        productsDB.productos.forEach(producto => {
+            if (marca == producto.marca) {
+                productoFiltrado.push(producto)
+            }
+        })
+
+        res.render(`marcaFiltrada.ejs`,
+            {
+                productos: productoFiltrado
+            })
+
     }
 
 

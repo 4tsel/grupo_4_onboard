@@ -11,24 +11,30 @@
     <!-- Cuerpo del productDetail (pegar debajo)-->
     <main class="container-fluid px-0">
         <div class="row detalle1 mx-0 py-2 mainCard">
-            <span class="migajas px-0 m-0"> <a href="/">Home</a> > Cat > id</span>
-            <span class="migajas px-0 m-0">Marca</span>
+            <span class="migajas px-0 m-0">
+                <a href="/">Home</a> >
+                <a href="/prod/cat/<%-producto.categoria%>"><%-producto.categoria%></a> >
+                <a href="/prod/det/<%-producto.id%>"><%-producto.id %></a> >
+                <a href="/prod/marca/<%- producto.marca %>"><%- producto.marca %></a>
+            </span>
             <div class="card col-11 product">
                 <img src="/img/products/<%- producto.imagen%>" alt="imagen producto" class="card-img-top productImg">
                 <div class="card-body mx-0 p-0 money">
                     <h3 class="card-title"><%- producto.marca %> <%- producto.modelo %></h3>
-                    <h2 class="card-title precio">$<%- producto.precio %></h2>
+                    <h2 class="card-title precio">$<%- producto.precio %></h2> 
+                    <h5>O en 3 cuotas s/interés de $<%-producto.precio / 3 %></h5>
                     <form class="row carroProducto">
-                        <label for="" class="col-5 m-0"><span class="btn disabled">Cantidad</span></label>
-                        <input type="text" placeholder="1" name="cantidad" class="col-2">
+                        <input type="number" placeholder="Ingrese cantidad" name="cantidad" class="form-control col-5">
                         <button type="submit" class="btn col-5">
                             <i class="fas fa-shopping-cart"></i> Agregar
                         </button>
                     </form>
-                    <a href="/prod/<%- producto.id %>/edit" class="btn">Editar</a>
-                    <form action="/prod/:id/delete?_method=DELETE" method="POST">
-                        <input type="submit" value="DELETE" class="btn">
-                    </form>
+                    <div class="col-12 row">
+                        <a href="/prod/<%- producto.id %>/edit" class="btn ">Editar</a>
+                        <form action="/prod/:id/delete?_method=DELETE" method="POST">
+                            <input type="submit" value="Borrar" class="btn">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
