@@ -86,15 +86,6 @@
         },
         {
             "id": 3,
-            "marca": "Intel",
-            "modelo": "i3 9100F",
-            "precio": "8500",
-            "categoria": "Procesadores",
-            "descripcion": "Frecuencia: 3.6 Ghz. (4.2 Ghz en turbo).\r\nSocket: 1151.\r\nNúcleos: 4.\r\nIncluye cooler: Sí.",
-            "imagen": "imagen-1600619194549.jpg"
-        },
-        {
-            "id": 4,
             "marca": "HP",
             "modelo": "V8 Series",
             "precio": "4200",
@@ -103,7 +94,7 @@
             "imagen": "imagen-1600619313944.jpg"
         },
         {
-            "id": 5,
+            "id": 4,
             "marca": "Asus",
             "modelo": "Geforce GT1030",
             "precio": "10500",
@@ -112,7 +103,7 @@
             "imagen": "imagen-1600619456538.jpg"
         },
         {
-            "id": 6,
+            "id": 5,
             "marca": "EVGA",
             "modelo": "Pro Card Xu216",
             "precio": "45000",
@@ -121,7 +112,7 @@
             "imagen": "imagen-1600619708833.jpeg"
         },
         {
-            "id": 7,
+            "id": 6,
             "marca": "Redragon",
             "modelo": "Thunder E200",
             "precio": "2700",
@@ -130,7 +121,7 @@
             "imagen": "imagen-1600619902618.jpg"
         },
         {
-            "id": 8,
+            "id": 7,
             "marca": "LG",
             "modelo": "UltraGear 24GL600F",
             "precio": "45000",
@@ -139,7 +130,7 @@
             "imagen": "imagen-1600620078154.jpg"
         },
         {
-            "id": 9,
+            "id": 8,
             "marca": "Corsair",
             "modelo": "VS450",
             "precio": "6500",
@@ -148,7 +139,7 @@
             "imagen": "imagen-1600640053040.jpg"
         },
         {
-            "id": 10,
+            "id": 9,
             "marca": "PC armada",
             "modelo": "Gamer",
             "precio": "33000",
@@ -157,7 +148,7 @@
             "imagen": "imagen-1600640283478.jpeg"
         },
         {
-            "id": 11,
+            "id": 10,
             "marca": "Acer",
             "modelo": "Aspire 3",
             "precio": "95000",
@@ -166,7 +157,7 @@
             "imagen": "imagen-1600640424594.jpg"
         },
         {
-            "id": 12,
+            "id": 11,
             "marca": "HP",
             "modelo": "Stream 11",
             "precio": "72000",
@@ -175,7 +166,7 @@
             "imagen": "imagen-1600640654897.jpeg"
         },
         {
-            "id": 13,
+            "id": 12,
             "marca": "Microsoft",
             "modelo": "XBOX One S",
             "precio": "50000",
@@ -184,7 +175,7 @@
             "imagen": "imagen-1600640713083.jpeg"
         },
         {
-            "id": 14,
+            "id": 13,
             "marca": "PS4",
             "modelo": "Ghost of Tushima",
             "precio": "5000",
@@ -193,7 +184,7 @@
             "imagen": "imagen-1600640751137.jpeg"
         },
         {
-            "id": 15,
+            "id": 14,
             "marca": "Redragon",
             "modelo": "Visnu K561",
             "precio": "4500",
@@ -202,7 +193,7 @@
             "imagen": "imagen-1600640816212.jpg"
         },
         {
-            "id": 16,
+            "id": 15,
             "marca": "Redragon",
             "modelo": "Dagger 2 M715",
             "precio": "3500",
@@ -211,7 +202,7 @@
             "imagen": "imagen-1600640885523.jpg"
         },
         {
-            "id": 17,
+            "id": 16,
             "marca": "Logitech",
             "modelo": "F310",
             "precio": "2000",
@@ -220,7 +211,7 @@
             "imagen": "imagen-1600640948700.jpg"
         },
         {
-            "id": 18,
+            "id": 17,
             "marca": "MSI",
             "modelo": "A320M-A PRO",
             "precio": "7000",
@@ -229,7 +220,7 @@
             "imagen": "imagen-1600641040697.jpg"
         },
         {
-            "id": 19,
+            "id": 18,
             "marca": "AMD",
             "modelo": "Ryzen 5 1600 AF",
             "precio": "13000",
@@ -238,7 +229,7 @@
             "imagen": "imagen-1600641161640.jpg"
         },
         {
-            "id": 20,
+            "id": 19,
             "marca": "Adata",
             "modelo": "Value",
             "precio": "2500",
@@ -247,7 +238,7 @@
             "imagen": "imagen-1600641224950.jpg"
         },
         {
-            "id": "21",
+            "id": 20,
             "marca": "Asrock",
             "modelo": "Radeon RX 5500 XT",
             "precio": "22000",
@@ -256,7 +247,7 @@
             "imagen": "imagen-1600641299540.jpg"
         },
         {
-            "id": 22,
+            "id": 21,
             "marca": "Sound Blaster",
             "modelo": "Z",
             "precio": "20000",
@@ -265,7 +256,7 @@
             "imagen": "imagen-1600641388046.jpeg"
         },
         {
-            "id": 23,
+            "id": 22,
             "marca": "Logitech",
             "modelo": "G935 LightSync",
             "precio": "26000",
@@ -274,7 +265,7 @@
             "imagen": "imagen-1600641483317.jpg"
         },
         {
-            "id": 24,
+            "id": 23,
             "marca": "LG",
             "modelo": "19M38A-B",
             "precio": "15000",
@@ -283,7 +274,7 @@
             "imagen": "imagen-1600641543508.jpg"
         },
         {
-            "id": 25,
+            "id": 24,
             "marca": "Segotep",
             "modelo": "500W",
             "precio": "2000",
@@ -292,7 +283,7 @@
             "imagen": "imagen-1600641602467.jpg"
         },
         {
-            "id": 26,
+            "id": 25,
             "marca": "PC armada",
             "modelo": "Gamer",
             "precio": "30000",
