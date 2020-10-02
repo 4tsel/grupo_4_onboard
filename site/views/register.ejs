@@ -10,11 +10,27 @@
 
   <!-- Cuerpo del register (pegar debajo)-->
 
+  
 
   <section class="form-register">
 
     <h4>¡Regístrate!</h4>
     <form action="/user/registro" method="POST" enctype="multipart/form-data">
+      <% if(typeof errors != 'undefined') { %>
+
+        <ul>
+
+          <% errors.forEach(error =>{ %>
+
+            <li>
+              <%= error.msg %>
+            </li>
+
+          <% }) %>
+
+        </ul>
+
+        <% } %>
       <input class="controls" type="text" name="nombre" placeholder="Ingresá tu nombre">
       <input class="controls" type="text" name="apellido" placeholder="Ingresá tu apellido">
       <input class="controls" type="email" name="email" placeholder="Ingresá tu correo">

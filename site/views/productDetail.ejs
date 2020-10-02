@@ -23,7 +23,12 @@
                     <h3 class="card-title"><%- producto.marca %> <%- producto.modelo %></h3>
                     <h2 class="card-title precio">$<%- producto.precio %></h2> 
                     <h5>O en 3 cuotas s/interés de $<%-producto.precio / 3 %></h5>
-                    <form class="row carroProducto">
+                    <form class="row carroProducto" method="POST" action="/user/cart">
+                        <input type="text" class="d-none" name="id" value="<%- producto.id %>">
+                        <input type="text" class="d-none" name="marca" value="<%- producto.marca %>">
+                        <input type="text" class="d-none" name="modelo" value="<%- producto.modelo %>">
+                        <input type="text" class="d-none" name="precio" value="<%- producto.precio %>">
+                        <input type="text" class="d-none" name="imagen" value="<%- producto.imagen %>">
                         <input type="number" placeholder="Ingrese cantidad" name="cantidad" class="form-control col-5">
                         <button type="submit" class="btn col-5">
                             <i class="fas fa-shopping-cart"></i> Agregar

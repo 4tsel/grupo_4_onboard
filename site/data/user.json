@@ -1,1 +1,23 @@
-[{"id":1,"nombre":"Axel","apellido":"Novo","email":"axelbnovo@gmail.com","password":"marihuana","admin":false,"imagen":"imagen-1600613467217.jpg"}]
+{
+    "usuarios": [
+        
+    ],
+    "carrito": [
+        {
+            "id": "23",
+            "marca": "Logitech",
+            "modelo": "G935 LightSync",
+            "precio": "26000",
+            "imagen": "imagen-1600641483317.jpg",
+            "cantidad": "1"
+        },
+        {
+            "id": "1",
+            "marca": "Redragon",
+            "modelo": "Jupiter G809",
+            "precio": "5700",
+            "imagen": "imagen-1600618910437.jpg",
+            "cantidad": "2"
+        }
+    ]
+}

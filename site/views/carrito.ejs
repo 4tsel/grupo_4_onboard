@@ -8,40 +8,35 @@
   <!-- Partial del header -->
   <%- include(`./partials/header.ejs`) %>
 
-  <main class="container-fluid px-0">
+  <main class="container-fluid px-0 mt-3">
     <div class="row mx-0 py-2 mainCard">
       <div class="card">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col"></th>
               <th scope="col">Producto</th>
               <th scope="col">Cantidad</th>
               <th scope="col">Precio</th>
             </tr>
           </thead>
           <tbody>
+
+
+            <% carrito.forEach(producto => { %>
+            
             <tr>
-              <th scope="row">img</th>
-              <td>Lorem</td>
-              <td>1</td>
-              <td>$PRECIO</td>
+              <th scope="row"><img src="/img/products/<%- producto.imagen %>" alt="" width="50"></th>
+              <td><%- producto.marca %> <%- producto.modelo %></td>
+              <td><%- producto.cantidad %></td>
+              <td>$<%- producto.precio * producto.cantidad %></td>
             </tr>
-            <tr>
-              <th scope="row">img</th>
-              <td>Lorem</td>
-              <td>3</td>
-              <td>$PRECIO</td>
-            </tr>
-            <tr>
-              <th scope="row">img</th>
-              <td>Lorem</td>
-              <td>2</td>
-              <td>$PRECIO</td>
-            </tr>
+            <% }) %>
+
           </tbody>
         </table>
       </div>
+
     </div>
   </main>
 
