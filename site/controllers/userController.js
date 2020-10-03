@@ -13,6 +13,37 @@ const userController = {
         res.render(`ingreso.ejs`);
 
     },
+    procesoLogin: (req, res)=>{
+
+        let errors = validationResult(req);
+
+        let usuarioALoguear;
+
+        if (errors.isEmpty()) {
+
+            
+            
+            for (let i = 0; i < userDB.usuarios.length; i++) {
+                if(userDB.usuarios[i].email == req.body.email){
+                    if(bcrypt.compareSync(req.body.password, userDB.usuarios[i].password)){
+                        usuarioALoguear = userDB.usuarios[i];
+                        break;
+                    }
+                }
+            }
+
+            if(usuarioALoguear == undefined){
+                return res.render(`ingreso.ejs`,{ errors: [
+                    {msg: 'Email o contraseña incorrectos'}
+                ]});
+            }
+
+            req.session.usuarioLogueado = usuarioALoguear;
+            res.send(`exito`)
+        } else{
+            res.render(`ingreso`, {errors: errors.errors})
+        }
+    },
     registro: (req, res) => {
 
         res.render(`register.ejs`,
@@ -50,7 +81,7 @@ const userController = {
 
             userDB.usuarios.push(usuario);
             fs.writeFileSync(path.join(__dirname, `..`, `data`, `user.json`), JSON.stringify(userDB), `utf-8`);
-            res.redirect(`/`);
+            res.redirect(`/user/login`);
         } else {
             return res.render(`register.ejs`, {errors: errors.errors})
         }

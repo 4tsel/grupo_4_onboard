@@ -1,6 +1,14 @@
 {
     "usuarios": [
-        
+        {
+            "id": 1,
+            "nombre": "Axel",
+            "apellido": "Novo",
+            "email": "axelbnovo@gmail.com",
+            "password": "$2b$10$o0MbjnQJSgDpvpLy1mmZDeYRk0ChQ6jbs3tNMJ8PqNa3jJ9Q60CIy",
+            "admin": false,
+            "imagen": "default.png"
+        }
     ],
     "carrito": [
         {

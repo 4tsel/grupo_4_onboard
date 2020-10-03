@@ -9,11 +9,27 @@
   <section class="form-register">
     <h4>¡Conectate!</h4>
 
-    <form action="">
+    <form action="/user/login" method="POST">
+
+      <% if(typeof errors != 'undefined') { %>
+
+        <ul>
+
+          <% errors.forEach(error =>{ %>
+
+            <li>
+              <%= error.msg %>
+            </li>
+
+          <% }) %>
+
+        </ul>
+
+        <% } %>
 
       <input class="controls" type="email" name="email" placeholder="Ingresá tu correo" required>
       <input class="controls" type="password" name="password" placeholder="Ingresá tu contraseña" required>
-      <a href="Terminos.html"> <input class="botons" type="submit" value="Ingresar"></a>
+      <input class="botons" type="submit" value="Ingresar">
       <p> <input type="checkbox" name="checkbox" id="checkbox"> <strong>recordarme </strong> </p>
       <p> ¿No tenés cuenta? <a href="/user/registro"><strong> Crear cuenta </strong></a></p>
 
