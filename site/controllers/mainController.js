@@ -12,7 +12,8 @@ const mainController = {
             {
                 titulo: `ONBOARD`,
                 productos: productsDB.productos,
-                categorias: productsDB.categorias
+                categorias: productsDB.categorias,
+                usuario: req.session.usuarioLogueado
             });
     },
 }

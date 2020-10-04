@@ -38,7 +38,10 @@
             </div>
         </div>
         <div class="bienvenidx row mx-0 py-2 mainCard">
-            <h3 class="col-12 mb-0">Bienvenidx (nombre)</h3>
+            <% if (usuario != undefined){%>
+                <h3 class="col-9 mb-0">Bienvenidx <%- usuario.nombre %></h3>
+                <a href="/user/logout">Cerrar sesión</a>
+            <% } %>
         </div>
         <div class="row vistaProductos mx-0 py-2 mainCard">
             <h3 class="col-12">Podría interesarte / <a href="/prod"">Ver todo</a></h3>
