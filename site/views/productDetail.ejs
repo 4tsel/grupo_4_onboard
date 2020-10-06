@@ -34,12 +34,17 @@
                             <i class="fas fa-shopping-cart"></i> Agregar
                         </button>
                     </form>
-                    <div class="col-12 row">
-                        <a href="/prod/<%- producto.id %>/edit" class="btn ">Editar</a>
-                        <form action="/prod/<%- producto.id %>/delete?_method=DELETE" method="POST">
-                            <input type="submit" value="Borrar" class="btn">
-                        </form>
-                    </div>
+                    <% if (locals.user != undefined && locals.user.admin === true){ %>
+                    
+                        <div class="col-12 row">
+                            <a href="/prod/<%- producto.id %>/edit" class="btn ">Editar</a>
+                            <form action="/prod/<%- producto.id %>/delete?_method=DELETE" method="POST">
+                                <input type="submit" value="Borrar" class="btn">
+                            </form>
+                        </div>
+                        
+                    <% } %>
+                    
                 </div>
             </div>
         </div>

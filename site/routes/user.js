@@ -8,8 +8,9 @@ const loginValidator = require(`../validations/loginValidator`)
 //middlewares
 const uploadUserImage = require(`../middlewares/uploadUserImage.js`)
 const userController = require(`../controllers/userController.js`);
-const authMiddleware = require(`../middlewares/authMiddleware`)
-const guestMiddleware = require(`../middlewares/guestMiddleware`);
+const authMiddleware = require(`../middlewares/authMiddleware.js`);
+const guestMiddleware = require(`../middlewares/guestMiddleware.js`);
+const adminMiddleware = require(`../middlewares/adminMiddleware.js`)
 
 //login
 router.get(`/login`, guestMiddleware, userController.login);
@@ -23,15 +24,15 @@ router.get(`/registro`, guestMiddleware, userController.registro);
 router.post(`/registro`, uploadUserImage.any(), registerValidator, userController.procesoRegistro);
 
 //registro
-router.get(`/cart`, userController.carrito);
+router.get(`/cart`, authMiddleware, userController.carrito);
 router.post(`/cart`, userController.sumandoCarrito)
 
 //prueba
 router.get(`/check`, function (req, res) {
-  if (req.session.usuarioLogueado == undefined) {
+  if (req.session.user == undefined) {
     res.send(`no estás logueado`)
   } else {
-    res.send(`el usuario logueado es ${req.session.usuarioLogueado.email}`)
+    res.send(`el usuario logueado es ${req.session.user.email}`)
   }
 })
 

@@ -1,7 +1,7 @@
 module.exports = (req, res, next)=>{
-    if(req.session.usuarioLogueado == undefined){
+    if(req.session.user == undefined){
         next()
     } else {
-        res.send(`esta página es solo para invitados`)
+        res.render(`guest.ejs`)
     }
 }

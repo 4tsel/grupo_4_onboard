@@ -4,7 +4,7 @@ const methodOverride = require(`method-override`);
 const path = require('path');
 const session = require(`express-session`)
 const cookieParser = require(`cookie-parser`);
-const recordarMiddleware = require(`./middlewares/recordarMiddleware.js`)
+const localsUserCheck = require(`./middlewares/localsUserCheck.js`);
 
 app.listen(3030, ()=>console.log(`asdasdasd en el 3030`));
 app.set(`view engine`, `ejs`);
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(cookieParser())
-app.use(recordarMiddleware)
+app.use(localsUserCheck);
 
 
 const routeMain = require(`./routes/main.js`);

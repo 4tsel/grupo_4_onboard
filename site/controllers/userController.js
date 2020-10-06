@@ -41,11 +41,7 @@ const userController = {
                 });
             }
 
-            req.session.usuarioLogueado = usuarioALoguear;
-
-            if(req.body.recordar != undefined){
-                res.cookie(`recordar`, usuarioALoguear.email, {maxAge: 60000})
-            }
+            req.session.user = usuarioALoguear;
 
             res.redirect(`/`)
         } else {

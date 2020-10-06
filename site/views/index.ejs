@@ -38,8 +38,8 @@
             </div>
         </div>
         <div class="bienvenidx row mx-0 py-2 mainCard">
-            <% if (usuario != undefined){%>
-                <h3 class="col-9 mb-0">Bienvenidx <%- usuario.nombre %></h3>
+            <% if (locals.user != undefined){%>
+                <h3 class="col-9 mb-0">Bienvenidx <%- user.nombre %></h3>
                 <a href="/user/logout">Cerrar sesión</a>
             <% } %>
         </div>

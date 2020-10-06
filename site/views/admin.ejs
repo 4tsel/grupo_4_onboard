@@ -1,31 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="es">
-<header>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/estiloadm.css">
-  <title>Formulario Admin</title>
-</header>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
 <body>
-  <div class="form-register">
-   <a href="/index.html"> <img src="image/Logo.png" class="Logo" alt="Logo"></a>
-    <h4>LOGIN ADMINISTRACIÓN</h4>
-    <p> ¿Sos usuario? <a href="ingreso.html"><strong> Hace click acá </strong></a></p>
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingresá tu correo" required>
-    <input class="controls" type="password" name="password" id="password"placeholder="Ingresá tu contraseña" required>
- <a href="Terminos.html"> <input class="botons" type="submit" value="Ingresar"></a>
- <p> <input type="checkbox" name="checkbox" id="checkbox"> <strong>recordarme </strong> </p>
-    <p> ¿No tenés cuenta? <a href="register.html"><strong> Crear cuenta </strong></a></p>
- 
-<p> <strong>Ingresá con </strong></p> 
-    <center>
-<input class="redes" type="image" src="image/fb.png" name="fb">
-<input class="redes" type="image" src="image/google.png" name="google">
-</center>
-<p class="derechos">Todos los derechos reservados 2020 Insumos Onboard </p>
-</form>
-</div> 
+
+  <!-- partial del header -->
+  <%- include(`./partials/header.ejs`) %>
+
+  <!-- Cuerpo del home -->
+  <main class="container-fluid px-0">
+
+    <div class="bienvenidx row mx-0 py-2 mainCard">
+      <h3 class="col-9 mb-0">Lo sentimos, <%- user.nombre %>!</h3>
+      <p>Parece que no tenés privilegios de administrador para ingresar a este sitio</p>
+      <% if (user.nombre != undefined) {%>
+      <a href="/user/logout">Cerrá sesión</a>
+      <% } else {%>
+      <a href="/user/login">Iniciá sesión</a>
+      <% } %>
+    </div>
+
+
+
+
+
+  </main>
+
+  <!-- partial del footer -->
+  <%- include(`./partials/footer.ejs`) %>
+
+  <!-- partial de scripts -->
+  <%- include(`./partials/scripts.ejs`) %>
+
 </body>
-</html> 
+
+</html>

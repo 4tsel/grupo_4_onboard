@@ -6,6 +6,15 @@
             "apellido": "Novo",
             "email": "axelbnovo@gmail.com",
             "password": "$2b$10$o0MbjnQJSgDpvpLy1mmZDeYRk0ChQ6jbs3tNMJ8PqNa3jJ9Q60CIy",
+            "admin": true,
+            "imagen": "default.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Axel",
+            "apellido": "Novo",
+            "email": "axelnoadmin@gmail.com",
+            "password": "$2b$10$C1EL8samszZSPtbbN3yzteOLTtFrqlYBk6MDM5hN2XpYze6wEXUWK",
             "admin": false,
             "imagen": "default.png"
         }

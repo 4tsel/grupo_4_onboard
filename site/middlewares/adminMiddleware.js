@@ -1,7 +1,7 @@
 module.exports = (req, res, next)=>{
-    if(req.session.user != undefined){
+    if(req.session.user.admin == true){
         next()
     } else {
-        res.render(`auth.ejs`)
+        res.render(`admin.ejs`)
     }
 }
