@@ -12,13 +12,13 @@
   <main class="container-fluid px-0">
 
     <div class="bienvenidx row mx-0 py-2 mainCard">
-      <h3 class="col-9 mb-0">Lo sentimos, <%- user.nombre %>!</h3>
+      <h3 class="col-9 mb-0">Lo sentimos!</h3>
       <p>Parece que no tenés privilegios de administrador para ingresar a este sitio</p>
-      <% if (user.nombre != undefined) {%>
-      <a href="/user/logout">Cerrá sesión</a>
-      <% } else {%>
-      <a href="/user/login">Iniciá sesión</a>
-      <% } %>
+      
+      <a href="/">Volver al home</a>
+      
+      
+      
     </div>
 
 
