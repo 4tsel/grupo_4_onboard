@@ -19,7 +19,7 @@ El público objetivo es, principalmente, personas fanáticas por el mundo gamer,
 - **Gustos:** Escuchar música, videojuegos.  
 ### [Huaman, Liset:](https://github.com/Lisetangela)
 - **Edad:** 23 años.
-- **Ocupación:** Estudiante de programacion.
+- **Ocupación:** Estudiante de programación.
 - **Gustos:** Escuchar música, leer, viajar.
 
 ## Referencias
