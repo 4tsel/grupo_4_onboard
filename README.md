@@ -17,6 +17,10 @@ El público objetivo es, principalmente, personas fanáticas por el mundo gamer,
 - **Edad:** 26 años.
 - **Ocupación:** Estudiante universitario.
 - **Gustos:** Escuchar música, videojuegos.  
+### [Huaman, Liset:](https://github.com/Lisetangela)
+- **Edad:** 23 años.
+- **Ocupación:** Estudiante de programacion.
+- **Gustos:** Escuchar música, leer, viajar.
 
 ## Referencias
 ### [Compra Gamer](https://compragamer.com/)
