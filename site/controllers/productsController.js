@@ -136,7 +136,7 @@ const productsController = {
             precio: req.body.precio,
             categoria: req.body.categoria,
             descripcion: req.body.descripcion,
-            imagen: req.files[0].filename
+            imagen: req.files[0]?req.files[0].filename:'default.jpg'
 
         }
         productsDB.productos.push(productoAgregado);
