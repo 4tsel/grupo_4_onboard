@@ -10,33 +10,24 @@
     <!-- Partial del header -->
     <%- include(`./partials/header.ejs`)%>
 
-    <div class="container-fluid">
-      <div class="row">
-        
-
-        <!-- DIV con los productos -->
-        <div class="row col-9 col_prod">
-
-          <% productos.forEach(producto => { %>
-          
-            <div class="card col-4 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-              <img
-                src="/img/products/<%- producto.imagen %>"
-                class="card-img-top"
-                alt="intel celeron"
-              />
-              <div class="card-body mx-0 p-0">
-                <h5 class="card-title"><%- producto.marca %> <%- producto.modelo %></h5>
-                <a href="/prod/det/<%-producto.id%>" class="btn">$<%- producto.precio %></a>
-              </div>
-            </div>
-
-          <% }) %>
-
-          
-        </div>
+    <main class="container-fluid px-0">
+      <div class="bienvenidx row mx-0 py-2 mainCard">
+        <h4 class="col-12">Nuestros productos / <a href="/prod/cat"">Categorías</a></h4>
       </div>
-    </div>
+        <div class=" row vistaProductos mx-0 py-2 mainCard ">
+        <% productos.forEach(producto => { %>
+          <div class=" card col-5 my-3">
+            <a href="/prod/det/<%= producto.id %>">
+              <img src="/img/products/<%= producto.imagen%>" class="card-img-top" alt="img producto">
+              <div class="card-body mx-0 p-0">
+                <h6 class="card-title"><%= producto.marca%> <%= producto.modelo%></h6>
+                <button type="button" class="align-self-end btn">$<%= producto.precio%></button>
+              </div>
+            </a>
+          </div>
+        <% }) %>
+      </div>
+    </main>
 
     <!-- Partial del footer -->
     <%-include(`./partials/footer.ejs`) %>
