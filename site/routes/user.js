@@ -1,13 +1,15 @@
 const express = require(`express`);
 const router = express.Router();
 
+// Controlador
+const userController = require(`../controllers/userController.js`);
+
 //validaciones
 const registerValidator = require(`../validations/registerValidator`);
 const loginValidator = require(`../validations/loginValidator`)
 
 //middlewares
 const uploadUserImage = require(`../middlewares/uploadUserImage.js`);
-const userController = require(`../controllers/userController.js`);
 const authMiddleware = require(`../middlewares/authMiddleware.js`);
 const guestMiddleware = require(`../middlewares/guestMiddleware.js`);
 const adminMiddleware = require(`../middlewares/adminMiddleware.js`);
@@ -33,7 +35,6 @@ router.delete(`/:id/delete`, userController.eliminar); //Borrado de producto
 
 //TEST
 router.get(`/check`, function (req, res) {
-  console.log(req.session.user)
   if (req.session.user == undefined) {
     res.send(`no estás logueado`)
   } else {

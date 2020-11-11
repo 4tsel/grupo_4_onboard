@@ -15,6 +15,15 @@
         <div class="row row_prod">
             <div class="col-12">
                 <form action="/prod/add/cat" method="POST">
+                    <% if(typeof errors != 'undefined') { %>
+                    <ul>
+                        <% errors.forEach(error =>{ %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <% } %>
                     <label for="">Nombre de categoría:</label> <input type="text" name="name" required>
                     <br>
                     <label for="">Elige un ícono adecuado a la categoría:</label>

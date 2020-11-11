@@ -9,8 +9,7 @@ const userController = {
     //CREATE
     registro: (req, res) => { //Formulario de registro
 
-        res.render(`register.ejs`,
-            {
+        res.render(`register.ejs`,{
                 titulo: `Registro`,
             });
 
@@ -18,7 +17,7 @@ const userController = {
     procesoRegistro: (req, res, next) => { //Proceso de registro
 
         let errors = validationResult(req)
-
+        console.log(errors)
         if (errors.isEmpty()) {
 
             db.Usuarios.create({
@@ -67,7 +66,7 @@ const userController = {
                             admin: usuario.admin
                         }
                         if (req.body.recordar) { //Implementación de cookies
-                            res.cookie('recordar', req.session.user, { maxAge: 120000 })
+                            res.cookie('recordar', req.session.user, { maxAge: 60000 * 60 })
                         }
                         res.locals.user = req.session.user
 

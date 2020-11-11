@@ -1,4 +1,3 @@
-const path = require(`path`);
 let { check, validationResult, body } = require(`express-validator`);
 const bcrypt = require('bcrypt');
 const db = require('../db/models');

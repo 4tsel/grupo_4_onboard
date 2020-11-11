@@ -1,5 +1,6 @@
 const db = require(`../db/models`);
 const sequelize = db.sequelize;
+let {validationResult} = require(`express-validator`);
 
 const productsController = {
 
@@ -25,7 +26,7 @@ const productsController = {
             marca: req.body.marca,
             modelo: req.body.modelo,
             precio: req.body.precio,
-            descuento: req.body.descuento?req.body.descuento:0,
+            descuento: req.body.descuento ? req.body.descuento : 0,
             id_categorias: req.body.categoria,
             descripcion: req.body.descripcion,
             imagen: req.files[0] ? req.files[0].filename : 'default.jpg'
@@ -33,7 +34,7 @@ const productsController = {
             .catch(error => {
                 console.log(error);
             })
-        res.redirect(`/prod`)
+        res.redirect(`/prod/add`)
 
     },
     agregarCategoria: (req, res) => {
@@ -42,14 +43,28 @@ const productsController = {
             titulo: `Agregar categoría`
         });
     },
-    agregandoCategoria: (req, res) => {
+    agregandoCategoria: (req, res, next) => {
 
-        db.Categorias.create({
-            nombre: req.body.name,
-            icono: req.body.icon
-        });
+        let errors = validationResult(req)
+        console.log(errors)
 
-        res.redirect(`/prod/add`);
+        if (errors.isEmpty()) {
+
+            db.Categorias.create({
+                nombre: req.body.name,
+                icono: req.body.icon
+            })
+                .then(() => {
+                    res.redirect(`/prod/add`)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+
+        } else {
+            return res.render(`agregarCat.ejs`, { errors: errors.errors })
+        }
+        
 
     },
 
@@ -58,9 +73,9 @@ const productsController = {
 
         db.Productos.findAll({
             where: {
-                [db.Sequelize.Op.or]:{ //Operador or
-                    marca: {[db.Sequelize.Op.like]: `%${req.query.search}%`}, //Busca por marca
-                    modelo: {[db.Sequelize.Op.like]: `%${req.query.search}%`} //Busca por modelo
+                [db.Sequelize.Op.or]: { //Operador or
+                    marca: { [db.Sequelize.Op.like]: `%${req.query.search}%` }, //Busca por marca
+                    modelo: { [db.Sequelize.Op.like]: `%${req.query.search}%` } //Busca por modelo
                 }
             }
         })
@@ -132,7 +147,7 @@ const productsController = {
 
         let pedidoProducto = db.Productos.findByPk(req.params.id)
         let pedidoCategoria = db.Categorias.findAll()
-        
+
         Promise.all([pedidoProducto, pedidoCategoria])
             .then(([producto, categorias]) => {
                 res.render(`productEdit`, {
@@ -146,9 +161,9 @@ const productsController = {
 
         let imagenProducto;
         db.Productos.findByPk(req.params.id)
-        .then(producto => {
-            imagenProducto = producto.imagen
-        })
+            .then(producto => {
+                imagenProducto = producto.imagen
+            })
 
         db.Productos.update({
             id: req.params.id,
@@ -159,7 +174,7 @@ const productsController = {
             id_categorias: req.body.categoria,
             descripcion: req.body.descripcion,
             imagen: req.files[0] ? req.files[0].filename : imagenProducto
-        },{where: {id: req.params.id}})
+        }, { where: { id: req.params.id } })
 
         res.redirect(`/prod/det/${req.params.id}`)
 
@@ -169,7 +184,7 @@ const productsController = {
     eliminar: (req, res) => { //Elimina producto por id
 
         db.Productos.destroy({
-            where:{
+            where: {
                 id: req.params.id
             }
         })

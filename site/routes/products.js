@@ -1,10 +1,15 @@
 const express = require(`express`);
 const router = express.Router();
 
+//Controlador
+const productsController = require(`../controllers/productsController`);
+
+//Validaciones
+const catCreationValidator = require(`../validations/catCreationValidator.js`);
+
+//Middlewares
 const uploadProductImage = require(`../middlewares/uploadProductImage.js`);
 const adminMiddleware = require(`../middlewares/adminMiddleware.js`);
-
-const productsController = require(`../controllers/productsController`);
 
 //CREATE
 router.get(`/add`, adminMiddleware, productsController.agregar); //Selección de qué agregar
@@ -13,7 +18,7 @@ router.get(`/add/prod`, adminMiddleware, productsController.agregarProducto); //
 router.post(`/add/prod`, uploadProductImage.any(), productsController.agregandoProducto); //Proceso de adición
 
 router.get(`/add/cat`, adminMiddleware, productsController.agregarCategoria); //Formulario de adición
-router.post(`/add/cat`, productsController.agregandoCategoria); //Proceso de adición
+router.post(`/add/cat`, catCreationValidator, productsController.agregandoCategoria); //Proceso de adición
 
 //READ
 router.get(`/`, productsController.lista); //Listado de productos

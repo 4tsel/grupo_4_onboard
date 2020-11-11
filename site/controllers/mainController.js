@@ -1,19 +1,22 @@
-const express = require(`express`);
-const fs = require(`fs`);
+const db = require(`../db/models`);
+const sequelize = db.sequelize;
 
-let productsDB = require(`../data/productDB.js`);
 
 const mainController = {
     index: (req, res) => {
 
-        
+        let listaCategorias = db.Categorias.findAll()
+        let listaProductos = db.Productos.findAll()
 
-        res.render(`index.ejs`,
-            {
-                titulo: `ONBOARD`,
-                productos: productsDB.productos,
-                categorias: productsDB.categorias,
-            });
+        Promise.all([listaCategorias, listaProductos])
+            .then(([categorias, productos]) => {
+                res.render(`index.ejs`,{
+                        titulo: `ONBOARD`,
+                        productos: productos,
+                        categorias: categorias,
+                    });
+            })
+
     },
 }
 
