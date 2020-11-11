@@ -1,60 +1,13 @@
-const express = require(`express`);
-const fs = require(`fs`);
-const path = require(`path`);
+
 const bcrypt = require(`bcrypt`);
 let { check, validationResult, body } = require(`express-validator`);
-
-let userDB = require(path.join(`..`, `data`, `userDB`));
-let productsDB = require(`../data/productDB.js`);
+const db = require(`../db/models`);
+const sequelize = db.sequelize;
 
 const userController = {
-    login: (req, res) => {
 
-        res.render(`ingreso.ejs`);
-
-    },
-
-    procesoLogin: (req, res) => {
-
-        let errors = validationResult(req);
-
-        let usuarioALoguear;
-
-        if (errors.isEmpty()) {
-
-
-
-            for (let i = 0; i < userDB.usuarios.length; i++) {
-                if (userDB.usuarios[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, userDB.usuarios[i].password)) {
-                        usuarioALoguear = userDB.usuarios[i];
-                        break;
-                    }
-                }
-            }
-
-            if (usuarioALoguear == undefined) {
-                return res.render(`ingreso.ejs`, {
-                    errors: [
-                        { msg: 'Email o contraseña incorrectos' }
-                    ]
-                });
-            }
-
-            req.session.user = usuarioALoguear;
-
-            res.redirect(`/`)
-        } else {
-            res.render(`ingreso`, { errors: errors.errors })
-        }
-    },
-    logout: (req, res) => {
-
-        req.session.destroy()
-        res.redirect(`/`)
-
-    },
-    registro: (req, res) => {
+    //CREATE
+    registro: (req, res) => { //Formulario de registro
 
         res.render(`register.ejs`,
             {
@@ -62,65 +15,121 @@ const userController = {
             });
 
     },
-    procesoRegistro: (req, res, next) => {
+    procesoRegistro: (req, res, next) => { //Proceso de registro
 
         let errors = validationResult(req)
 
-        console.log(errors)
-
         if (errors.isEmpty()) {
 
-            let lastID = 0;
-            if (userDB.usuarios.length > 0) {
-                userDB.usuarios.forEach(user => {
-                    if (user.id > lastID) {
-                        lastID = user.id;
-                    }
-                })
-            };
-
-            let usuario = {
-                id: lastID + 1,
-                nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
+            db.Usuarios.create({
+                nombre: req.body.nombre.trim(),
+                apellido: req.body.apellido.trim(),
+                email: req.body.email.trim(),
+                contraseña: bcrypt.hashSync(req.body.password, 10),
                 admin: false,
-                imagen: req.files[0] ? req.files[0].filename : "default.png"
-            }
+                avatar: req.files[0] ? req.files[0].filename : "default.png"
+            })
+                .then(() => {
+                    res.redirect(`/`);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
 
-            userDB.usuarios.push(usuario);
-            fs.writeFileSync(path.join(__dirname, `..`, `data`, `user.json`), JSON.stringify(userDB), `utf-8`);
-            res.redirect(`/user/login`);
         } else {
             return res.render(`register.ejs`, { errors: errors.errors })
         }
+        console.log(errors)
     },
-    carrito: (req, res) => {
 
-        const carrito = userDB.carrito
+    //READ
+    login: (req, res) => { //Formulario de ingreso
 
-        res.render(`carrito.ejs`,
-            {
-                carrito: carrito
-            });
+        res.render(`ingreso.ejs`);
+
     },
-    sumandoCarrito: (req, res) => {
 
-        let producto = {
-            id: req.body.id,
-            marca: req.body.marca,
-            modelo: req.body.modelo,
-            precio: req.body.precio,
-            imagen: req.body.imagen,
-            cantidad: req.body.cantidad
+    procesoLogin: (req, res) => { //Proceso de ingreso
+
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+
+            db.Usuarios.findOne({ where: { email: req.body.email } })
+                .then(usuario => {
+                    if (bcrypt.compareSync(req.body.password, usuario.contraseña)) {
+                        req.session.user = {
+                            id: usuario.id,
+                            nombre: usuario.nombre,
+                            apellido: usuario.apellido,
+                            email: usuario.email,
+                            avatar: usuario.avatar,
+                            admin: usuario.admin
+                        }
+                        if (req.body.recordar) { //Implementación de cookies
+                            res.cookie('recordar', req.session.user, { maxAge: 120000 })
+                        }
+                        res.locals.user = req.session.user
+
+                        res.redirect(`/`)
+                    }
+
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+
+
+        } else {
+            res.render(`ingreso`, { errors: errors.errors })
         }
+    },
+    logout: (req, res) => { //Proceso de egreso
 
-        userDB.carrito.push(producto);
-        fs.writeFileSync(path.join(__dirname, `..`, `data`, `user.json`), JSON.stringify(userDB), `utf-8`)
-        res.redirect(`/user/cart`)
+        res.clearCookie(`recordar`)
+        req.session.destroy()
+        res.redirect(`/`)
 
+    },
+    perfil: (req, res) => { //Lectura de datos / Formulario de edición
+
+        db.Usuarios.findByPk(req.session.user.id)
+            .then(usuario => {
+                res.render(`userEdit`, {
+                    usuario: usuario,
+                    titulo: `Editar usuario`,
+                })
+            })
+    },
+
+    //UPDATE
+    editar: (req, res) => { //Proceso de edición
+
+        db.Usuarios.update({
+            avatar: req.files[0] ? req.files[0].filename : req.session.user.avatar,
+            direccion: req.body.direccion,
+            ciudad: req.body.ciudad,
+            provincia: req.body.provincia,
+            fecha: req.body.fecha?req.body.fecha:req.session.user.fecha
+        }, { where: { id: req.params.id } })
+            .then(resultado=>{
+                res.redirect(`/user/perfil`)
+            })
+
+    },
+
+    //DELETE
+    eliminar: (req, res) => { //Proceso de eliminación
+
+        db.Usuarios.destroy({where: {id: req.params.id}})
+            .then(resultado =>{
+                res.clearCookie(`recordar`);
+                req.session.destroy();
+                return res.redirect(`/`)
+            })
     }
+
+
 }
 
 module.exports = userController;

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="/css/agregar_item.css" />
+</head>
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <div class="container-fluid add_prod">
+        <div class="row row_prod">
+            <div class="col-12">
+                <form action="/user/<%-usuario.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <!-- Nombre del producto -->
+                    <p>
+                        <input type="text" name="nombre" value="<%- usuario.nombre %>" disabled>
+                    </p>
+                    <p>
+                        <input type="text" name="apellido" value="<%- usuario.apellido %>" disabled>
+                    </p>
+                    <p>
+                        <input type="email" name="email" value="<%- usuario.email %>" disabled>
+                    </p>
+                    <p> Fecha de Nacimiento
+                        <input type="date" name="fecha">
+                    </p>
+                    <p> Dirección
+                        <input type="text" name="direccion" value="<%- usuario.direccion %>">
+                    </p>
+                    <p> Ciudad
+                        <input type="text" name="ciudad" value="<%- usuario.ciudad %>">
+                    </p>
+                    <p> Provincia
+                        <input type="text" name="provincia" value="<%- usuario.provincia %>">
+                    </p>
+
+
+                    <!-- Imagen -->
+                    <p>
+                        <img src="/img/users/<%- usuario.avatar%>" alt="Imagen del usuario" width="150">
+                        <input type="file" name="avatar">
+                    </p>
+
+                    <!-- boton "Actualizar" -->
+                    <p>
+                        <button class="btn_sbt" type="submit">Actualizar</button>
+                    
+                    </p>
+                </form>
+                <form action="/user/<%- usuario.id %>/delete?_method=DELETE" method="POST">
+                    <input type="submit" value="Eliminar cuenta" class="btn">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+
+    <!-- partial de scripts -->
+    <%- include(`./partials/scripts.ejs`) %>
+</body>
+
+</html>

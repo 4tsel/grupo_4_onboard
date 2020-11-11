@@ -1,48 +1,35 @@
 const express = require(`express`);
 const router = express.Router();
-let multer = require(`multer`);
-let path = require(`path`)
 
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/img/products')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  }
-})
+const uploadProductImage = require(`../middlewares/uploadProductImage.js`);
+const adminMiddleware = require(`../middlewares/adminMiddleware.js`);
 
-var upload = multer({ storage: storage })
+const productsController = require(`../controllers/productsController`);
 
-const authMiddleware = require(`../middlewares/authMiddleware.js`);
-const guestMiddleware = require(`../middlewares/guestMiddleware.js`);
-const adminMiddleware = require(`../middlewares/adminMiddleware.js`)
+//CREATE
+router.get(`/add`, adminMiddleware, productsController.agregar); //Selección de qué agregar
 
-const productsController = require(`../controllers/productsController`)
+router.get(`/add/prod`, adminMiddleware, productsController.agregarProducto); //Formulario de adición
+router.post(`/add/prod`, uploadProductImage.any(), productsController.agregandoProducto); //Proceso de adición
 
-router.get(`/`, productsController.lista);
+router.get(`/add/cat`, adminMiddleware, productsController.agregarCategoria); //Formulario de adición
+router.post(`/add/cat`, productsController.agregandoCategoria); //Proceso de adición
 
-router.get(`/det/:id`, productsController.detalle);
+//READ
+router.get(`/`, productsController.lista); //Listado de productos
 
-router.get(`/add`, adminMiddleware, productsController.agregar);
+router.get(`/busqueda`, productsController.busqueda); //Búsqueda de productos
 
-router.get(`/:id/edit`, adminMiddleware, productsController.editarProducto);
+router.get(`/det/:id`, productsController.detalle); //Detalle de producto
 
-router.put(`/:id/edit`, upload.any(), productsController.editandoProducto);
+router.get(`/cat`, productsController.catLista); //Listado de categorías
+router.get(`/cat/:id`, productsController.catFiltrada); //Productos por categoría seleccionada en /cat
 
-router.delete(`/:id/delete`, productsController.eliminar);
+//UPDATE
+router.get(`/:id/edit`, adminMiddleware, productsController.editarProducto); //Formulario de edición
+router.put(`/:id/edit`, uploadProductImage.any(), productsController.editandoProducto); //Proceso de edición
 
-
-router.get(`/add/cat`, adminMiddleware, productsController.agregarCategoria);
-router.post(`/add/cat`, productsController.agregandoCategoria)
-
-router.get(`/add/prod`, adminMiddleware, productsController.agregarProducto);
-router.post(`/add/prod`, upload.any(), productsController.agregandoProducto);
-
-router.get(`/cat`, productsController.catLista);
-
-router.get(`/cat/:id`, productsController.catFiltrada)
-
-router.get(`/marca/:id`, productsController.marcaFiltrada);
+//DELETE
+router.delete(`/:id/delete`, adminMiddleware, productsController.eliminar); //Borrado de producto
 
 module.exports = router;

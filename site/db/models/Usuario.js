@@ -1,76 +1,67 @@
-const { DataTypes } = require("sequelize/types");
-const config = require("../config/config");
+module.exports = (sequelize, dataTypes) => {
 
-module.exports =(sequelize,dataTypes) => {
+    let alias = 'Usuarios'
 
-let alias ='Usuarios'
+    let cols = {
+        id: {
+            type: dataTypes.INTEGER(),
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        nombre: {
+            type: dataTypes.STRING(45),
+            allowNull: false,
+        },
+        apellido: {
+            type: dataTypes.STRING(45),
+            allowNull: false,
+        },
+        email: {
+            type: dataTypes.STRING(45),
+            allowNull: false,
+        },
+        contraseña: {
+            type: dataTypes.STRING(100),
+            allowNull: false,
+        },
+        admin: {
+            type: dataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        avatar: {
+            type: dataTypes.STRING(45),
+            allowNull: false,
+        },
+        direccion: {
+            type: dataTypes.STRING(100),
+        },
+        ciudad: {
+            type: dataTypes.STRING(45),
+        },
+        provincia: {
+            type: dataTypes.STRING(45),
+        },
+        fecha: {
+            type: dataTypes.DATEONLY,
+        },
+        created_at: {
+            type: dataTypes.DATE
+        },
+        updated_at: {
+            type: dataTypes.DATE
+        }
 
-let cols = {
-id :{
-type : dataTypes.INTEGER(),
-allowNull: false,
-autoIncrement : true,
-primaryKey : true 
-},
-nombre : {
-type: dataTypes.STRING(45),
-allowNule : false,
-autoIncrement: false
-},
-apellido : {
-    type: dataTypes.STRING(45),
-    allowNule : false,
-    autoIncrement: false
-},
-email : {
-type: dataTypes.STRING(45),
-allowNule : false,
-autoIncrement: false
-},
-contraseña : {
-type: dataTypes.STRING(100),
-allowNule : false,
-autoIncrement: false
-},
-rol : {
-type: dataTypes.STRING(45),
-allowNule : false,
-autoIncrement: false
-},
-avatar : {
-type: dataTypes.STRING(45),
-allowNule : false,
-autoIncrement: false
-},
-direccion : {
-    type: dataTypes.STRING(100),
-},
-ciudad : {
-    type: dataTypes.STRING(45),
-},
-provincia : {
-    type: dataTypes.STRING(45),
-},
-fecha : {
-type : dataTypes.DATEONLY,
-},
-id_admin :{
-    type : dataTypes.INTEGER()
-}
-}
-  let config ={
-      tableName : 'Usuarios',
-      timestamps : true,
-      underscore : true
-  }
-    
-    const Usuario =sequelize.define(alias,cols,config);
-    //ESTABLECIENDO ASOCIACIONES Y SUS RESPECTIVAS RELACIONES jeje
-    Usuario.associate = function(models){
-        Usuario.belongsTo(models.Admins,{//Un admin tiene un usuario. Relación (1:1)
-            as : 'usuario',
-            foreignKey : 'id_admin'
-        })
     }
+    let config = {
+        tableName: 'usuarios',
+        timestamps: true, //Si tiene timestamps hay que especificarlos en cols y config.
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+        underscore: true
+    }
+
+    const Usuario = sequelize.define(alias, cols, config);
+
     return Usuario;
-} 
+}

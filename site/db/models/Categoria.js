@@ -1,35 +1,40 @@
-const { DataTypes } = require("sequelize/types");
-const config = require("../config/config");
-module.exports =(sequelize,dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
+
     let alias = 'Categorias';
+
     let cols = {
-        id : { type : dataTypes.INTEGER(),
+        id: {
+            type: dataTypes.INTEGER(),
             allowNull: false,
-            autoIncrement : true,
-            primaryKey : true 
+            autoIncrement: true,
+            primaryKey: true
         },
-        nombre : {
-            type : dataTypes.STRING(45),
-            allowNull : false
+        nombre: {
+            type: dataTypes.STRING(45),
+            allowNull: false
         },
-        imagen : {
-            type : dataTypes.STRING(45),
-            allowNull : false
+        icono: {
+            type: dataTypes.STRING(45),
+            allowNull: false
         }
     }
 
-    let config ={
-        tableName : 'Categorias',
-        timestamps : true,
-        underscore : true
+    let config = {
+        tableName: 'categorias',
+        timestamps: false,
+        underscore: false
     }
-    const Categoria =sequelize.define(alias,cols,config);
-     //ESTABLECIENDO ASOCIACIONES Y SUS RESPECTIVAS RELACIONES jeje
-    Categoria.associate = function(models){
-    Categoria.hasMany(models.Products,{ //Una categoria tiene muchos productos. Relación (1:M)
-        as : "productos",
-        foreignKey : "id_producto"
-    })
+
+    const Categoria = sequelize.define(alias, cols, config);
+
+    Categoria.associate = function (models) {
+
+        Categoria.hasMany(models.Productos, {
+            as: "productos",
+            foreignKey: "id_categorias"
+        })
+
     }
+
     return Categoria;
 }

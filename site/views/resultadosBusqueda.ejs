@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<head>
+  <link rel="stylesheet" href="css/products.css" />
+</head>
+
+<body>
+  <!-- Partial del header -->
+  <%- include(`./partials/header.ejs`)%>
+  <main class="container-fluid px-0">
+    <div class="bienvenidx row mx-0 py-2 mainCard">
+      <h4 class="col-12">Resultados de la búsqueda "<%- busqueda %>"</h4>
+    </div>
+      <div class=" row vistaProductos mx-0 py-2 mainCard ">
+      <% resultados.forEach(resultado => { %>
+        <div class=" card col-5 my-3">
+          <a href="/prod/det/<%= resultado.id %>">
+            <img src="/img/products/<%= resultado.imagen%>" class="card-img-top" alt="img producto">
+            <div class="card-body mx-0 p-0">
+              <h6 class="card-title"><%= resultado.marca%> <%= resultado.modelo%></h6>
+              <button type="button" class="align-self-end btn">$<%= resultado.precio%></button>
+            </div>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  <!-- Partial del footer -->
+  <%-include(`./partials/footer.ejs`) %>
+
+  <!-- Partial de scripts -->
+  <%-include(`./partials/scripts.ejs`)%>
+</body>
+
+</html>

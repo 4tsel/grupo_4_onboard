@@ -1,57 +1,65 @@
-const { DataTypes } = require("sequelize/types");
-const config = require("../config/config");
+module.exports = (sequelize, dataTypes) => {
 
-module.exports =(sequelize,dataTypes) => {
-let alias = 'Productos';
-let cols = {
-    id : { type : dataTypes.INTEGER(),
-        allowNull: false,
-        autoIncrement : true,
-        primaryKey : true 
-    },
-    nombre : {
-        type : dataTypes.STRING(100),
-        allowNule : false,
-        autoIncrement: false 
-    },
-    precio : {
-        type : dataTypes.DECIMAL(5,2).UNSIGNED,
-        allowNule : false
-    },
-    descuento : {
-        type : dataTypes.INTEGER(11),
-        allowNule : false
-    },
-    descripcion : {
-        type : dataTypes.STRING(300),
-        allowNule : false
-    },
+    let alias = 'Productos';
 
-    imagen : {
-        type : dataTypes.STRING(100),
-        allowNule : false
-    },
-    id_categorias : {
-        type : dataTypes.INTEGER()
-    },
-    id_admin :{
-        type : dataTypes.INTEGER()
+    let cols = {
+        
+        id: {
+            type: dataTypes.INTEGER(),
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        marca: {
+            type: dataTypes.STRING(100),
+            allowNull: false,
+        },
+        modelo: {
+            type: dataTypes.STRING(100),
+            allowNull: false,
+        },
+        precio: {
+            type: dataTypes.DECIMAL(7, 2).UNSIGNED,
+            allowNull: false
+        },
+        descuento: {
+            type: dataTypes.INTEGER(11),
+            allowNull: false
+        },
+        descripcion: {
+            type: dataTypes.STRING(300),
+            allowNull: false
+        },
+        imagen: {
+            type: dataTypes.STRING(100),
+            allowNull: false
+        },
+        id_categorias: {
+            type: dataTypes.INTEGER()
+        },
+        created_at: {
+            type: dataTypes.DATE
+        },
+        updated_at: {
+            type: dataTypes.DATE
+        }
     }
-}
-let config ={
-    tableName : 'Productos',
-    timestamps : true,
-    underscore : true
-}
-    const Producto =sequelize.define(alias,cols,config);
-    //ESTABLECIENDO ASOCIACIONES Y SUS RESPECTIVAS RELACIONES jeje
-    Producto.associate = function(models){
+    let config = {
+        tableName: 'productos',
+        timestamps: true,
+        createdAt: "created_at",
+        updatedAt: "updated_at",
+        underscore: true
+    }
+    const Producto = sequelize.define(alias, cols, config);
 
-        Producto.belongsTo(models.Categorias,{// Un producto es de una categoria. Relación (N:1)
-            as : 'categoria',
-            foreignKey : 'id_categoria'
+    Producto.associate = function (models) {
+
+        Producto.belongsTo(models.Categorias, {
+            as: 'categoria',
+            foreignKey: 'id_categorias'
         });
-       
+
     }
     return Producto;
 }

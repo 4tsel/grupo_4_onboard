@@ -1,195 +1,181 @@
-const express = require(`express`);
-const fs = require(`fs`);
-const path = require(`path`);
-
-let productsDB = require(`../data/productDB.js`);
+const db = require(`../db/models`);
+const sequelize = db.sequelize;
 
 const productsController = {
 
-    lista: (req, res) => {
+    //CREATE
+    agregar: (req, res) => { //Seleccionar qué agregar (Producto o categoría)
 
-        res.render(`products.ejs`,
-            {
-                productos: productsDB.productos,
-                categorias: productsDB.categorias,
-                titulo: `Productos`
-            })
+        res.render(`agregar.ejs`, { titulo: `Agregar` });
     },
-    editarProducto: (req, res) => {
-        let id = req.params.id
-        let productoAEditar = productsDB.productos[id - 1]
+    agregarProducto: function (req, res) {
 
-        res.render(`productEdit.ejs`,
-            {
-                producto: productoAEditar,
-                categorias: productsDB.categorias,
+        db.Categorias.findAll()
+            .then((categorias) => {
+                res.render(`agregarItem.ejs`, {
+                    categorias: categorias,
+                    titulo: `Agregar Producto`
+                });
             })
 
     },
-    editandoProducto: (req, res) => {
+    agregandoProducto: function (req, res, next) {
 
-        let id = req.params.id;
-        let productoAEditar = {
-            id: id,
+        db.Productos.create({
             marca: req.body.marca,
             modelo: req.body.modelo,
             precio: req.body.precio,
-            categoria: req.body.categoria,
+            descuento: req.body.descuento?req.body.descuento:0,
+            id_categorias: req.body.categoria,
             descripcion: req.body.descripcion,
-            imagen: productsDB.productos[id - 1].imagen
-            
-        }
-
-        productsDB.productos[id - 1] = productoAEditar;
-
-        fs.writeFileSync(path.join(__dirname, `..`, `data`, `product.json`), JSON.stringify(productsDB), `utf-8`);
-        res.redirect(`/prod/det/${id}`)
-
-    },
-    catLista: (req, res) => {
-
-        res.render(`categorias.ejs`,
-            {
-                categorias: productsDB.categorias
-            })
-    },
-    catFiltrada: (req, res) => {
-
-        let categoria = req.params.id;
-
-        let productoFiltrado = [];
-
-        productsDB.productos.forEach(producto => {
-            if (categoria == producto.categoria) {
-                productoFiltrado.push(producto)
-            }
+            imagen: req.files[0] ? req.files[0].filename : 'default.jpg'
         })
-
-        res.render(`catFiltrada.ejs`,
-            {
-                productos: productoFiltrado
+            .catch(error => {
+                console.log(error);
             })
+        res.redirect(`/prod`)
 
-    },
-    detalle: (req, res) => {
-
-        let id = req.params.id;
-
-
-        let producto = productsDB.productos[id - 1];
-
-
-
-        res.render(`productDetail.ejs`,
-            {
-                titulo: `${producto.marca} ${producto.modelo}`,
-                producto: producto,
-            });
-    },
-    agregar: (req, res) => {
-
-        res.render(`agregar.ejs`);
     },
     agregarCategoria: (req, res) => {
 
-        res.render(`agregarCat.ejs`);
+        res.render(`agregarCat.ejs`, {
+            titulo: `Agregar categoría`
+        });
     },
     agregandoCategoria: (req, res) => {
 
-        let categoria = {
-
+        db.Categorias.create({
             nombre: req.body.name,
             icono: req.body.icon
+        });
 
-        }
-
-        productsDB.categorias.push(categoria);
-
-        fs.writeFileSync(path.join(__dirname, `..`, `data`, `product.json`), JSON.stringify(productsDB), `utf-8`);
         res.redirect(`/prod/add`);
 
     },
-    agregarProducto: (req, res) => {
-        let categorias = productsDB.categorias
 
-        res.render(`agregarItem.ejs`,
-            {
-                categorias: categorias,
-            });
-    },
-    agregandoProducto: (req, res, next) => {
+    //READ
+    busqueda: (req, res) => { //Usa la barra de búsqueda del header para obtener resultados.
 
-        let lastID = 0;
-        if (productsDB.productos.length > 0) {
-            productsDB.productos.forEach(producto => {
-                if (producto.id > lastID) {
-                    lastID = producto.id
+        db.Productos.findAll({
+            where: {
+                [db.Sequelize.Op.or]:{ //Operador or
+                    marca: {[db.Sequelize.Op.like]: `%${req.query.search}%`}, //Busca por marca
+                    modelo: {[db.Sequelize.Op.like]: `%${req.query.search}%`} //Busca por modelo
                 }
+            }
+        })
+            .then(resultados => {
+                res.render(`resultadosBusqueda`, {
+                    resultados: resultados,
+                    busqueda: req.query.search,
+                    titulo: `Búsqueda`
+                })
             })
-        }
 
-        let productoAgregado = {
+    },
+    lista: (req, res) => { //Listado de productos
 
-            id: lastID + 1,
+        db.Productos.findAll()
+            .then(productos => {
+                res.render(`products.ejs`, {
+                    productos: productos,
+                    titulo: `Nuestros productos`,
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    },
+    catLista: (req, res) => { //Listado de categorías
+
+        db.Categorias.findAll()
+            .then(categorias => {
+                res.render(`categorias.ejs`, {
+                    categorias: categorias,
+                    titulo: `Nuestras categorias`
+                })
+            })
+
+    },
+    catFiltrada: (req, res) => { //Listado de productos filtrados por categoría seleccionada en catLista
+
+        db.Productos.findAll({ where: { id_categorias: req.params.id } })
+            .then(productos => {
+                res.render(`catFiltrada`, {
+                    productos: productos,
+                    titulo: `Productos filtrados`
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    },
+    detalle: (req, res) => { //Detalle del producto
+
+        db.Productos.findByPk(req.params.id, { include: [{ association: `categoria` }] })
+            .then(producto => {
+                res.render(`productDetail`, {
+                    titulo: `${producto.marca} ${producto.modelo}`,
+                    producto: producto
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    },
+
+    //UPDATE
+    editarProducto: (req, res) => { // Se cargan los datos del producto a editar
+
+        let pedidoProducto = db.Productos.findByPk(req.params.id)
+        let pedidoCategoria = db.Categorias.findAll()
+        
+        Promise.all([pedidoProducto, pedidoCategoria])
+            .then(([producto, categorias]) => {
+                res.render(`productEdit`, {
+                    producto: producto,
+                    categorias: categorias,
+                    titulo: `Editar producto`
+                })
+            })
+    },
+    editandoProducto: (req, res) => { // Se realiza la edición del producto
+
+        let imagenProducto;
+        db.Productos.findByPk(req.params.id)
+        .then(producto => {
+            imagenProducto = producto.imagen
+        })
+
+        db.Productos.update({
+            id: req.params.id,
             marca: req.body.marca,
             modelo: req.body.modelo,
             precio: req.body.precio,
-            categoria: req.body.categoria,
+            descuento: req.body.descuento,
+            id_categorias: req.body.categoria,
             descripcion: req.body.descripcion,
-            imagen: req.files[0]?req.files[0].filename:'default.jpg'
+            imagen: req.files[0] ? req.files[0].filename : imagenProducto
+        },{where: {id: req.params.id}})
 
-        }
-        productsDB.productos.push(productoAgregado);
+        res.redirect(`/prod/det/${req.params.id}`)
 
-        fs.writeFileSync(path.join(__dirname, `..`, `data`, `product.json`), JSON.stringify(productsDB), `utf-8`);
+    },
+
+    //DELETE
+    eliminar: (req, res) => { //Elimina producto por id
+
+        db.Productos.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
         res.redirect(`/prod`);
 
     },
-    eliminar: (req, res) => {
-
-        let id = req.params.id
-
-        let producto = productsDB.productos[id - 1];
-
-        let indice = productsDB.productos.indexOf(producto)
-
-        productsDB.productos.splice(indice, 1);
-
-        productsDB.productos.forEach(producto => {
-            if (producto.id == productsDB.productos.indexOf(producto) - 1) {
-                producto.id = producto.id
-            } else {
-                producto.id = productsDB.productos.indexOf(producto) + 1
-            }
-        })
-
-        fs.writeFileSync(path.join(__dirname, `..`, `data`, `product.json`), JSON.stringify(productsDB))
-        res.redirect(`/prod`)
-
-
-
-
-    },
-    marcaFiltrada: (req, res) => {
-
-        let marca = req.params.id;
-
-        let productoFiltrado = [];
-
-        productsDB.productos.forEach(producto => {
-            if (marca == producto.marca) {
-                productoFiltrado.push(producto)
-            }
-        })
-
-        res.render(`marcaFiltrada.ejs`,
-            {
-                productos: productoFiltrado
-            })
-
-    }
-
-
-};
+}
 
 module.exports = productsController;

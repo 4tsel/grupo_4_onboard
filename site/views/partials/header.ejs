@@ -10,8 +10,8 @@
         </a>
 
         <!-- Barra de búsqueda -->
-        <form action="" class="row col-8 m-0 p-0">
-            <input class="form-control col-10" type="text" placeholder="Buscá un producto" aria-label="Búsqueda">
+        <form action="/prod/busqueda" class="row col-8 m-0 p-0" method="GET">
+            <input name="search" class="form-control col-10" type="text" placeholder="Buscá un producto" aria-label="Búsqueda">
             <button class="col-2 p-0 busqueda" type="submit">
                 <i class="fas fa-search p-1 fa-md"></i>
             </button>
@@ -32,6 +32,7 @@
             <% } else { %>
 
                 <a href="/user/cart"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                <a href="/user/perfil"><i class="fas fa-user-circle fa-lg"></i></a>
                 
 
                 <% if (locals.user.admin == true){ %>
@@ -92,6 +93,7 @@
             <% } else { %>
 
                 <a href="/user/cart"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                <a href="/user/perfil"><i class="fas fa-user-circle fa-lg"></i></a>
 
                 <% if (locals.user.admin == true){ %>
 

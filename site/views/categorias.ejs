@@ -4,7 +4,8 @@
 <%- include(`./partials/head.ejs`) %>
 
 <body>
-    <!-- partial del header --><%- include(`./partials/header.ejs`) %>
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
     
     <main class="container-fluid px-0">
         <div class="bienvenidx row mx-0 py-2 mainCard">
@@ -13,7 +14,7 @@
           <div class=" row vistaProductos mx-0 py-2 mainCard ">
           <% categorias.forEach(categoria => { %>
             <div class=" card col-5 my-3">
-              <a href="/prod/cat/<%= categoria.nombre %>">
+              <a href="/prod/cat/<%= categoria.id %>">
                 <i class="<%-categoria.icono%> card-img-top"></i>
                 <div class="card-body mx-0 p-0">
                   <h6 class="card-title"><%= categoria.nombre %></h6>
