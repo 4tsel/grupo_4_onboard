@@ -16,15 +16,15 @@
       </div>
         <div class=" row vistaProductos mx-0 py-2 mainCard ">
         <% productos.forEach(producto => { %>
-          <div class=" card col-5 my-3">
-            <a href="/prod/det/<%= producto.id %>">
+          <a href=" /prod/det/<%= producto.id %>">
+            <div class=" card col-5 my-3">
               <img src="/img/products/<%= producto.imagen%>" class="card-img-top" alt="img producto">
               <div class="card-body mx-0 p-0">
                 <h6 class="card-title"><%= producto.marca%> <%= producto.modelo%></h6>
-                <button type="button" class="align-self-end btn">$<%= producto.precio%></button>
+                <a class="btn">$<%= producto.precio%></a>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         <% }) %>
       </div>
     </main>

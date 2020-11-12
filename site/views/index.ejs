@@ -39,8 +39,8 @@
         </div>
         <div class="bienvenidx row mx-0 py-2 mainCard">
             <% if (locals.user != undefined){%>
-                <h3 class="col-9 mb-0">Bienvenidx <%- user.nombre %></h3>
-                <a href="/user/logout">Cerrar sesión</a>
+            <h3 class="col-9 mb-0">Bienvenidx <%- user.nombre %></h3>
+            <a href="/user/logout">Cerrar sesión</a>
             <% } %>
         </div>
         <div class="row vistaProductos mx-0 py-2 mainCard">
@@ -49,53 +49,47 @@
                 <% for( let i = 0; i < 5; i++ ) { %>
 
                 <% if (i < 2) { %>
-
-                <div class=" card col-5">
-                    <a href="/prod/det/<%- productos[i].id %>">
+                <a href=" /prod/det/<%- productos[i].id %>">
+                    <div class=" card col-5">
                         <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
                         <div class="card-body mx-0 p-0">
                             <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                            <a href="#" class="btn">$<%- productos[i].precio%></a>
+                            <a class="btn">$<%- productos[i].precio%></a>
                         </div>
-                    </a>
-                </div>
-
-                <% } else if (i < 3) {%>
-
-                <div class="card col-5 movilH d-none">
-                    <a href="/prod/det/<%- productos[i].id %>">
-                    <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                    <div class="card-body mx-0 p-0">
-                        <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                        <a href="#" class="btn">$<%- productos[i].precio%></a>
                     </div>
-                    </a>
-                </div>
+                </a>
+                <% } else if (i < 3) {%>
+                <a href="/prod/det/<%- productos[i].id %>">
+                    <div class="card col-5 movilH d-none">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
+                        </div>
+                    </div>
+                </a>
 
                 <% } else if (i < 4) {%>
-
-                <div class="card col-5 tabletH d-none">
-                    <a href="/prod/det/<%- productos[i].id %>">
-                    <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                    <div class="card-body mx-0 p-0">
-                        <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                        <a href="#" class="btn">$<%- productos[i].precio%></a>
+                <a href="/prod/det/<%- productos[i].id %>">
+                    <div class="card col-5 tabletH d-none">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
+                        </div>
                     </div>
-                    </a>
-                </div>
+                </a>
 
                 <% } else {%>
-
-                <div class="card col-5 pAncha d-none">
-                    <a href="/prod/det/<%- productos[i].id %>">
-                    <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                    <div class="card-body mx-0 p-0">
-                        <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                        <a href="#" class="btn">$<%- productos[i].precio%></a>
+                <a href="/prod/det/<%- productos[i].id %>">
+                    <div class="card col-5 pAncha d-none">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
+                        </div>
                     </div>
-                    </a>
-                </div>
-
+                </a>
                 <% } %>
                 <% } %>
 
@@ -150,61 +144,56 @@
             <div class="row vistaProductos mx-0 py-2 mainCard">
                 <h3 class="col-12">Últimos ingresos</h3>
 
-                <% for (let i = productos.length - 6; i <= productos.length; i++){ %>
+                <% for (let i = productos.length - 5; i <= productos.length; i++){ %>
 
-                    <% if (i < productos.length - 4) { %>
+                <% if (i < productos.length - 3) { %>
+                <a href=" /prod/det/<%- productos[i].id %>">
+                    <div class=" card col-5">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
+                        </div>
+                    </div>
+                </a>
 
-                        <div class=" card col-5">
-                            <a href="/prod/det/<%- productos[i].id %>">
-                                <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                                <div class="card-body mx-0 p-0">
-                                    <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                                    <a href="#" class="btn">$<%- productos[i].precio%></a>
-                                </div>
-                            </a>    
+                <% } else if (i < productos.length - 2) {%>
+                <a href="/prod/det/<%- productos[i].id %>">
+                    <div class="card col-5 movilH d-none">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
                         </div>
-        
-                        <% } else if (i < productos.length - 3) {%>
-        
-                        <div class="card col-5 movilH d-none">
-                            <a href="/prod/det/<%- productos[i].id %>">
-                            <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                            <div class="card-body mx-0 p-0">
-                                <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                                <a href="#" class="btn">$<%- productos[i].precio%></a>
-                            </div>
-                            </a>
+                    </div>
+                </a>
+
+                <% } else if (i < productos.length - 1) {%>
+                <a href="/prod/det/<%- productos[i].id %>">
+                    <div class="card col-5 tabletH d-none">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
                         </div>
-        
-                        <% } else if (i < productos.length - 2) {%>
-        
-                        <div class="card col-5 tabletH d-none">
-                            <a href="/prod/det/<%- productos[i].id %>">
-                            <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                            <div class="card-body mx-0 p-0">
-                                <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                                <a href="#" class="btn">$<%- productos[i].precio%></a>
-                            </div>
-                            </a>
+                    </div>
+                </a>
+
+                <% } else if (i < productos.length){%>
+                <a href="/prod/det/<%- productos[i].id %>">
+                    <div class="card col-5 pAncha d-none">
+                        <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
+                        <div class="card-body mx-0 p-0">
+                            <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
+                            <a class="btn">$<%- productos[i].precio%></a>
                         </div>
-        
-                        <% } else if (i < productos.length - 1){%>
-        
-                            <div class="card col-5 pAncha d-none">
-                                <a href="/prod/det/<%- productos[i].id %>">
-                                <img src="/img/products/<%- productos[i].imagen%>" class="card-img-top" alt="img producto">
-                                <div class="card-body mx-0 p-0">
-                                    <h6 class="card-title"><%- productos[i].marca%> <%- productos[i].modelo%></h6>
-                                    <a href="#" class="btn">$<%- productos[i].precio%></a>
-                                </div>
-                                </a>
-                            </div>
-        
-                        <% } %>
+                    </div>
+                </a>
 
                 <% } %>
+                <% } %>
 
-                
+
             </div>
         </div>
 

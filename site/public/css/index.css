@@ -10,7 +10,9 @@
     box-sizing: border-box;
     margin: 0 auto;
 }
-
+a:hover{
+    text-decoration: none;
+}
 main{
     background-color: var(--color-azul);
     font-family: 'Roboto', sans-serif;
@@ -19,12 +21,14 @@ main .mainCard{
     border-radius: .75rem!important;
     background-color: var(--color-gris);
 }
-img.card-img-top{
-    width: 150px!important;
-    height: 150px!important;
+main .mainCard a{
+    margin: 0!important;
 }
-
-
+img.card-img-top{
+    margin:15px 0;
+    width: 100px;
+    height: 100px;
+}
 
 main div.bienvenidx{
     border-top-left-radius: 0!important;
@@ -38,7 +42,7 @@ main div.vistaProductos{
 }
 
 h6.card-title{
-    width: 150px;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
