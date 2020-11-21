@@ -1,98 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.mainCard form span{
+  color: red;
 }
 
-body {
- background: #026aa7;
+.mainCard form input{
+  margin-bottom: 10px;
 }
-
-.form-register {
-  width: 400px;
-  background: #F58220;
-  padding: 30px;
-  margin: auto;
-  margin-top: 100px;
-  border-radius: 8px;
-  font-family: 'calibri';
-  color:#026aa7;
-  box-shadow: 7px 13px 37px #000;
-  border: 1px solid orange;
+.mainCard form input:focus{
+  box-shadow: none;
+  border-color: transparent;
 }
-.Logo{
-  width: 170px;
-  height: auto;
+.mainCard form button a{
+  color: inherit;
 }
-.Logo:hover{
-content: url(image/Logo2.png);
-width: 170px;
-height: auto;
+.mainCard form button{
+  border: 1px solid #000;
 }
-
-.form-register h4 {
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.controls {
-  width: 100%;
-  background: #24303c;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  border: 1px solid #4e525a;
-  font-family: 'calibri';
-  font-size: 18px;
-  color: #026aa7 ;
-}
-
-.form-register p {
-  height: 40px;
-  text-align: center;
-  font-size: 18px;
-  line-height: 40px;
-}
-
-.form-register a {
-  color:#026aa7;
-  text-decoration: none;
-}
-
-.form-register a:hover {
-  color:#026aa7;
-  text-decoration: underline;
-}
-
-.form-register .botons {
-  width: 100%;
-  background: #026aa7;
-  border: none;
-  padding: 12px;
+.mainCard form button.eliminar:hover {
+  background-color: red;
   color: white;
-  margin: 16px 0;
-  font-size: 16px;
-  border-radius: 4px;
-  border: 1px solid rgb(1, 1, 92);
-}
-.form-register .botons:hover{
-  color:white;
-  background-color:#035a8b;
-}
-p{
-  margin: 0;
-  padding: 0;
-}
-p.derechos{
-  font-size: 15px;
-}
-@media (max-width: 375px){
-.form-register{
-  width: 95%;
-}
-}
-@media (max-height:812px){
-  .form-register{
-    height: 100%;
-  }
 }

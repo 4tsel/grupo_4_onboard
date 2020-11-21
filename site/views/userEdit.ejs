@@ -11,52 +11,35 @@
     <!-- partial del header -->
     <%- include(`./partials/header.ejs`) %>
 
-    <div class="container-fluid add_prod">
-        <div class="row row_prod">
-            <div class="col-12">
-                <form action="/user/<%-usuario.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <!-- Nombre del producto -->
-                    <p>
-                        <input type="text" name="nombre" value="<%- usuario.nombre %>" disabled>
-                    </p>
-                    <p>
-                        <input type="text" name="apellido" value="<%- usuario.apellido %>" disabled>
-                    </p>
-                    <p>
-                        <input type="email" name="email" value="<%- usuario.email %>" disabled>
-                    </p>
-                    <p> Fecha de Nacimiento
-                        <input type="date" name="fecha">
-                    </p>
-                    <p> Dirección
-                        <input type="text" name="direccion" value="<%- usuario.direccion %>">
-                    </p>
-                    <p> Ciudad
-                        <input type="text" name="ciudad" value="<%- usuario.ciudad %>">
-                    </p>
-                    <p> Provincia
-                        <input type="text" name="provincia" value="<%- usuario.provincia %>">
-                    </p>
 
-
-                    <!-- Imagen -->
-                    <p>
-                        <img src="/img/users/<%- usuario.avatar%>" alt="Imagen del usuario" width="150">
-                        <input type="file" name="avatar">
-                    </p>
-
-                    <!-- boton "Actualizar" -->
-                    <p>
-                        <button class="btn_sbt" type="submit">Actualizar</button>
-                    
-                    </p>
-                </form>
-                <form action="/user/<%- usuario.id %>/delete?_method=DELETE" method="POST">
-                    <input type="submit" value="Eliminar cuenta" class="btn">
-                </form>
-            </div>
+    <main class="container-fluid px-0">
+        <div class="bienvenidx row mx-0 py-2 mainCard">
+            <h3 class="col-9 mb-0">Perfil</h3>
         </div>
-    </div>
+        <div class="row vistaProductos mx-0 py-2 mainCard">
+            <form action="/user/<%-usuario.id%>/edit?_method=PUT" class="row col-10 m-0 p-0" method="POST"
+                enctype="multipart/form-data" id="formularioEdicion">
+                <input id="nombre" class="form-control col-12" type="text" name="nombre" value="<%- usuario.nombre %>" disabled>
+                <input id="apellido" class="form-control col-12" type="text" name="apellido" value="<%- usuario.apellido %>" disabled>
+                <input id="email" class="form-control col-12" type="email" name="email" value="<%- usuario.email %>" disabled>
+                <input id="fecha" class="form-control col-12" type="date" name="fecha" value="<%- usuario.fecha?usuario.fecha:`` %>">
+                <input id="direccion" class="form-control col-12" type="text" name="direccion" value="<%- usuario.direccion?usuario.direccion:`` %>" placeholder="Ingrese su dirección">
+                <input id="ciudad" class="form-control col-12" type="text" name="ciudad" value="<%- usuario.ciudad?usuario.ciudad:`` %>" placeholder="Ingrese una ciudad">
+                <input id="provincia" class="form-control col-12" type="text" name="provincia" value="<%- usuario.provincia?usuario.provincia:``%>" placeholder="Ingrese una provincia">
+                <button class="btn col-6" type="submit">Actualizar</button><button class="btn col-6"><a href="/">Cancelar</a></button>
+            </form>
+            
+            <form action="/user/<%- usuario.id %>/delete?_method=DELETE" class="row col-10 m-0 p-0" method="POST">
+                <button class="btn col-12 eliminar" type="submit">Eliminar cuenta</button>
+            </form>
+            
+        </div>
+
+    </main>
+
+
+
+               
 
     <!-- partial del footer -->
     <%- include(`./partials/footer.ejs`) %>

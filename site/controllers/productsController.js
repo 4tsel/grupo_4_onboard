@@ -1,6 +1,6 @@
 const db = require(`../db/models`);
 const sequelize = db.sequelize;
-let {validationResult} = require(`express-validator`);
+let { validationResult } = require(`express-validator`);
 
 const productsController = {
 
@@ -22,20 +22,35 @@ const productsController = {
     },
     agregandoProducto: function (req, res, next) {
 
-        db.Productos.create({
-            marca: req.body.marca,
-            modelo: req.body.modelo,
-            precio: req.body.precio,
-            descuento: req.body.descuento ? req.body.descuento : 0,
-            id_categorias: req.body.categoria,
-            descripcion: req.body.descripcion,
-            imagen: req.files[0] ? req.files[0].filename : 'default.jpg'
-        })
-            .catch(error => {
-                console.log(error);
-            })
-        res.redirect(`/prod/add`)
+        let errors = validationResult(req);
+        console.log(errors);
+        if (errors.isEmpty()) {
 
+            db.Productos.create({
+                marca: req.body.marca,
+                modelo: req.body.modelo,
+                precio: req.body.precio,
+                descuento: req.body.descuento ? req.body.descuento : 0,
+                id_categorias: req.body.categoria,
+                descripcion: req.body.descripcion,
+                imagen: req.files[0] ? req.files[0].filename : 'default.jpg'
+            })
+                .then(() => {
+                    res.redirect(`/prod/add`);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        } else {
+            return db.Categorias.findAll()
+                .then(categorias => {
+                    res.render(`agregarItem.ejs`, {
+                        errors: errors.errors,
+                        categorias: categorias,
+                        titulo: `Agregar Producto`
+                    })
+                });
+        }
     },
     agregarCategoria: (req, res) => {
 
@@ -64,7 +79,7 @@ const productsController = {
         } else {
             return res.render(`agregarCat.ejs`, { errors: errors.errors })
         }
-        
+
 
     },
 
@@ -162,21 +177,48 @@ const productsController = {
         let imagenProducto;
         db.Productos.findByPk(req.params.id)
             .then(producto => {
-                imagenProducto = producto.imagen
+                imagenProducto = producto.imagen;
+            })
+        let descuentoProducto;
+        db.Productos.findByPk(req.params.id)
+            .then(producto => {
+                descuentoProducto = producto.descuento;
             })
 
-        db.Productos.update({
-            id: req.params.id,
-            marca: req.body.marca,
-            modelo: req.body.modelo,
-            precio: req.body.precio,
-            descuento: req.body.descuento,
-            id_categorias: req.body.categoria,
-            descripcion: req.body.descripcion,
-            imagen: req.files[0] ? req.files[0].filename : imagenProducto
-        }, { where: { id: req.params.id } })
+        let errors = validationResult(req);
+        console.log(errors);
+        if (errors.isEmpty()) {
+            db.Productos.update({
+                id: req.params.id,
+                marca: req.body.marca,
+                modelo: req.body.modelo,
+                precio: req.body.precio,
+                descuento: req.body.descuento ? req.body.descuento : descuentoProducto,
+                id_categorias: req.body.categoria,
+                descripcion: req.body.descripcion,
+                imagen: req.files[0] ? req.files[0].filename : imagenProducto
+            }, { where: { id: req.params.id } })
+                .then(() => {
+                    res.redirect(`/prod/det/${req.params.id}`);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        } else {
+            let pedidoProducto = db.Productos.findByPk(req.params.id)
+            let pedidoCategoria = db.Categorias.findAll()
 
-        res.redirect(`/prod/det/${req.params.id}`)
+            Promise.all([pedidoProducto, pedidoCategoria])
+                .then(([producto, categorias]) => {
+                    res.render(`productEdit`, {
+                        producto: producto,
+                        categorias: categorias,
+                        titulo: `Editar producto`,
+                        errors: errors.errors
+                    })
+                })
+        }
+
 
     },
 

@@ -10,61 +10,56 @@
 <body>
     <!-- partial del header -->
     <%- include(`./partials/header.ejs`) %>
-
-    <div class="container-fluid add_prod">
-        <div class="row row_prod">
-            <div class="col-12">
-                <form id="form_padre" action="/prod/add/prod" method="POST" enctype="multipart/form-data">
-                    <!-- Nombre del producto -->
-                    <p>
-                        <input type="text" name="marca" placeholder="Marca" required >
-                    </p>
-                    <p>
-                        <input type="text" name="modelo" placeholder="Modelo" required >
-                    </p>
-                    <!-- Descripción -->
-                    <p>
-                        <textarea rows="6" cols="35" name="descripcion" placeholder="Añadí una descripción"
-                            required></textarea>
-                    </p>
-                    <!-- Imagen -->
-                    <p>
-                        <input type="file" name="imagen">
-                    </p>
-                    <!-- Categoría -->
-                    <p>
-                        <label for="categoria">Elije la categoria:</label><br>
-                        <select id="cat_btn" name="categoria" required>
-
-                            <% categorias.forEach(categoria => { %>
-
-                            <option value="<%- categoria.id %>"><%- categoria.nombre %> </option>
-
-                            <% }) %>
-
-                        </select>
-                    </p>
-                    <!-- Precio -->
-                    <p>
-                        <input type="text" name="precio" placeholder="Precio">
-                    </p>
-                    <p>
-                        <input type="text" name="descuento" placeholder="Descuento">
-                    </p>
-                    <!-- boton "agregar" -->
-                    <p>
-                        <button class="btn_sbt" type="submit">Agregar</button>
-                    </p>
-                </form>
-            </div>
+    <!-- <form id="form_padre" action="/prod/add/prod" method="POST" enctype="multipart/form-data"> -->
+    <main class="container-fluid px-0">
+        <div class="bienvenidx row mx-0 py-2 mainCard">
+            <h3 class="col-9 mb-0">Agregar producto</h3>
         </div>
-    </div>
+        <div class="row vistaProductos mx-0 py-2 mainCard">
+            <form id="formProducto" class="row col-10 m-0 p-0" action="/prod/add/prod" method="POST"
+                enctype="multipart/form-data">
+                <% if(typeof errors != 'undefined') { %>
+                <ul>
+                    <% errors.forEach(error =>{ %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+                <span id="errorMarca"></span>
+                <input id="marca" name="marca" class="form-control col-12" type="text" placeholder="Marca del producto"
+                    required>
+                <span id="errorModelo"></span>
+                <input id="modelo" name="modelo" class="form-control col-12" type="text"
+                    placeholder="Modelo del producto" required>
+                <span id="errorDescripcion"></span>
+                <textarea id="descripcion" name="descripcion" class="form-control col-12" rows="6" cols="35"
+                    placeholder="Añadí una descripción" required></textarea>
+                <span id="errorImagen" class="col-12"></span>
+                <select name="categoria" class="form-control col-6" required>
+                    <% categorias.forEach(categoria => { %>
+                    <option value="<%- categoria.id %>"><%- categoria.nombre %> </option>
+                    <% }) %>
+                </select>
+                <input id="imagen" type="file" name="imagen" class="form-control col-6 p-1">
+                <span id="errorPrecio" class="col-6"></span>
+                <span id="errorDescuento" class="col-6"></span>
+                <input id="precio" type="number" step="0.01" name="precio" class="form-control col-6"
+                    placeholder="Precio">
+                <input id="descuento" type="number" name="descuento" class="form-control col-6" placeholder="Descuento">
+                <button class="btn col-6" type="submit">Agregar</button> <button class="btn col-6"><a
+                        href="/">Cancelar</a></button>
+            </form>
+        </div>
+    </main>
 
     <!-- partial del footer -->
     <%- include(`./partials/footer.ejs`) %>
 
     <!-- partial de scripts -->
     <%- include(`./partials/scripts.ejs`) %>
+    <script src="/javascripts/products.js"></script>
 </body>
 
 </html>

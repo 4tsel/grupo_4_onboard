@@ -8,44 +8,40 @@
   <!-- Partial del header -->
   <%- include(`./partials/header.ejs`) %>
 
-  <!-- Cuerpo del register (pegar debajo)-->
-
-  
-
-  <section class="form-register">
-
-    <h4>¡Regístrate!</h4>
-    <form action="/user/registro" method="POST" enctype="multipart/form-data">
-      <% if(typeof errors != 'undefined') { %>
-
+  <!-- Cuerpo del register -->
+  <main class="container-fluid px-0">
+    <div class="bienvenidx row mx-0 py-2 mainCard">
+      <h3 class="col-9 mb-0">Registro</h3>
+    </div>
+    <div class="row vistaProductos mx-0 py-2 mainCard">
+      <form action="/user/registro" class="row col-10 m-0 p-0" method="POST" enctype="multipart/form-data"
+        id="formularioRegistro">
+        <% if(typeof errors != 'undefined') { %>
         <ul>
-
           <% errors.forEach(error =>{ %>
-
-            <li>
-              <%= error.msg %>
-            </li>
-
+          <li>
+            <%= error.msg %>
+          </li>
           <% }) %>
-
         </ul>
-
         <% } %>
-      <input class="controls" type="text" name="nombre" placeholder="Ingresá tu nombre">
-      <input class="controls" type="text" name="apellido" placeholder="Ingresá tu apellido">
-      <input class="controls" type="email" name="email" placeholder="Ingresá tu correo">
-      <input class="controls" type="password" name="password" placeholder="Ingresá tu contraseña">
-      <input class="controls" type="file" name="imagen">
-      <p><input type="checkbox" name="terms">Acepto los <a href="#"><strong>Terminos y Condiciones</strong></a></p>
-      <a href="register.html"><input class="botons" type="submit" value="Registrar"></a>
-      <p><a href="/user/login"><strong>¿Ya tenés cuenta?</strong></a></p>
-      <p class="derechos">Todos los derechos reservados 2020 Insumos Onboard </p>
-    </form>
-  </section>
-
-  
-
-  <!--formulario de registo-->
+        <span id="errorNombre"></span>
+        <input id="nombre" class="form-control col-12" type="text" name="nombre" placeholder="Ingresá tu nombre">
+        <span id="errorApellido"></span>
+        <input id="apellido" class="form-control col-12" type="text" name="apellido" placeholder="Ingresá tu apellido">
+        <span id="errorEmail"></span>
+        <input id="email" class="form-control col-12" type="email" name="email" placeholder="Ingresá tu correo">
+        <span id="errorPassword"></span>
+        <input id="password" class="form-control col-12" type="password" name="password" placeholder="Ingresá tu contraseña">
+        <span id="errorConfirmacion"></span>
+        <input id="confirmacion" class="form-control col-12" type="password" placeholder="Reingresá tu contraseña">
+        <span id="errorImagen"></span>
+        <input id="imagen" class="form-control col-12 p-1" type="file" name="avatar">
+        <button class="btn col-6" type="submit">Registrarse</button> <button class="btn col-6"><a href="/">Cancelar</a></button>
+        <h3><a href="/user/login">¿Ya tenés cuenta?</a></h3>
+      </form>
+    </div>
+  </main>
 
 
   <!-- Partial del footer -->
@@ -53,6 +49,7 @@
 
   <!-- Partial de scripts -->
   <%- include(`./partials/scripts.ejs`) %>
+  <script src="/javascripts/registro.js"></script>
 
 </body>
 

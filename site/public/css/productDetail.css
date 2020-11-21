@@ -14,7 +14,10 @@ main div.detalle1{
 .carroProducto{
     justify-content: space-around!important;
 }
-
+img.card-img-top.productImg{
+    width: inherit;
+    height: inherit;
+}
 /* Móvil apaisado */
 @media (min-width: 481px) and (orientation: landscape){
     main div div.product{
@@ -22,7 +25,7 @@ main div.detalle1{
         justify-content: space-around;
     }
     main div div.card img.productImg{
-        flex-basis: 50%!important;
+
         max-width: 50%!important;
         margin: 0!important;
         padding: 0 !important;

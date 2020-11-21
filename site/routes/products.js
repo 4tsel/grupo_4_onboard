@@ -6,6 +6,7 @@ const productsController = require(`../controllers/productsController`);
 
 //Validaciones
 const catCreationValidator = require(`../validations/catCreationValidator.js`);
+const productValidator = require(`../validations/productValidator.js`);
 
 //Middlewares
 const uploadProductImage = require(`../middlewares/uploadProductImage.js`);
@@ -15,7 +16,7 @@ const adminMiddleware = require(`../middlewares/adminMiddleware.js`);
 router.get(`/add`, adminMiddleware, productsController.agregar); //Selección de qué agregar
 
 router.get(`/add/prod`, adminMiddleware, productsController.agregarProducto); //Formulario de adición
-router.post(`/add/prod`, uploadProductImage.any(), productsController.agregandoProducto); //Proceso de adición
+router.post(`/add/prod`, uploadProductImage.any(), productValidator, productsController.agregandoProducto); //Proceso de adición
 
 router.get(`/add/cat`, adminMiddleware, productsController.agregarCategoria); //Formulario de adición
 router.post(`/add/cat`, catCreationValidator, productsController.agregandoCategoria); //Proceso de adición
@@ -32,7 +33,7 @@ router.get(`/cat/:id`, productsController.catFiltrada); //Productos por categor�
 
 //UPDATE
 router.get(`/:id/edit`, adminMiddleware, productsController.editarProducto); //Formulario de edición
-router.put(`/:id/edit`, uploadProductImage.any(), productsController.editandoProducto); //Proceso de edición
+router.put(`/:id/edit`, uploadProductImage.any(), productValidator, productsController.editandoProducto); //Proceso de edición
 
 //DELETE
 router.delete(`/:id/delete`, adminMiddleware, productsController.eliminar); //Borrado de producto

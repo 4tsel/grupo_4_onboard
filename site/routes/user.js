@@ -5,8 +5,8 @@ const router = express.Router();
 const userController = require(`../controllers/userController.js`);
 
 //validaciones
-const registerValidator = require(`../validations/registerValidator`);
-const loginValidator = require(`../validations/loginValidator`)
+const registerValidator = require(`../validations/registerValidator.js`);
+const loginValidator = require(`../validations/loginValidator.js`);
 
 //middlewares
 const uploadUserImage = require(`../middlewares/uploadUserImage.js`);

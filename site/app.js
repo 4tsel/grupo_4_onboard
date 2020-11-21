@@ -2,7 +2,7 @@ const express = require(`express`);
 const app = express();
 const methodOverride = require(`method-override`);
 const path = require('path');
-const session = require(`express-session`)
+const session = require(`express-session`);
 const cookieParser = require(`cookie-parser`);
 const recordarMiddleware = require(`./middlewares/recordarMiddleware.js`);
 const localsUserCheck = require(`./middlewares/localsUserCheck.js`);
@@ -25,13 +25,14 @@ app.use(localsUserCheck);
 const routeMain = require(`./routes/main.js`);
 const routeProducts = require(`./routes/products.js`);
 const routeUser = require(`./routes/user.js`);
+const routeApis = require(`./routes/apis.js`);
 
 app.use(`/`, routeMain);
 app.use(`/prod`, routeProducts);
 app.use(`/user`, routeUser);
+app.use(`/api`, routeApis);
 
 //Error 404
-
 app.use((req, res, next) => {
-    res.status(404).render(`error.ejs`)
+    res.status(404).render(`error.ejs`);
 });

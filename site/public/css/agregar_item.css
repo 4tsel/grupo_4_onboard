@@ -1,22 +1,32 @@
-
-
-#form_padre{
-    font-size: 20px;
-    background-color: var(--color-gris);
-    border-radius: 0.4rem!important;
-    margin-top: 1rem!important;
+.mainCard form span{
+    color: red;
 }
 
-
-p>*{
-    border-radius: 0.2rem!important;
-    margin-top: 1rem!important;
-    margin-left: 1rem!important;
+.mainCard form input{
+    margin-bottom: 10px;
+}
+.mainCard form textarea{
+    margin-bottom: 10px;
 }
 
-.btn_sbt{
-    background-color: var(--color-naranja);
+.mainCard form input:focus{
+    box-shadow: none;
+    border-color: transparent;
 }
+.mainCard form select:focus{
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.mainCard form textarea:focus{
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.mainCard form button a{
+    color: inherit;
+}
+
 
 
 
