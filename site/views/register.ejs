@@ -36,7 +36,12 @@
         <span id="errorConfirmacion"></span>
         <input id="confirmacion" class="form-control col-12" type="password" placeholder="Reingresá tu contraseña">
         <span id="errorImagen"></span>
-        <input id="imagen" class="form-control col-12 p-1" type="file" name="avatar">
+        <label for="imagen" class="col-12">Seleccioná tu avatar</label>
+        <input id="imagen" class="form-control col-10 p-1" type="file" name="avatar">
+        <input class="form-control col-2" id="borrar" type="button" value="Eliminar archivo">
+        <div class="col-12">
+          <img id="vistaPrevia" src="/img/users/default.png" alt="" width="150" class="col-5 mb-2">
+        </div>
         <button class="btn col-6" type="submit">Registrarse</button> <button class="btn col-6"><a href="/">Cancelar</a></button>
         <h3><a href="/user/login">¿Ya tenés cuenta?</a></h3>
       </form>

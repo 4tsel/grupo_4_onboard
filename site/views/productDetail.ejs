@@ -18,30 +18,44 @@
             </span>
             <div class="card col-11 product">
                 <img src="/img/products/<%- producto.imagen%>" alt="imagen producto" class="card-img-top productImg">
-                <div class="card-body mx-0 p-0 money">
-                    <h3 class="card-title"><%- producto.marca %> <%- producto.modelo %></h3>
-                    <h2 class="card-title precio">$<%- producto.precio %></h2> 
-                    <h5>O en 3 cuotas s/interés de $<%-producto.precio / 3 %></h5>
-                    <form class="row carroProducto" method="POST" action="/user/cart">
+                <div class="card-body mx-0 p-0 my-auto money">
+                    <h1 class="card-title"><%- producto.marca.toUpperCase() %> <%- producto.modelo.toUpperCase() %></h1>
+                    <h1 class="card-title precio">$<%- producto.precio %> </h1>
+                    <form action="" class="row col-12 m-0 p-0">
+                        <label for="">Calculá tus cuotas s/interés</label>
+                        <h2 id="precioCuotas" class="col-10 form-control"> </h2>
+                        <input id="precio" type="text" class="d-none" name="precio" value="<%- producto.precio %>">
+                        <select class="form-control col-2" name="" id="cuotas">
+                            <option value=""disabled selected>#</option>
+                            <option value="1">1</option>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="12">12</option>
+                            <option value="18">18</option>
+                        </select>
+                    </form>
+                    <h5>Si lo ves, es porque tenemos stock!</h5>
+                    
+                    <form class="row col-12 m-0 p-0 carroProducto" method="POST" action="/user/cart" >
                         <input type="text" class="d-none" name="id" value="<%- producto.id %>">
                         <input type="text" class="d-none" name="marca" value="<%- producto.marca %>">
                         <input type="text" class="d-none" name="modelo" value="<%- producto.modelo %>">
                         <input type="text" class="d-none" name="precio" value="<%- producto.precio %>">
                         <input type="text" class="d-none" name="imagen" value="<%- producto.imagen %>">
-                        <input type="number" placeholder="Ingrese cantidad" name="cantidad" class="form-control col-5">
-                        <button type="submit" class="btn col-5">
+                        <input type="number" placeholder="Ingrese cantidad" name="cantidad" class="form-control col-6">
+                        <button type="submit" class="btn col-6">
                             <i class="fas fa-shopping-cart"></i> Agregar
                         </button>
                     </form>
-                    <% if (locals.user != undefined && locals.user.admin === true){ %>
                     
-                        <div class="col-12 row">
-                            <a href="/prod/<%- producto.id %>/edit" class="btn ">Editar</a>
-                            <form action="/prod/<%- producto.id %>/delete?_method=DELETE" method="POST">
-                                <input type="submit" value="Borrar" class="btn">
+                    <% if (locals.user != undefined && locals.user.admin === true){ %>
+                        <div class="col-12 row mx-0 p-0">
+                            
+                            <button class="btn col-6 editar"><a href="/prod/<%- producto.id %>/edit">Editar</a></button>
+                            <form action="/prod/<%- producto.id %>/delete?_method=DELETE" method="POST" class="row col-6 m-0 p-0">
+                                <button class="btn col-12 eliminar" type="submit">Eliminar</button>
                             </form>
                         </div>
-                        
                     <% } %>
                     
                 </div>
@@ -67,44 +81,72 @@
                 </div>
             </div>
         </div>
-        <div class="row vistaProductos mx-0 py-2 mainCard">
-            <h3 class="col-12">Productos relacionados</h3>
-            <div class="card col-5">
-                <img src="/img/intelCeleron.jpg" class="card-img-top" alt="intel celeron">
-                <div class="card-body mx-0 p-0">
-                    <h5 class="card-title">Lorem</h5>
-                    <a href="#" class="btn">$PRECIO</a>
-                </div>
+        <% let productosDeCategoria = [] %>
+        <% productos.forEach(productoSeleccionado => { %>
+            
+            <% if(productoSeleccionado.id_categorias == producto.id_categorias && productoSeleccionado.id != producto.id){ %>
+
+                <% productosDeCategoria.push(productoSeleccionado) %>
+
+            <% } %>
+
+        <% }) %>
+        <% if(productosDeCategoria.length > 4){ %> 
+
+            <div class="row vistaProductos mx-0 py-2 mainCard">
+                <h3 class="col-12">Productos relacionados</h3>
+                <% for(let i = 0; i < 5; i++) { %>
+    
+                    <% if(i < 2){ %>
+                        <a href=" /prod/det/<%- productosDeCategoria[i].id %>">
+                            <div class=" card col-5">
+                                <img src="/img/products/<%- productosDeCategoria[i].imagen%>" class="card-img-top" alt="img producto">
+                                <div class="card-body mx-0 p-0">
+                                    <h6 class="card-title"><%- productosDeCategoria[i].marca%> <%- productosDeCategoria[i].modelo%></h6>
+                                    <a class="btn">$<%- productosDeCategoria[i].precio%></a>
+                                </div>
+                            </div>
+                        </a>
+                    <%} else if(i < 3){ %>
+                        <a href="/prod/det/<%- productosDeCategoria[i].id %>">
+                            <div class="card col-5 movilH d-none">
+                                <img src="/img/products/<%- productosDeCategoria[i].imagen%>" class="card-img-top" alt="img producto">
+                                <div class="card-body mx-0 p-0">
+                                    <h6 class="card-title"><%- productosDeCategoria[i].marca%> <%- productosDeCategoria[i].modelo%></h6>
+                                    <a class="btn">$<%- productosDeCategoria[i].precio%></a>
+                                </div>
+                            </div>
+                        </a>
+                    <% } else if (i < 4){%>
+                        <a href="/prod/det/<%- productosDeCategoria[i].id %>">
+                            <div class="card col-5 tabletH d-none">
+                                <img src="/img/products/<%- productosDeCategoria[i].imagen%>" class="card-img-top" alt="img producto">
+                                <div class="card-body mx-0 p-0">
+                                    <h6 class="card-title"><%- productosDeCategoria[i].marca%> <%- productosDeCategoria[i].modelo%></h6>
+                                    <a class="btn">$<%- productosDeCategoria[i].precio%></a>
+                                </div>
+                            </div>
+                        </a>
+        
+                    <% } else {%>
+                        <a href="/prod/det/<%- productosDeCategoria[i].id %>">
+                            <div class="card col-5 pAncha d-none">
+                                <img src="/img/products/<%- productosDeCategoria[i].imagen%>" class="card-img-top" alt="img producto">
+                                <div class="card-body mx-0 p-0">
+                                    <h6 class="card-title"><%- productosDeCategoria[i].marca%> <%- productosDeCategoria[i].modelo%></h6>
+                                    <a class="btn">$<%- productosDeCategoria[i].precio%></a>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
+                    
+        
+                <% } %>
             </div>
-            <div class="card col-5">
-                <img src="/img/intelCeleron.jpg" class="card-img-top" alt="intel celeron">
-                <div class="card-body mx-0 p-0">
-                    <h5 class="card-title">Lorem</h5>
-                    <a href="#" class="btn">$PRECIO</a>
-                </div>
-            </div>
-            <div class="card col-5 movilH d-none">
-                <img src="/img/intelCeleron.jpg" class="card-img-top" alt="intel celeron">
-                <div class="card-body mx-0 p-0">
-                    <h5 class="card-title">Lorem</h5>
-                    <a href="#" class="btn">$PRECIO</a>
-                </div>
-            </div>
-            <div class="card col-5 tabletH d-none">
-                <img src="/img/intelCeleron.jpg" class="card-img-top" alt="intel celeron">
-                <div class="card-body mx-0 p-0">
-                    <h5 class="card-title">Lorem</h5>
-                    <a href="#" class="btn">$PRECIO</a>
-                </div>
-            </div>
-            <div class="card col-5 pAncha d-none">
-                <img src="/img/intelCeleron.jpg" class="card-img-top" alt="intel celeron">
-                <div class="card-body mx-0 p-0">
-                    <h5 class="card-title">Lorem</h5>
-                    <a href="#" class="btn">$PRECIO</a>
-                </div>
-            </div>
-        </div>
+
+        <% } %> 
+            
+        
     </main>
 
     <!-- Partial del footer -->
@@ -112,6 +154,7 @@
 
     <!-- Partial de scripts -->
     <%- include(`./partials/scripts.ejs`) %>
+    <script src="/javascripts/detalleProducto.js"></script>
 
 </body>
 

@@ -36,17 +36,21 @@
                 <span id="errorDescripcion"></span>
                 <textarea id="descripcion" name="descripcion" class="form-control col-12" rows="6" cols="35"
                     placeholder="Añadí una descripción" required></textarea>
-                <span id="errorImagen" class="col-12"></span>
-                <select name="categoria" class="form-control col-6" required>
+                <select name="categoria" class="form-control col-12 mb-2" required>
                     <% categorias.forEach(categoria => { %>
                     <option value="<%- categoria.id %>"><%- categoria.nombre %> </option>
                     <% }) %>
                 </select>
-                <input id="imagen" type="file" name="imagen" class="form-control col-6 p-1">
+                <span id="errorImagen" class="col-12"></span>
+                <label for="imagen" class="col-12">Seleccioná la imagen del producto</label>
+                <input id="imagen" type="file" name="imagen" class="form-control col-10 p-1">
+                <input class="form-control col-2" id="borrar" type="button" value="Eliminar archivo">
+                <div class="col-12">
+                    <img id="vistaPrevia" src="/img/products/default.jpg" alt="" width="150" class="col-5 mb-2">
+                  </div>
                 <span id="errorPrecio" class="col-6"></span>
                 <span id="errorDescuento" class="col-6"></span>
-                <input id="precio" type="number" step="0.01" name="precio" class="form-control col-6"
-                    placeholder="Precio">
+                <input id="precio" type="number" step="0.01" name="precio" class="form-control col-6" placeholder="Precio">
                 <input id="descuento" type="number" name="descuento" class="form-control col-6" placeholder="Descuento">
                 <button class="btn col-6" type="submit">Agregar</button> <button class="btn col-6"><a
                         href="/">Cancelar</a></button>

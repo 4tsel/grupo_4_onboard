@@ -5,6 +5,9 @@ main div.detalle1{
     border-top-left-radius: 0px!important;
     border-top-right-radius: 0px!important;
 }
+main div.money h1{
+    text-align: center;
+}
 .migajas{
     font-size: .75rem!important
 }
@@ -17,6 +20,12 @@ main div.detalle1{
 img.card-img-top.productImg{
     width: inherit;
     height: inherit;
+}
+main div.mainCard div.product div button.editar{
+    border: 1px solid #000;
+}
+main div.mainCard div.product div button.editar a{
+    color: black;
 }
 /* Móvil apaisado */
 @media (min-width: 481px) and (orientation: landscape){

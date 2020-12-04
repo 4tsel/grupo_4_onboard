@@ -1,3 +1,4 @@
+
 window.addEventListener(`load`, ()=>{
 
     //Captura de elementos
@@ -22,7 +23,7 @@ window.addEventListener(`load`, ()=>{
         }
     });
     inputPassword.addEventListener(`keyup`, ()=>{
-        if((inputPassword.value.length == 0) || (inputPassword.value.length < 8)){
+        if((inputPassword.value.length == 0)){
             inputPassword.style.borderColor = `red`;
             errorPassword.innerHTML = `Longitud de contraseña inválida`
         } else {

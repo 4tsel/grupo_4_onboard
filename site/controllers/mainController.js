@@ -18,6 +18,10 @@ const mainController = {
             })
 
     },
+    nosotros: (req, res) => {
+
+        res.render(`nosotros.ejs`)
+    }
 }
 
 module.exports = mainController;

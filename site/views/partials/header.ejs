@@ -10,9 +10,9 @@
         </a>
 
         <!-- Barra de búsqueda -->
-        <form action="/prod/busqueda" class="row col-8 m-0 p-0" method="GET">
-            <input name="search" class="form-control col-10" type="text" placeholder="Buscá un producto" aria-label="Búsqueda">
-            <button class="col-2 p-0 busqueda" type="submit">
+        <form id="formSearch" action="/prod/busqueda" class="row col-8 m-0 p-0" method="GET">
+            <input id="search" name="search" class="form-control col-10" type="text" placeholder="Buscá un producto" aria-label="Búsqueda">
+            <button id="botonSearch" class="col-2 p-0 busqueda" type="submit">
                 <i class="fas fa-search p-1 fa-md"></i>
             </button>
         </form>
@@ -24,15 +24,15 @@
         </button>
 
         <!-- Íconos de registro/inicio y carrito -->
-        <div class="d-none col-2 tabletIconos">
+        <div class="d-none col-2 tabletIconos align-items-center">
             <% if (locals.user == undefined){ %>
 
                 <a href="/user/login"><i class="fas fa-user fa-lg"></i></a>
 
             <% } else { %>
-
+                <a href="/user/perfil"><img src="/img/users/<%=user.avatar%>" alt="" width="50" height="50" class="imgUser"></a>
                 <a href="/user/cart"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                <a href="/user/perfil"><i class="fas fa-user-circle fa-lg"></i></a>
+                
                 
 
                 <% if (locals.user.admin == true){ %>
@@ -92,9 +92,9 @@
 
             <% } else { %>
 
+                <a href="/user/perfil"><img src="/img/users/<%=user.avatar%>" alt="" width="50" height="50" class="imgUser mb-1"></a>
                 <a href="/user/cart"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                <a href="/user/perfil"><i class="fas fa-user-circle fa-lg"></i></a>
-
+                
                 <% if (locals.user.admin == true){ %>
 
                     <a href="/prod/add"><i class="fas fa-plus"></i></a>
@@ -113,4 +113,5 @@
     <div class="col-12 rgb">
 
     </div>
+    <script src="/javascripts/header.js"></script>
 </header>

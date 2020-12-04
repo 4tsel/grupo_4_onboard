@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- partial del head -->
+<%- include(`./partials/head.ejs`) %>
+
+<body>
+    <!-- partial del header -->
+    <%- include(`./partials/header.ejs`) %>
+
+    <main class="container-fluid px-0">
+        <div class="bienvenidx row mx-0 py-2 mainCard">
+          <h4 class="col-12">Nosotros</h4>
+        </div>
+          <div class=" row vistaProductos mx-0 py-2 mainCard ">
+            <div class=" card col-4">
+                <img src="/img/nosotros/Pedro.jpeg" class="img producto mt-3" width="150">
+                <div class="card-body mx-0 p-0">
+                    <h4 class="card-title">Dresch, Pedro</h4>
+                    <a href="https://github.com/pedrodresch999" class="btn">GitHub</a>
+                </div>
+            </div>
+            <div class=" card col-4">
+                <img src="#" class="img producto mt-3" width="150">
+                <div class="card-body mx-0 p-0">
+                    <h4 class="card-title">Mariño, Adrián</h4>
+                    <a href="https://github.com/Adri-2001" class="btn">GitHub</a>
+                </div>
+            </div>
+            <div class=" card col-4">
+                <img src="/img/nosotros/Axel.jpg" class="img producto mt-3" width="150">
+                <div class="card-body mx-0 p-0">
+                    <h4 class="card-title">Novo, Axel</h4>
+                    <a href="https://github.com/4tsel" class="btn">GitHub</a>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 row vistaProductos mx-0 py-2 mainCard ">
+            <div class="col-12">
+                <h2 style="text-align: left ;">El sitio</h2>
+                <p style="text-align: left ;">
+                    Insumos Onboard (conocido también como Onboard) es una empresa dedicada a la venta productos tecnológicos relacionados con los videojuegos.
+                    <br>
+                    El público objetivo es, principalmente, personas fanáticas por el mundo gamer, ya sean profesionales o que jueguen por placer.
+                </p>
+                <h2 style="text-align: left ;">Nuestro equipo</h2>
+                <p style="text-align: left ;">
+                    <ul style="text-align: left ;">
+                        <li style="text-align: left ;">
+                            <h4>Dresch, Pedro</h4>
+                            <ul>
+                                <li>Edad: 21 años.</li>
+                                <li>Ocupación: Estudiante de programación.</li>
+                                <li>Gustos: Escuchar música, practicar deporte.</li>
+                            </ul>
+                        </li>
+                        <li style="text-align: left ;">
+                            <h4>Mariño, Adrián</h4>
+                            <ul>
+                                <li>Edad: 19 años.</li>
+                                <li>Ocupación: Empleado.</li>
+                                <li>Gustos: Videojuegos, escuchar música, mirar freestyle.</li>
+                            </ul>
+                        </li>
+                        <li style="text-align: left ;">
+                            <h4>Novo, Axel</h4>
+                            <ul>
+                                <li>Edad: 27 años.</li>
+                                <li>Ocupación: Estudiante de Ing. en Computación</li>
+                                <li>Gustos: Escuchar música, videojuegos.</li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </p>
+
+            </div>
+        </div>
+      </main>
+    <!-- partial del footer -->
+    <%- include(`./partials/footer.ejs`) %>
+    <!-- partial de scripts -->
+    <%-include(`./partials/scripts.ejs`) %>
+</body>
+
+</html>

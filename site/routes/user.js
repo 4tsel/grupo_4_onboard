@@ -38,7 +38,7 @@ router.get(`/check`, function (req, res) {
   if (req.session.user == undefined) {
     res.send(`no estás logueado`)
   } else {
-    res.send(`el usuario logueado es ${req.session.user.email}`)
+    res.send(`el usuario logueado es ${req.session.user.avatar}`)
   }
 })
 

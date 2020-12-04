@@ -16,20 +16,26 @@
         <div class="bienvenidx row mx-0 py-2 mainCard">
             <h3 class="col-9 mb-0">Perfil</h3>
         </div>
-        <div class="row vistaProductos mx-0 py-2 mainCard">
-            <form action="/user/<%-usuario.id%>/edit?_method=PUT" class="row col-10 m-0 p-0" method="POST"
+        <div id="editar" class="row vistaProductos mx-0 py-2 mainCard">
+            <form id="editar" action="/user/<%-usuario.id%>/edit?_method=PUT" class="row col-10 m-0 p-0" method="POST"
                 enctype="multipart/form-data" id="formularioEdicion">
                 <input id="nombre" class="form-control col-12" type="text" name="nombre" value="<%- usuario.nombre %>" disabled>
                 <input id="apellido" class="form-control col-12" type="text" name="apellido" value="<%- usuario.apellido %>" disabled>
                 <input id="email" class="form-control col-12" type="email" name="email" value="<%- usuario.email %>" disabled>
                 <input id="fecha" class="form-control col-12" type="date" name="fecha" value="<%- usuario.fecha?usuario.fecha:`` %>">
+                <span id="errorImagen" class="col-12"></span>
+                <input id="imagen" class="form-control col-10 p-1" type="file" name="avatar">
+                <input class="form-control col-2" id="borrar" type="button" value="Eliminar archivo">
+                <div class="col-12">
+                    <img id="vistaPrevia" src="/img/users/<%-usuario.avatar%>" alt="" width="150" class="col-5 mb-2">
+                  </div>
                 <input id="direccion" class="form-control col-12" type="text" name="direccion" value="<%- usuario.direccion?usuario.direccion:`` %>" placeholder="Ingrese su dirección">
                 <input id="ciudad" class="form-control col-12" type="text" name="ciudad" value="<%- usuario.ciudad?usuario.ciudad:`` %>" placeholder="Ingrese una ciudad">
                 <input id="provincia" class="form-control col-12" type="text" name="provincia" value="<%- usuario.provincia?usuario.provincia:``%>" placeholder="Ingrese una provincia">
                 <button class="btn col-6" type="submit">Actualizar</button><button class="btn col-6"><a href="/">Cancelar</a></button>
             </form>
             
-            <form action="/user/<%- usuario.id %>/delete?_method=DELETE" class="row col-10 m-0 p-0" method="POST">
+            <form id="eliminar" action="/user/<%- usuario.id %>/delete?_method=DELETE" class="row col-10 m-0 p-0" method="POST">
                 <button class="btn col-12 eliminar" type="submit">Eliminar cuenta</button>
             </form>
             
@@ -46,6 +52,7 @@
 
     <!-- partial de scripts -->
     <%- include(`./partials/scripts.ejs`) %>
+    <script src="/javascripts/userEdit.js"></script>
 </body>
 
 </html>

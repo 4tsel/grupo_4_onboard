@@ -119,6 +119,11 @@ header div#menuPrincipal button.cierre{
 header div#menuPrincipal button:focus{
     outline: none;
 }
+header img.imgUser{
+    border-radius: 50%;
+    border: 2px solid #000;
+
+}
 header div.rgb{
     max-width: 1200px;
         height: .25rem!important;
@@ -205,6 +210,7 @@ header div.rgb{
         max-width: 100%;
         flex-wrap: nowrap;
         justify-content: space-around;
+        
     }
 
     /* Fuerzo la vista del menú principal */

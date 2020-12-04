@@ -7,7 +7,15 @@ const productsController = {
     //CREATE
     agregar: (req, res) => { //Seleccionar qué agregar (Producto o categoría)
 
-        res.render(`agregar.ejs`, { titulo: `Agregar` });
+        db.Productos.findAll()
+            .then((productos) => {
+                res.render(`agregar.ejs`, {
+                    titulo: `Agregar`,
+                    productos: productos,
+                });
+            })
+
+
     },
     agregarProducto: function (req, res) {
 
@@ -143,12 +151,14 @@ const productsController = {
 
     },
     detalle: (req, res) => { //Detalle del producto
-
-        db.Productos.findByPk(req.params.id, { include: [{ association: `categoria` }] })
-            .then(producto => {
+        let pedidoProducto = db.Productos.findByPk(req.params.id, { include: [{ association: `categoria` }] })
+        let pedidoProductos = db.Productos.findAll()
+        Promise.all([pedidoProducto, pedidoProductos])
+            .then(([producto, productos]) => {
                 res.render(`productDetail`, {
                     titulo: `${producto.marca} ${producto.modelo}`,
-                    producto: producto
+                    producto: producto,
+                    productos: productos
                 })
             })
             .catch(error => {

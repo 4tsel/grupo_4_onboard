@@ -11,11 +11,13 @@
     <!-- partial del header -->
     <%- include(`./partials/header.ejs`) %>
 
-    <div class="container-fluid add_prod">
-        <div class="row row_prod">
-            <div class="col-12">
-                <form action="/prod/add/cat" method="POST">
-                    <% if(typeof errors != 'undefined') { %>
+    <main class="container-fluid px-0">
+        <div class="bienvenidx row mx-0 py-2 mainCard">
+            <h3 class="col-9 mb-0">Agregar categoría</h3>
+        </div>
+        <div class="row vistaProductos mx-0 py-2 mainCard">
+            <form id="formCategoria" class="row col-10 m-0 p-0" action="/prod/add/cat" method="POST">
+                <% if(typeof errors != 'undefined') { %>
                     <ul>
                         <% errors.forEach(error =>{ %>
                         <li>
@@ -23,47 +25,71 @@
                         </li>
                         <% }) %>
                     </ul>
-                    <% } %>
-                    <label for="">Nombre de categoría:</label> <input type="text" name="name" required>
-                    <br>
-                    <label for="">Elige un ícono adecuado a la categoría:</label>
-                    <br>
-                    <input type="radio" value="fas fa-desktop" name="icon"><i class="fas fa-desktop"></i>
-                    <br>
-                    <input type="radio" value="fas fa-hdd" name="icon"><i class="fas fa-hdd"></i>
-                    <br>
-                    <input type="radio" value="fas fa-headphones" name="icon"><i class="fas fa-headphones"></i>
-                    <br>
-                    <input type="radio" value="fas fa-keyboard" name="icon"><i class="fas fa-keyboard"></i>
-                    <br>
-                    <input type="radio" value="fas fa-laptop" name="icon"><i class="fas fa-laptop"></i>
-                    <br>
-                    <input type="radio" value="fas fa-memory" name="icon"><i class="fas fa-memory"></i>
-                    <br>
-                    <input type="radio" value="fas fa-microchip" name="icon"><i class="fas fa-microchip"></i>
-                    <br>
-                    <input type="radio" value="fas fa-mobile-alt" name="icon"><i class="fas fa-mobile-alt"></i>
-                    <br>
-                    <input type="radio" value="fas fa-mouse" name="icon"><i class="fas fa-mouse"></i>
-                    <br>
-                    <input type="radio" value="fas fa-plug" name="icon"><i class="fas fa-plug"></i>
-                    <br>
-                    <input type="radio" value="fas fa-sd-card" name="icon"><i class="fas fa-sd-card"></i>
-                    <br>
-                    <input type="radio" value="fas fa-gamepad" name="icon"><i class="fas fa-gamepad"></i>
+                <% } %>
+                <span id="errorNombre" class="col-12"></span>
+                <input id="name" name="name" class="form-control col-12" type="text" placeholder="Nombre de la categoría" required>
+                <span id="errorIcono" class="col-12"></span>
+                    <div class="row col-12 m-0 p-0">
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-desktop" name="icon"><i class="fas fa-desktop"></i>
+                        </label>
 
-                    <br>
-                    <input type="submit" class="btn" value="AGREGAR">
-                </form>
-            </div>
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-hdd" name="icon"><i class="fas fa-hdd"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-headphones" name="icon"><i class="fas fa-headphones"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-keyboard" name="icon"><i class="fas fa-keyboard"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-laptop" name="icon"><i class="fas fa-laptop"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-memory" name="icon"><i class="fas fa-memory"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                             <input type="radio" value="fas fa-microchip" name="icon"><i class="fas fa-microchip"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-mobile-alt" name="icon"><i class="fas fa-mobile-alt"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-mouse" name="icon"><i class="fas fa-mouse"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-plug" name="icon"><i class="fas fa-plug"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-sd-card" name="icon"><i class="fas fa-sd-card"></i>
+                        </label>
+
+                        <label class="btn col-3">
+                            <input type="radio" value="fas fa-gamepad" name="icon"><i class="fas fa-gamepad"></i>
+                        </label>
+                    </div>
+                    <button class="btn col-6" type="submit">Agregar</button> <button class="btn col-6"><a href="/">Cancelar</a></button>
+            </form> 
         </div>
-    </div>
+    </main>
+
 
     <!-- partial del footer -->
     <%- include(`./partials/footer.ejs`) %>
 
     <!-- partial de scripts -->
     <%- include(`./partials/scripts.ejs`) %>
+    <script src="/javascripts/catAdd.js"></script>
 </body>
 
 </html>

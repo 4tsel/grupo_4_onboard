@@ -24,6 +24,9 @@ main .mainCard{
 main .mainCard a{
     margin: 0!important;
 }
+main .mainCard a.seleccion{
+    margin: inherit!important;
+}
 img.card-img-top{
     margin:15px 0;
     width: 100px;
@@ -68,6 +71,9 @@ main div.seccionCategorias div i{
 main div.seccionCategorias div p{
     font-size: .75rem;
 }
+
+
+
 
 /* Móvil apaisado */
 @media (min-width: 481px) and (orientation: landscape){

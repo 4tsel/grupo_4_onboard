@@ -10,6 +10,18 @@ const apisController = {
             .catch(error => {
                 res.send(error);
             })
+    },
+    catsList: (req, res) => {
+        db.Categorias.findAll({attributes:[`nombre`]})
+            .then(categorias => {
+                res.json(categorias);
+            })
+            .catch(error => {
+                res.send(error);
+            })
+    },
+    datosUsuario: (req, res) => {
+        res.json(res.locals.user)
     }
 }
 

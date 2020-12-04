@@ -29,7 +29,7 @@ const userController = {
                 avatar: req.files[0] ? req.files[0].filename : "default.png"
             })
                 .then(() => {
-                    res.redirect(`/`);
+                    res.redirect(`/user/login`);
                 })
                 .catch(error => {
                     console.log(error);
@@ -63,7 +63,8 @@ const userController = {
                             apellido: usuario.apellido,
                             email: usuario.email,
                             avatar: usuario.avatar,
-                            admin: usuario.admin
+                            admin: usuario.admin,
+                            password: req.body.password,
                         }
                         if (req.body.recordar) { //Implementación de cookies
                             res.cookie('recordar', req.session.user, { maxAge: 60000 * 60 })
@@ -112,7 +113,7 @@ const userController = {
             fecha: req.body.fecha?req.body.fecha:req.session.user.fecha
         }, { where: { id: req.params.id } })
             .then(resultado=>{
-                res.redirect(`/user/perfil`)
+                res.redirect(`/`)
             })
 
     },

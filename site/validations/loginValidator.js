@@ -24,5 +24,5 @@ module.exports = [
                     }
                 }
             })
-    }).withMessage(`Contraseña incorrecta`)
+    }).withMessage(`Credenciales inválidas`)
 ]
