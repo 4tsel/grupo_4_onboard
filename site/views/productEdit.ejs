@@ -35,15 +35,18 @@
                 <textarea id="descripcion" name="descripcion" class="form-control col-12" rows="6" cols="35" placeholder="Añadí una descripción"  required><%- producto.descripcion %>
                 </textarea>
                 
-                    <select name="categoria" class="form-control col-6" required>
+                    <select name="categoria" class="form-control col-12" required>
                         <option value="<%-producto.id_categorias%>" selected>Categoría</option>
                     <% categorias.forEach(categoria => { %>
                             <option value="<%- categoria.id %>"><%- categoria.nombre %></option>
                     <% }) %>
                 </select>
                 <span id="errorImagen"></span>
-                <!-- <img src="/img/products/<%- producto.imagen%>" alt="Imagen del producto" width="150"> -->
-                <input id="imagen" type="file" name="imagen" class="form-control col-6 p-1">
+                <input id="imagen" type="file" name="imagen" class="form-control col-10 p-1">
+                <input class="form-control col-2" id="borrar" type="button" value="Eliminar archivo">
+                <div class="col-12">
+                    <img id="vistaPrevia" src="/img/products/default.jpg" alt="" width="150" class="col-5 mb-2">
+                  </div>
                 <span id="errorPrecio" class="col-6"></span>
                 <span id="errorDescuento" class="col-6"></span>
                 <input id="precio" type="number" step="0.01" name="precio" class="form-control col-6" placeholder="Precio" value="<%- producto.precio %>">

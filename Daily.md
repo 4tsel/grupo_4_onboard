@@ -19,14 +19,6 @@ Cada semana fuimos informando de nuestro trabajo
  # REUNIÓN DAILY GRUPO 4 ONBOARD SPRINT 5
 Tuvimos dos reuniones con todo el grupo los dias sabado 24 de octubre y viernes 30 de octubre, en el cual nos dividimos tareas y revisamos el avance respectivamente sin dejar de lado que los demas dias estabamos en constante comunicacion por whatsApp.
 
-### [Dresch, Pedro:](https://github.com/pedrodresch999)
-
-### [Mariño, Adrián:](https://github.com/Adri-2001)
-
-### [Novo, Axel:](https://github.com/4tsel)
-
-### [Huaman, Liset:](https://github.com/Lisetangela)
- 
  # RESULTADOS DE LA REUNIÓN DAILY:
 
  # IMPRESIONES POSITIVAS:
@@ -41,3 +33,26 @@ Tuvimos dos reuniones con todo el grupo los dias sabado 24 de octubre y viernes 
  # IMPRESIONES NEGATIVAS:
  Tuvimos muy pocos encuentros por zoom en grupo ya que no coincidiamos con los horarios o aveces olvidabamos que teniamos reunion; sin embargo logramos solucionarlo y fue muy productivo en los pocos encuentros que tuvimos .
  
+
+
+ # REUNIàN DAILY GRUPO 4 ONBOARD SPRINT 6
+
+Tuvimos una reunión con todo el grupo el día viernes 20 de noviembre, en el cual revisamos el avance del Sprint sin dejar de lado que los demas dias estabamos en constante comunicacion por whatsApp.
+
+### [Dresch, Pedro:](https://github.com/pedrodresch999)
+
+### [Mari¤o, Adri n:](https://github.com/Adri-2001)
+
+### [Novo, Axel:](https://github.com/4tsel)
+
+ # RESULTADOS DE LA REUNIàN DAILY:
+
+ # IMPRESIONES POSITIVAS:
+
+ Respecto a la comunicacion siempre estuvimos comunicandonos por whatsApp para ver como ibamos con el avance o si surgia algun problema para poder solucionarlo en grupo.
+
+ # IMPRESIONES NEUTRAS:
+ Comunicarnos para verificar como estaba el avance del sprint y acordar que antes de entregar debemos testear.
+
+ # IMPRESIONES NEGATIVAS:
+ Para este Sprint tuvimos un solo encuentros por zoom en grupo ya que no coincidiamos con los horarios o aveces olvidabamos que teniamos reunion.
